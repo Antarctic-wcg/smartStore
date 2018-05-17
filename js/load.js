@@ -3,7 +3,9 @@ var loaderState = function(game){
         var preloadSprite = game.add.sprite(13, game.height/2, "loading");
         game.load.setPreloadSprite(preloadSprite, 0);//第二个参数值为零意味着雪碧将水平裁剪，值1表示其垂
         game.load.image("orangeCar","assets/320c.png");
-        game.load.image("redCar", "assets/530h.png");
+        game.load.image("redCar","assets/530h.png");
+
+
         game.load.image("wulingCar", "assets/wulh.png");
         game.load.image("floor", "assets/1540_990.png");
         game.load.image("building", "assets/building.png");
