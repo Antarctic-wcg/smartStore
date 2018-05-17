@@ -10,6 +10,7 @@ var homeState = function(game){
         this.redCar = {}
         this.orangeCar = {}
         this.wulingCar = {}
+        this.btns = false;//用来控制建造按钮是否每帧中都跟随建筑精灵
 
         //创建背景组
         this.bgGroup = game.add.group();
@@ -76,8 +77,6 @@ var homeState = function(game){
     }//create end
     this.update = function(){
         if(this.redCar.Show){
-            // console.log(1);
-            // console.log(this.redCar.Show);
             if(this.redCar.img.x == 728 && this.redCar.img.y==500){
                 this.redCar.img.tint = 0xFFFFFF;
                 this.redCar.building = true;
@@ -87,18 +86,25 @@ var homeState = function(game){
                     this.redCar.building = false;
                 }
             }
-            this.okBtn.x = this.redCar.img.x + 20;
-            this.okBtn.y = this.redCar.img.y + 50;
-            this.qxBtn.x = this.redCar.img.x - 40;
-            this.qxBtn.y = this.redCar.img.y + 50;
-            this.xzBtn.x = this.redCar.img.x - 100;
-            this.xzBtn.y = this.redCar.img.y + 50;
+            if(this.btns){
+                this.okBtn.x = this.redCar.img.x + 30;
+                this.okBtn.y = this.redCar.img.y + 50;
+                this.qxBtn.x = this.redCar.img.x - 30;
+                this.qxBtn.y = this.redCar.img.y + 50;
+                this.xzBtn.x = this.redCar.img.x - 90;
+                this.xzBtn.y = this.redCar.img.y + 50;
+            }
         }
     }
     // this.render = function(){
     //     game.debug.spriteBounds(redYuan);
     //     game.debug.spriteBounds(this.guding);
     // }
+    //按钮跟随精灵和精灵位置判断
+    this.btnFollow = function(){
+
+    }
+    //移动摄像头函数
     this.cameraMove = function(){
         this.twoX = game.input.activePointer.x;
         if((this.twoX-this.oneX)>0){
@@ -116,6 +122,7 @@ var homeState = function(game){
         }
         this.oney = this.twoy;
     }
+    //显示菜单函数
     this.showMenu = function(){
         showMenu(this);
     }

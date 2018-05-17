@@ -1,14 +1,16 @@
 var button = function(cont, car){
     var that = cont;
-    console.log("btn");
-    that.okBtn = game.add.button(car.img.x+20, car.img.y+50, "queren", function(){
-        console.log(1);
+    console.log("show btn");
+    that.btns = true;
+    that.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
+        console.log("btn1");
         if(car.building){
-            that.okBtn.kill();
-            that.qxBtn.kill();
-            that.xzBtn.kill();
+            that.okBtn.destroy();
+            that.qxBtn.destroy();
+            that.xzBtn.destroy();
+            that.btns = false;
             // car.img.inputEnabled = false;
-            car.img.input.disableDrag();
+            car.img.input.disableDrag();//禁止拖拽
             that.guding.events.onInputDown.remove(that.showMenu, that);
 
             car.img.visible = false;
@@ -24,8 +26,8 @@ var button = function(cont, car){
             tbg.anchor.set(0.5);
 
             var hours = 0;
-            var min = 1;
-            var s = 3;
+            var min = 0;
+            var s = 1;
             if(hours < 10) hours = "0" + hours;
             if(min < 10) min = "0" + min;
             if(s < 10) s = "0" + s;
@@ -35,16 +37,17 @@ var button = function(cont, car){
             text.anchor.set(0.5);
 
             //定时器实现建造倒计时
-            var time = setInterval(function(that){
+            var time = setInterval(function(){
+
                 s -= 1;
                 if(hours ==0 && min == 0 && s == 0){
                     clearInterval(time);
-                    building.kill();
-                    tbg.kill();
-                    text.kill();
+                    building.destroy();
+                    tbg.destroy();
+                    text.destroy();
                     car.img.visible = true;
-                    // car.img.inputEnabled = true;//不知道为啥，需要再次开启输入事件，已经知道了
-                    car.img.events.onInputDown.add(function(){
+                    car.img.events.onInputDown.addOnce(function(){
+                        buttons(that, car.img);
                         console.log(6666);
                     }, that)
                 }
@@ -68,15 +71,18 @@ var button = function(cont, car){
             }, 1000)
         }
     }, that)
-    that.qxBtn = game.add.button(car.img.x-40, car.img.y+50, "quxiao", function(){
-        console.log(2);
-        car.img.kill();
-        that.okBtn.kill();
-        that.qxBtn.kill();
-        that.xzBtn.kill();
+    that.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "quxiao", function(){
+        console.log("btn2");
+        car.img.destroy();
+        that.okBtn.destroy();
+        that.qxBtn.destroy();
+        that.xzBtn.destroy();
         car.Show = false;
+        that.btns = false;
     }, that)
-    that.xzBtn = game.add.button(car.img.x-100, car.img.y+50, "xuanzhuan", function(){
-        console.log(3);
+    that.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
+        console.log("btn3");
     }, that)
+
+    console.log(that.okBtn.inWorld);
 }

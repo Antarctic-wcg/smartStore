@@ -10,10 +10,14 @@ var loaderState = function(game){
         game.load.image("zhuangshi1", "assets/zs1.PNG");
         game.load.image("zhuangshi2", "assets/zs2.PNG");
         game.load.image("zhuangshi3", "assets/zs3.PNG");
-        game.load.image("engine", "assets/yqzt.PNG");//引擎展台
+        game.load.image("engine", "assets/yqzt.png");//引擎展台
+        //按钮图片组
         game.load.image("queren", "assets/queren.png");
         game.load.image("quxiao", "assets/quxiao.png");
         game.load.image("xuanzhuan", "assets/xuanzhuan.png");
+        game.load.image("ckBtn", "assets/ckBtn.png");
+        game.load.image("moveBtn", "assets/moveBtn.png");
+        game.load.image("chaichuBtn", "assets/chaichuBtn.png");
 
         game.load.image("ceshi", "assets/3400_2210.JPG");
     }
