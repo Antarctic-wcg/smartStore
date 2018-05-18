@@ -23,12 +23,16 @@ var loaderState = function(game){
         game.load.image("dcha", "assets/dcha.PNG");
 
         game.load.image("ceshi", "assets/3400_2210.jpg");
-        // game.load.onFileComplete.add(function(a, b, c){
-        //     console.log(a, b, c);
-        // })
+
+        var plan = 0;
+        var text = game.add.text(game.world.centerX, game.world.centerY - 30, plan+"%", { font: "40px Arial", fill: "#ff0044", align: "center" });
+        text.anchor.set(0.5);
+        game.load.onFileComplete.add(function(plan){
+            text.text = plan + "%";
+        })
     }
     this.create = function(){
-        game.state.start("home");
+        // game.state.start("home");
         // game.state.start("first");
     }
 }
