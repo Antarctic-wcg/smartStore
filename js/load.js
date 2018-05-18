@@ -2,7 +2,7 @@ var loaderState = function(game){
     var preloadSprite;
     var text;
     this.init = function(){
-        preloadSprite = game.add.sprite(game.world.width/2, game.world.height/2, "loading");
+        preloadSprite = game.add.sprite(game.world.centerX, game.world.centerY, "loading");
         preloadSprite.anchor.set(0.5);
         var plan = 0;
         text = game.add.text(game.world.centerX, game.world.centerY - 30, plan+"%", { font: "40px Arial", fill: "#ff0044", align: "center" });
