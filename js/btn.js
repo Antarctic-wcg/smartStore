@@ -3,6 +3,8 @@ var button = function(cont, car){
     console.log("show btn");
     that.btns = true;
     that.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
+        car.img.x = 728;
+        car.img.y = 500;
         car.lastx = car.img.x;
         car.lasty = car.img.y;
         if(car.building){
