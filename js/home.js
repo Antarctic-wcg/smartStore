@@ -36,8 +36,13 @@ var homeState = function(game){
         this.floorGroup.add(this.floor);
         this.floor.inputEnabled = true;
         this.floor.events.onInputDown.add(function(){
-            this.buttonsGroup.destroy();
-            this.buttons = true;//控制建筑菜单点击只出现一次
+            if(this.moveBtn){//移动时点地板不取消按钮
+                if(this.moveBtn.key == "moveBtn"){
+                    this.buttonsGroup.destroy();
+                    this.buttons = true;//控制建筑菜单点击只出现一次
+                }
+            }
+            
             this.oneX = game.input.activePointer.x;
             this.oney = game.input.activePointer.y;
             game.input.addMoveCallback(this.cameraMove, this);
