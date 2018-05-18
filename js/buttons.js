@@ -36,6 +36,8 @@ var buttons = function(cont, carImg, car){
                     carImg.input.disableDrag();
                     that.moveBtn.destroy();
                     that.xuanzhuan.destroy();
+                    car.img.x = 728;
+                    car.img.y = 500;
                     car.lastx = carImg.x;
                     car.lasty = carImg.y;
                 }
