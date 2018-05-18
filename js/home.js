@@ -2,7 +2,7 @@ var homeState = function(game){
     var quan = true;
     this.create = function(){
         // game.stage.backgroundColor = "#3366FF"
-        game.physics.startSystem(Phaser.Physics.ARCADE);
+        game.physics.startSystem(Phaser.Physics.ARCADE);//开启ARCADE物理引擎
         game.world.setBounds(0, 0, 1700, 1105);
         game.camera.focusOnXY(game.world.width/2, game.world.height/2);
 
@@ -11,6 +11,7 @@ var homeState = function(game){
         this.redCar = {}
         this.orangeCar = {}
         this.wulingCar = {}
+        //---------------
         this.btns = false;//用来控制建造按钮是否每帧中都跟随建筑精灵
         this.buttonsMove = false;//用来控制建造菜单是否每帧中都跟随建筑精灵
         this.buttons = true;//控制建筑菜单点击只出现一次
@@ -71,6 +72,7 @@ var homeState = function(game){
         graphics.inputEnabled = true;
         graphics.events.onInputDown.add(this.showMenu, this);
         this.shadowGroup.add(graphics);
+        // game.physics.arcade.enable(this.guding);
 
         var graphics2 = game.add.graphics(this.floor.x+fwx*10, this.floor.y+fwy*10);//开始画
         this.guding2 = graphics2;//用于已经建造建筑后删除可点击事件
@@ -86,8 +88,12 @@ var homeState = function(game){
         
     }//create end
     this.update = function(){
+        // game.physics.arcade.overlap(this.guding, this.redCar.img, this.pengz, null, this);
+        // || (this.redCar.img.x == 904 && this.redCar.img.y==612&&this.redCar.img.scale.x>0)
         if(this.redCar.Show){
-            if((this.redCar.img.x == 728 && this.redCar.img.y==500 &&this.redCar.img.scale.x>0) || (this.redCar.img.x == 904 && this.redCar.img.y==612&&this.redCar.img.scale.x>0)){
+            var tx = this.redCar.img.x;
+            var ty = this.redCar.img.y;
+            if(tx <= 736 && tx >= 716 && ty >= 492 && ty <= 508 &&this.redCar.img.scale.x>0){
                 this.redCar.img.tint = 0xFFFFFF;
                 this.redCar.building = true;
             }else{
@@ -115,15 +121,21 @@ var homeState = function(game){
                 this.xuanzhuan.x = this.redCar.img.x - this.redCar.img.width*0;
                 this.chaichuBtn.x = this.redCar.img.x + this.redCar.img.width*0.4;
             }
+            // if(this.redCar.img.body){
+            //     console.log(this.redCar.img.body.embedded);
+            // }
         }
     }
     // this.render = function(){
-    //     // game.debug.spriteBounds(redYuan);
+    //     if(this.redCar.img){
+    //         game.debug.spriteBounds(this.redCar.img);
+    //     }
+        
     //     game.debug.spriteBounds(this.guding2);
     // }
     //按钮跟随精灵和精灵位置判断
-    this.btnFollow = function(){
-
+    this.pengz = function(){
+        console.log("peng");
     }
     //移动摄像头函数
     this.cameraMove = function(){

@@ -29,6 +29,7 @@ var showMenu = function(that){
         that.buildGroup.add(redCar);
         menu.setAttribute("style", "display: none;");
         that.redCar.img = redCar;
+        // game.physics.arcade.enable(that.redCar.img);
         button(that, that.redCar);
     }
 
