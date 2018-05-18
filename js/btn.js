@@ -3,7 +3,8 @@ var button = function(cont, car){
     console.log("show btn");
     that.btns = true;
     that.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
-        console.log("btn1");
+        car.lastx = car.img.x;
+        car.lasty = car.img.y;
         if(car.building){
             that.okBtn.destroy();
             that.qxBtn.destroy();
@@ -11,7 +12,7 @@ var button = function(cont, car){
             that.btns = false;
             // car.img.inputEnabled = false;
             car.img.input.disableDrag();//禁止拖拽
-            that.guding.events.onInputDown.remove(that.showMenu, that);
+            // that.guding.events.onInputDown.remove(that.showMenu, that);
 
             car.img.visible = false;
             //建设中image
@@ -27,7 +28,7 @@ var button = function(cont, car){
 
             var hours = 0;
             var min = 0;
-            var s = 1;
+            var s = 3;
             if(hours < 10) hours = "0" + hours;
             if(min < 10) min = "0" + min;
             if(s < 10) s = "0" + s;
@@ -46,9 +47,12 @@ var button = function(cont, car){
                     tbg.destroy();
                     text.destroy();
                     car.img.visible = true;
-                    car.img.events.onInputDown.addOnce(function(){
-                        buttons(that, car.img);
-                        console.log(6666);
+                    car.img.events.onInputDown.add(function(){
+                        console.log(that.buttons);
+                        if(that.buttons){
+                            buttons(that, car.img, car);
+                        }
+                        
                     }, that)
                 }
                 if(s < 0){
@@ -72,7 +76,7 @@ var button = function(cont, car){
         }
     }, that)
     that.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "quxiao", function(){
-        console.log("btn2");
+        // console.log("btn2");
         car.img.destroy();
         that.okBtn.destroy();
         that.qxBtn.destroy();
@@ -81,8 +85,11 @@ var button = function(cont, car){
         that.btns = false;
     }, that)
     that.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
-        console.log("btn3");
+        if(car.img.scale.x < 0){
+            car.img.scale.x = 0.5;
+        }else{
+            car.img.scale.x = -0.5;
+        }
     }, that)
 
-    console.log(that.okBtn.inWorld);
 }

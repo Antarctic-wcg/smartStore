@@ -16,8 +16,8 @@ var showMenu = function(that){
     //建筑一
     var build1 = document.getElementById("build1");
     build1.onclick = function(){
-        // var redCar = game.add.sprite(that.floor.x-that.fwx, that.floor.y-that.fwy/2, "orangeCar");
-        var redCar = game.add.sprite(728, 500, "orangeCar");
+        var redCar = game.add.sprite(that.floor.x-that.fwx, that.floor.y-that.fwy/2, "orangeCar");
+        // var redCar = game.add.sprite(728, 500, "orangeCar");
         
         that.redCar.Show = true;
         redCar.anchor.set(0.5);

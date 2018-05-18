@@ -18,8 +18,13 @@ var loaderState = function(game){
         game.load.image("ckBtn", "assets/ckBtn.PNG");
         game.load.image("moveBtn", "assets/moveBtn.PNG");
         game.load.image("chaichuBtn", "assets/chaichuBtn.PNG");
+        game.load.image("dgou", "assets/dgou.PNG");
+        game.load.image("dcha", "assets/dcha.PNG");
 
         game.load.image("ceshi", "assets/3400_2210.jpg");
+        // game.load.onFileComplete.add(function(a, b, c){
+        //     console.log(a, b, c);
+        // })
     }
     this.create = function(){
         game.state.start("home");
