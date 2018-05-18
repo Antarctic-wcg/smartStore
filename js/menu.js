@@ -23,30 +23,13 @@ var showMenu = function(that){
         redCar.anchor.set(0.5);
         redCar.scale.set(0.5);
         redCar.tint = 0xFF3366;
-        redCar.inputEnabled = true;
-        redCar.input.enableSnap(4, 4);//在拖动或释放时，使此Sprite对齐给定的网格***
-        redCar.input.enableDrag(false);
+        redCar.inputEnabled = true;//开启输入事件
+        redCar.input.enableSnap(4, 4);//在拖动或释放时，以4*4网格，使此Sprite对齐给定的网格***
+        redCar.input.enableDrag(false);//拖拽
         that.buildGroup.add(redCar);
         menu.setAttribute("style", "display: none;");
         that.redCar.img = redCar;
-        // game.physics.arcade.enable(that.redCar.img);
-        button(that, that.redCar);
+        buts(that, that.redCar);
     }
 
-    // var build2 = document.getElementById("build2");
-    // build2.onclick = function(){
-    //     var orangeCar = game.add.sprite(that.floor.x-that.fwx, that.floor.y-that.fwy/2, "orangeCar");
-        
-    //     that.orangeCar.Show = true;
-    //     orangeCar.anchor.set(0.5);
-    //     orangeCar.scale.set(0.5);
-    //     orangeCar.tint = 0xFF3366;
-    //     orangeCar.inputEnabled = true;
-    //     orangeCar.input.enableSnap(4, 4);//在拖动或释放时，使此Sprite对齐给定的网格***
-    //     orangeCar.input.enableDrag(false);
-    //     that.buildGroup.add(orangeCar);
-    //     menu.setAttribute("style", "display: none;");
-    //     that.orangeCar.img = orangeCar;
-    //     button(that, that.orangeCar);
-    // }
 }

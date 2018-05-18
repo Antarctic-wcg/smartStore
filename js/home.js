@@ -24,6 +24,8 @@ var homeState = function(game){
         this.shadowGroup = game.add.group();
         //创建建筑组
         this.buildGroup = game.add.group();
+        //
+        this.buttonsGroup = game.add.group();
        
 
         
@@ -34,6 +36,8 @@ var homeState = function(game){
         this.floorGroup.add(this.floor);
         this.floor.inputEnabled = true;
         this.floor.events.onInputDown.add(function(){
+            this.buttonsGroup.destroy();
+            this.buttons = true;//控制建筑菜单点击只出现一次
             this.oneX = game.input.activePointer.x;
             this.oney = game.input.activePointer.y;
             game.input.addMoveCallback(this.cameraMove, this);
@@ -41,7 +45,6 @@ var homeState = function(game){
         this.floor.events.onInputUp.add(function(){
             game.input.deleteMoveCallback(this.cameraMove, this);
         }, this);
-        //按下拖动地板
         
 
         //边缘装饰
@@ -88,55 +91,50 @@ var homeState = function(game){
         
     }//create end
     this.update = function(){
-        // game.physics.arcade.overlap(this.guding, this.redCar.img, this.pengz, null, this);
-        // || (this.redCar.img.x == 904 && this.redCar.img.y==612&&this.redCar.img.scale.x>0)
-        if(this.redCar.Show){
-            var tx = this.redCar.img.x;
-            var ty = this.redCar.img.y;
-            if(tx <= 736 && tx >= 716 && ty >= 492 && ty <= 508 &&this.redCar.img.scale.x>0){
-                this.redCar.img.tint = 0xFFFFFF;
-                this.redCar.building = true;
-            }else{
-                this.redCar.img.tint = 0xFF3366;
-                if(this.redCar.building){
-                    this.redCar.building = false;
-                }
-            }
-            // console.log(this.btns);
-            if(this.btns){
-                this.okBtn.x = this.redCar.img.x + 30;
-                this.okBtn.y = this.redCar.img.y + 50;
-                this.qxBtn.x = this.redCar.img.x - 30;
-                this.qxBtn.y = this.redCar.img.y + 50;
-                this.xzBtn.x = this.redCar.img.x - 90;
-                this.xzBtn.y = this.redCar.img.y + 50;
-            }
-            if(this.buttonsMove){
-                this.ckBtn.y = this.redCar.img.y + 30;
-                this.moveBtn.y = this.redCar.img.y + 30;
-                this.xuanzhuan.y = this.redCar.img.y + 30;
-                this.chaichuBtn.y = this.redCar.img.y + 30;
-                this.ckBtn.x = this.redCar.img.x - this.redCar.img.width*0.8;
-                this.moveBtn.x = this.redCar.img.x - this.redCar.img.width*0.4;
-                this.xuanzhuan.x = this.redCar.img.x - this.redCar.img.width*0;
-                this.chaichuBtn.x = this.redCar.img.x + this.redCar.img.width*0.4;
-            }
-            // if(this.redCar.img.body){
-            //     console.log(this.redCar.img.body.embedded);
-            // }
-        }
+        this.follow(this.redCar);
     }
     // this.render = function(){
-    //     if(this.redCar.img){
-    //         game.debug.spriteBounds(this.redCar.img);
-    //     }
-        
-    //     game.debug.spriteBounds(this.guding2);
     // }
-    //按钮跟随精灵和精灵位置判断
-    this.pengz = function(){
-        console.log("peng");
+    
+    //让btns与buttons跟随图片，检测可建造区域
+    this.follow = function(car){
+        if(car.Show){
+            var tx = car.img.x;
+            var ty = car.img.y;
+            this.build1 = (tx <= 776 && tx >= 684 && ty >= 452 && ty <= 548 && car.img.scale.x>0);
+            this.build2 = (tx <= 952 && tx >= 856 && ty >= 564 && ty <= 660 && car.img.scale.x>0);
+            if(this.build1){car.buildx=728;car.buildy=500;}
+            if(this.build2){car.buildx=904;car.buildy=612;}
+            if(this.build1 || this.build2){
+                car.img.tint = 0xFFFFFF;
+                car.building = true;
+            }else{
+                car.img.tint = 0xFF3366;
+                if(car.building){
+                    car.building = false;
+                }
+            }
+            if(this.btns){
+                this.okBtn.x = car.img.x + 30;
+                this.okBtn.y = car.img.y + 50;
+                this.qxBtn.x = car.img.x - 30;
+                this.qxBtn.y = car.img.y + 50;
+                this.xzBtn.x = car.img.x - 90;
+                this.xzBtn.y = car.img.y + 50;
+            }
+            if(this.buttonsMove){
+                this.ckBtn.y = car.img.y + 30;
+                this.moveBtn.y = car.img.y + 30;
+                this.xuanzhuan.y = car.img.y + 30;
+                this.chaichuBtn.y = car.img.y + 30;
+                this.ckBtn.x = car.img.x - car.img.width*0.8;
+                this.moveBtn.x = car.img.x - car.img.width*0.4;
+                this.xuanzhuan.x = car.img.x - car.img.width*0;
+                this.chaichuBtn.x = car.img.x + car.img.width*0.4;
+            }
+        }
     }
+
     //移动摄像头函数
     this.cameraMove = function(){
         this.twoX = game.input.activePointer.x;
@@ -159,5 +157,6 @@ var homeState = function(game){
     this.showMenu = function(){
         showMenu(this);
     }
+
     
 }

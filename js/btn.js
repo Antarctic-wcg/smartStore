@@ -1,20 +1,18 @@
-var button = function(cont, car){
+var buts = function(cont, car){
     var that = cont;
     console.log("show btn");
     that.btns = true;
     that.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
-        car.img.x = 728;
-        car.img.y = 500;
+        car.img.x = car.buildx;
+        car.img.y = car.buildy;
         car.lastx = car.img.x;
         car.lasty = car.img.y;
         if(car.building){
             that.okBtn.destroy();
             that.qxBtn.destroy();
             that.xzBtn.destroy();
-            that.btns = false;
-            // car.img.inputEnabled = false;
+            that.btns = false;//用来控制建造按钮是否每帧中都跟随建筑精灵
             car.img.input.disableDrag();//禁止拖拽
-            // that.guding.events.onInputDown.remove(that.showMenu, that);
 
             car.img.visible = false;
             //建设中image
@@ -51,7 +49,7 @@ var button = function(cont, car){
                     car.img.visible = true;
                     car.img.events.onInputDown.add(function(){
                         console.log(that.buttons);
-                        if(that.buttons){
+                        if(that.buttons){//控制建筑菜单点击只出现一次
                             buttons(that, car.img, car);
                         }
                         
