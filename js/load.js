@@ -1,7 +1,14 @@
 var loaderState = function(game){
-    this.preload = function(a, b){
-        var preloadSprite = game.add.sprite(game.world.width/2, game.world.height/2, "loading");
+    var preloadSprite;
+    var text;
+    this.init = function(){
+        preloadSprite = game.add.sprite(game.world.width/2, game.world.height/2, "loading");
         preloadSprite.anchor.set(0.5);
+        var plan = 0;
+        text = game.add.text(game.world.centerX, game.world.centerY - 30, plan+"%", { font: "40px Arial", fill: "#ff0044", align: "center" });
+        text.anchor.set(0.5);
+    }
+    this.preload = function(a, b){
         game.load.setPreloadSprite(preloadSprite, 0);//第二个参数值为零意味着雪碧将水平裁剪，值1表示其垂
         game.load.image("orangeCar","assets/320c.png");
         game.load.image("redCar","assets/530h.png");
@@ -24,9 +31,7 @@ var loaderState = function(game){
 
         game.load.image("ceshi", "assets/3400_2210.jpg");
 
-        var plan = 0;
-        var text = game.add.text(game.world.centerX, game.world.centerY - 30, plan+"%", { font: "40px Arial", fill: "#ff0044", align: "center" });
-        text.anchor.set(0.5);
+        
         game.load.onFileComplete.add(function(plan){
             text.text = plan + "%";
         })
