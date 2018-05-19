@@ -1,18 +1,24 @@
 var buts = function(cont, car){
     var that = cont;
+    car.buttons = true;//点击建筑只出现一次建筑菜单
     console.log("show btn");
-    that.btns = true;
-    that.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
-        car.img.x = car.buildx;
-        car.img.y = car.buildy;
-        car.lastx = car.img.x;
-        car.lasty = car.img.y;
+    car.btns = true;
+    car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
         if(car.building){
-            that.okBtn.destroy();
-            that.qxBtn.destroy();
-            that.xzBtn.destroy();
-            that.btns = false;//用来控制建造按钮是否每帧中都跟随建筑精灵
+            car.img.x = car.buildx;
+            car.img.y = car.buildy;
+            car.lastx = car.img.x;
+            car.lasty = car.img.y;
+            car.okBtn.destroy();
+            car.qxBtn.destroy();
+            car.xzBtn.destroy();
+            car.btns = false;//用来控制建造按钮是否每帧中都跟随建筑精灵
             car.img.input.disableDrag();//禁止拖拽
+
+            //已有建筑的区域的时候不能建造
+            if(car.buildx == 728){
+                
+            }
 
             car.img.visible = false;
             //建设中image
@@ -48,8 +54,11 @@ var buts = function(cont, car){
                     text.destroy();
                     car.img.visible = true;
                     car.img.events.onInputDown.add(function(){
-                        console.log(that.buttons);
-                        if(that.buttons){//控制建筑菜单点击只出现一次
+                        // if(that.buttonsGroup.length > 0){
+                        //     that.buttonsGroup.kill();
+                        // }
+                        
+                        if(car.buttons){//控制建筑菜单点击只出现一次
                             buttons(that, car.img, car);
                         }
                         
@@ -75,16 +84,16 @@ var buts = function(cont, car){
             }, 1000)
         }
     }, that)
-    that.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "quxiao", function(){
+    car.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "quxiao", function(){
         // console.log("btn2");
         car.img.destroy();
-        that.okBtn.destroy();
-        that.qxBtn.destroy();
-        that.xzBtn.destroy();
+        car.okBtn.destroy();
+        car.qxBtn.destroy();
+        car.xzBtn.destroy();
         car.Show = false;
-        that.btns = false;
+        car.btns = false;
     }, that)
-    that.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
+    car.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
         if(car.img.scale.x < 0){
             car.img.scale.x = 0.5;
         }else{

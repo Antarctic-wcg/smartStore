@@ -11,25 +11,32 @@ var showMenu = function(that){
     var btn1 = document.getElementById("btnl1");
     var btn2 = document.getElementById("btnl2");
     var btn3 = document.getElementById("btnl3");
-
     //选择建筑
     //建筑一
     var build1 = document.getElementById("build1");
     build1.onclick = function(){
+        that.clickNum +=1;
+        // this["redCar" + that.clickNum] = that.clickNum;
+        // console.log(this.redCar1, this.redCar2);
         var redCar = game.add.sprite(that.floor.x-that.fwx, that.floor.y-that.fwy/2, "orangeCar");
         // var redCar = game.add.sprite(728, 500, "orangeCar");
-        
-        that.redCar.Show = true;
+        that["redCar" + that.clickNum] = game.add.sprite();
+        that["redCar" + that.clickNum].Show = true;
+
         redCar.anchor.set(0.5);
         redCar.scale.set(0.5);
         redCar.tint = 0xFF3366;
         redCar.inputEnabled = true;//开启输入事件
         redCar.input.enableSnap(4, 4);//在拖动或释放时，以4*4网格，使此Sprite对齐给定的网格***
         redCar.input.enableDrag(false);//拖拽
-        that.buildGroup.add(redCar);
+        // redCar.input.bringToTop = true;
+        // console.log(redCar.input.dragStartPoint())
+        
         menu.setAttribute("style", "display: none;");
-        that.redCar.img = redCar;
-        buts(that, that.redCar);
+        
+        that["redCar" + that.clickNum].img = redCar;
+        that.carGroup.add(that["redCar" + that.clickNum]);
+        buts(that, that["redCar" + that.clickNum]);
     }
 
 }

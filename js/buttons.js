@@ -3,12 +3,12 @@ var buttons = function(cont, carImg, car){
     console.log("buttons")
      //创建建筑菜单按钮组
      that.buttonsGroup = game.add.group();
-    if(that.buttons){
-        that.buttons = false;
+    if(car.buttons){
+        car.buttons = false;
         //查看建筑
-        that.ckBtn = game.add.button(carImg.x -carImg.width*0.8, carImg.y +30, "ckBtn", function(){
+        car.ckBtn = game.add.button(carImg.x -carImg.width*0.8, carImg.y +30, "ckBtn", function(){
             console.log("ckBtn");
-            that.buttons = true;
+            car.buttons = true;
             that.buttonsGroup.destroy();
             var buildData = document.getElementById("build");
             buildData.setAttribute("style","display:block;");
@@ -17,25 +17,26 @@ var buttons = function(cont, carImg, car){
                 buildData.setAttribute("style","display:none;");
             }
         })
-        that.buttonsGroup.add(that.ckBtn);
+        that.buttonsGroup.add(car.ckBtn);
         //移动建组 + 打勾
-        that.moveBtn = game.add.button(carImg.x - carImg.width*0.4, carImg.y +30, "moveBtn", function(){
-            if(that.moveBtn.key == "moveBtn"){
-                that.buttonsMove = true;
+        car.moveBtn = game.add.button(carImg.x - carImg.width*0.4, carImg.y +30, "moveBtn", function(){
+            if(car.moveBtn.key == "moveBtn"){
+                car.buttonsMove = true;
                 // that.buttons = true;
                 carImg.input.enableDrag(false);
-                that.xuanzhuan.key = "chaichuBtn";
-                that.ckBtn.destroy();
-                that.chaichuBtn.destroy();
-                that.moveBtn.loadTexture("dgou");
-                that.xuanzhuan.loadTexture("dcha");
-            }else if(that.moveBtn.key == "dgou"){
+                car.xuanzhuan.key = "chaichuBtn";
+                car.ckBtn.destroy();
+                car.chaichuBtn.destroy();
+                car.moveBtn.loadTexture("dgou");
+                car.xuanzhuan.loadTexture("dcha");
+                carImg.input.bringToTop = true;
+            }else if(car.moveBtn.key == "dgou"){
                 console.log(car.building);
                 if(car.building){//移动到能建造地方
-                    that.buttons = true;
+                    car.buttons = true;
                     carImg.input.disableDrag();
-                    that.moveBtn.destroy();
-                    that.xuanzhuan.destroy();
+                    car.moveBtn.destroy();
+                    car.xuanzhuan.destroy();
                     car.img.x = car.buildx;
                     car.img.y = car.buildy;
                     car.lastx = carImg.x;
@@ -45,11 +46,12 @@ var buttons = function(cont, carImg, car){
             
             
         })
-        that.buttonsGroup.add(that.moveBtn);
+        that.buttonsGroup.add(car.moveBtn);
         //旋转建筑 + X
-        that.xuanzhuan = game.add.button(carImg.x - carImg.width*0, carImg.y +30, "xuanzhuan", function(){
-            if(that.xuanzhuan.key == "dcha"){
-                that.buttons = true;
+        car.xuanzhuan = game.add.button(carImg.x - carImg.width*0, carImg.y +30, "xuanzhuan", function(){
+            if(car.xuanzhuan.key == "dcha"){
+                car.buttons = true;
+                carImg.input.bringToTop = false;
                 console.log("x");
                 that.buttonsGroup.destroy();
                 carImg.x = car.lastx;
@@ -63,14 +65,14 @@ var buttons = function(cont, carImg, car){
                 // }
             }
         })
-        that.buttonsGroup.add(that.xuanzhuan);
+        that.buttonsGroup.add(car.xuanzhuan);
         //拆除建筑
-        that.chaichuBtn = game.add.button(carImg.x + carImg.width*0.4, carImg.y +30, "chaichuBtn", function(){
+        car.chaichuBtn = game.add.button(carImg.x + carImg.width*0.4, carImg.y +30, "chaichuBtn", function(){
             carImg.destroy();
             that.buttonsGroup.destroy();
-            that.buttons = true;
+            car.buttons = true;
         })
-        that.buttonsGroup.add(that.chaichuBtn);
+        that.buttonsGroup.add(car.chaichuBtn);
     }
     
 
