@@ -54,14 +54,54 @@ var buts = function(cont, car){
                     text.destroy();
                     car.img.visible = true;
                     car.img.events.onInputDown.add(function(){
-                        // if(that.buttonsGroup.length > 0){
-                        //     that.buttonsGroup.kill();
-                        // }
-                        
-                        if(car.buttons){//控制建筑菜单点击只出现一次
-                            buttons(that, car.img, car);
+                        if(car.buttons){
+                            if(that.dangeBtn){
+                                if(that.dangeBtn.game){
+                                    if(!that.buttonsGroup.game){
+                                        that.buttonsGroup.destroy();
+                                        that.buttonsGroup = game.add.group();
+                                        car.buttons = true;
+                                        buttons(that, car.img, car);
+                                    }else{
+                                        if(that.dangeBtn.length > 0){
+                                            if(that.dangeBtn.getChildAt(1).key == "moveBtn"){
+                                                that.buttonsGroup.destroy();
+                                                that.buttonsGroup = game.add.group();
+                                                car.buttons = true;
+                                                buttons(that, car.img, car);
+                                            }
+                                        }else{
+                                            that.buttonsGroup.destroy();
+                                            that.buttonsGroup = game.add.group();
+                                            car.buttons = true;
+                                            buttons(that, car.img, car);
+                                        }                          
+                                    }
+                                }else{
+                                    if(!that.buttonsGroup.game){
+                                        that.buttonsGroup.destroy();
+                                        that.buttonsGroup = game.add.group();
+                                        car.buttons = true;
+                                    }else{
+                                        that.buttonsGroup.destroy();
+                                        that.buttonsGroup = game.add.group();
+                                        car.buttons = true;                                
+                                    }
+                                    buttons(that, car.img, car);
+                                }
+                            }else{
+                                if(!that.buttonsGroup.game){
+                                    that.buttonsGroup.destroy();
+                                    that.buttonsGroup = game.add.group();
+                                    car.buttons = true;
+                                }else{
+                                    that.buttonsGroup.destroy();
+                                    that.buttonsGroup = game.add.group();
+                                    car.buttons = true;                                
+                                }
+                                buttons(that, car.img, car);
+                            }
                         }
-                        
                     }, that)
                 }
                 if(s < 0){

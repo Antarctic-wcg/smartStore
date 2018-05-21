@@ -39,15 +39,13 @@ var homeState = function(game){
         this.floorGroup.add(this.floor);
         this.floor.inputEnabled = true;
         this.floor.events.onInputDown.add(function(){
-            
-            this.carGroup.forEachExists(function(item){
-                if(item.moveBtn){//移动时点地板不取消按钮
-                    if(item.moveBtn.key == "moveBtn"){
+            if(this.dangeBtn){//移动时点击点半不缺陷移动菜单
+                if(this.dangeBtn.length > 0){
+                    if(this.dangeBtn.getChildAt(1).key == "moveBtn"){
                         this.buttonsGroup.destroy();
-                        item.buttons = true;//控制建筑菜单点击只出现一次
                     }
                 }
-            }, this)
+            }
             
             this.oneX = game.input.activePointer.x;
             this.oney = game.input.activePointer.y;

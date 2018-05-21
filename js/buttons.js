@@ -1,10 +1,10 @@
-var buttons = function(cont, carImg, car){
+var buttons = function(cont, carImg, car){//that[car+"Group"]有问题***************************
     var that = cont;
     console.log("buttons")
      //创建建筑菜单按钮组
-     that.buttonsGroup = game.add.group();
+     that.dangeBtn = game.add.group();
     if(car.buttons){
-        car.buttons = false;
+        // car.buttons = false;
         //查看建筑
         car.ckBtn = game.add.button(carImg.x -carImg.width*0.8, carImg.y +30, "ckBtn", function(){
             console.log("ckBtn");
@@ -17,7 +17,7 @@ var buttons = function(cont, carImg, car){
                 buildData.setAttribute("style","display:none;");
             }
         })
-        that.buttonsGroup.add(car.ckBtn);
+        that.dangeBtn.add(car.ckBtn);
         //移动建组 + 打勾
         car.moveBtn = game.add.button(carImg.x - carImg.width*0.4, carImg.y +30, "moveBtn", function(){
             if(car.moveBtn.key == "moveBtn"){
@@ -46,7 +46,7 @@ var buttons = function(cont, carImg, car){
             
             
         })
-        that.buttonsGroup.add(car.moveBtn);
+        that.dangeBtn.add(car.moveBtn);
         //旋转建筑 + X
         car.xuanzhuan = game.add.button(carImg.x - carImg.width*0, carImg.y +30, "xuanzhuan", function(){
             if(car.xuanzhuan.key == "dcha"){
@@ -65,14 +65,15 @@ var buttons = function(cont, carImg, car){
                 // }
             }
         })
-        that.buttonsGroup.add(car.xuanzhuan);
+        that.dangeBtn.add(car.xuanzhuan);
         //拆除建筑
         car.chaichuBtn = game.add.button(carImg.x + carImg.width*0.4, carImg.y +30, "chaichuBtn", function(){
-            carImg.destroy();
+            carImg.kill();
             that.buttonsGroup.destroy();
             car.buttons = true;
         })
-        that.buttonsGroup.add(car.chaichuBtn);
+        that.dangeBtn.add(car.chaichuBtn);
+        that.buttonsGroup.add(that.dangeBtn);
     }
     
 
