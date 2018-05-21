@@ -5,6 +5,7 @@ var buts = function(cont, car){
     car.btns = true;
     car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
         if(car.building){
+            // console.log(that.carGroup.getChildIndex(car));
             car.img.x = car.buildx;
             car.img.y = car.buildy;
             car.lastx = car.img.x;
@@ -17,7 +18,8 @@ var buts = function(cont, car){
 
             //已有建筑的区域的时候不能建造
             if(car.buildx == 728){
-                
+                that.guding.building = false;
+                console.log("这块地给占了")
             }
 
             car.img.visible = false;
@@ -54,7 +56,7 @@ var buts = function(cont, car){
                     text.destroy();
                     car.img.visible = true;
                     car.img.events.onInputDown.add(function(){
-                        if(car.buttons){
+                        if(car.buttons){//phaser烦人的destroy导致如下重复繁琐的代码
                             if(that.dangeBtn){
                                 if(that.dangeBtn.game){
                                     if(!that.buttonsGroup.game){
@@ -101,7 +103,7 @@ var buts = function(cont, car){
                                 }
                                 buttons(that, car.img, car);
                             }
-                        }
+                        }//phaser烦人的destroy导致如上重复繁琐的代码
                     }, that)
                 }
                 if(s < 0){
@@ -132,6 +134,7 @@ var buts = function(cont, car){
         car.xzBtn.destroy();
         car.Show = false;
         car.btns = false;
+        that.carGroup.removeChild(car);
     }, that)
     car.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
         if(car.img.scale.x < 0){

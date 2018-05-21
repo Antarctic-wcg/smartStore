@@ -16,10 +16,7 @@ var showMenu = function(that){
     var build1 = document.getElementById("build1");
     build1.onclick = function(){
         that.clickNum +=1;
-        // this["redCar" + that.clickNum] = that.clickNum;
-        // console.log(this.redCar1, this.redCar2);
         var redCar = game.add.sprite(that.floor.x-that.fwx, that.floor.y-that.fwy/2, "orangeCar");
-        // var redCar = game.add.sprite(728, 500, "orangeCar");
         that["redCar" + that.clickNum] = game.add.sprite();
         that["redCar" + that.clickNum].Show = true;
 
@@ -27,10 +24,11 @@ var showMenu = function(that){
         redCar.scale.set(0.5);
         redCar.tint = 0xFF3366;
         redCar.inputEnabled = true;//开启输入事件
-        redCar.input.enableSnap(4, 4);//在拖动或释放时，以4*4网格，使此Sprite对齐给定的网格***
+        // redCar.input.enableSnap(4, 4);//在拖动或释放时，以4*4网格，使此Sprite对齐给定的网格***
         redCar.input.enableDrag(false);//拖拽
-        // redCar.input.bringToTop = true;
-        // console.log(redCar.input.dragStartPoint())
+        redCar.input.pixelPerfectClick = true;//对象使用完美检查
+        
+        
         
         menu.setAttribute("style", "display: none;");
         

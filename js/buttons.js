@@ -29,7 +29,7 @@ var buttons = function(cont, carImg, car){//that[car+"Group"]有问题**********
                 car.chaichuBtn.destroy();
                 car.moveBtn.loadTexture("dgou");
                 car.xuanzhuan.loadTexture("dcha");
-                carImg.input.bringToTop = true;
+                // carImg.input.bringToTop = true;//拖动时让该精灵显示在最上面
             }else if(car.moveBtn.key == "dgou"){
                 console.log(car.building);
                 if(car.building){//移动到能建造地方
@@ -41,6 +41,7 @@ var buttons = function(cont, carImg, car){//that[car+"Group"]有问题**********
                     car.img.y = car.buildy;
                     car.lastx = carImg.x;
                     car.lasty = carImg.y;
+                    car.buttonsMove = false;
                 }
             }
             
@@ -57,6 +58,7 @@ var buttons = function(cont, carImg, car){//that[car+"Group"]有问题**********
                 carImg.x = car.lastx;
                 carImg.y = car.lasty;
                 carImg.input.disableDrag();
+                car.buttonsMove = false;
             }else{
                 // if(carImg.scale.x < 0){
                 //     carImg.scale.x = 0.5;
@@ -71,6 +73,7 @@ var buttons = function(cont, carImg, car){//that[car+"Group"]有问题**********
             carImg.kill();
             that.buttonsGroup.destroy();
             car.buttons = true;
+            that.carGroup.removeChild(car);
         })
         that.dangeBtn.add(car.chaichuBtn);
         that.buttonsGroup.add(that.dangeBtn);

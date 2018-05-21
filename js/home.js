@@ -29,6 +29,8 @@ var homeState = function(game){
         this.buttonsGroup = game.add.group();
         //汽车组
         this.carGroup = game.add.group();
+        this.carGroup.enableBody = true;
+        this.carGroup.physicsBodyType = Phaser.Physics.ARCADE;
        
 
         
@@ -83,6 +85,7 @@ var homeState = function(game){
         graphics.inputEnabled = true;
         graphics.events.onInputDown.add(this.showMenu, this);
         this.guding = graphics;//用于已经建造建筑后删除可点击事件
+        this.guding.building = true;
         this.shadowGroup.add(graphics);
         // game.physics.arcade.enable(this.guding);
         //可建地板2
@@ -100,7 +103,7 @@ var homeState = function(game){
         
     }//create end
     this.update = function(){
-        // console.log(this.carGroup.length);
+        game.physics.arcade.collide(this.carGroup, this.pengZ);
         this.carGroup.forEachExists(function(item){
             this.follow(item);
         }, this)
@@ -170,5 +173,7 @@ var homeState = function(game){
         showMenu(this);
     }
 
-    
+    this.pengZ = function(){
+        console.log("jsjj")
+    }
 }
