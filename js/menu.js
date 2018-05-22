@@ -19,6 +19,7 @@ var showMenu = function(that){
         var redCar = game.add.sprite(that.floor.x-that.fwx, that.floor.y-that.fwy/2, "orangeCar");
         that["redCar" + that.clickNum] = game.add.sprite();
         that["redCar" + that.clickNum].Show = true;
+        // that["redCar" + that.clickNum].adsorb = true;//控制吸附
 
         redCar.anchor.set(0.5);
         redCar.scale.set(0.5);

@@ -12,10 +12,7 @@ var homeState = function(game){
         this.orangeCar = {}
         this.wulingCar = {}
         //---------------
-        // this.btns = false;//用来控制建造按钮是否每帧中都跟随建筑精灵
-        // this.buttonsMove = false;//用来控制建造菜单是否每帧中都跟随建筑精灵
-        // this.buttons = true;//控制建筑菜单点击只出现一次
-        this.clickNum = 0;
+        this.clickNum = 0;//点击生成不同名字的sprite
 
         //创建背景组
         this.bgGroup = game.add.group();
@@ -32,9 +29,8 @@ var homeState = function(game){
         this.carGroup.enableBody = true;
         this.carGroup.physicsBodyType = Phaser.Physics.ARCADE;
        
-
         
-        //地板
+        //地板大地图
         this.floor = game.add.sprite(game.world.width/2, game.world.height/2, "floor");
         this.floor.scale.set(0.5);
         this.floor.anchor.set(0.5);
@@ -76,29 +72,29 @@ var homeState = function(game){
         this.fwx = fwx;    
         this.fwy = fwy; 
         //可建地板1
-        var graphics = game.add.graphics(this.floor.x, this.floor.y);//开始画
-        graphics.beginFill(0x999999);
-        graphics.drawPolygon(-8*fwx, 0, -3*fwx,-5*fwy, -6*fwx, -8*fwy, -11*fwx, -3*fwy);//3*5
-        graphics.beginFill(0xFF0000);
-        graphics.alpha = 0.5;
-        graphics.endFill();
-        graphics.inputEnabled = true;
-        graphics.events.onInputDown.add(this.showMenu, this);
-        this.guding = graphics;//用于已经建造建筑后删除可点击事件
+        this.guding = game.add.graphics(this.floor.x, this.floor.y);//开始画
+        this.guding.beginFill(0x999999);
+        this.guding.drawPolygon(-8*fwx, 0, -3*fwx,-5*fwy, -6*fwx, -8*fwy, -11*fwx, -3*fwy);//3*5
+        this.guding.beginFill(0xFF0000);
+        this.guding.alpha = 0.5;
+        this.guding.endFill();
+        this.guding.inputEnabled = true;
+        this.guding.events.onInputDown.add(this.showMenu, this);
         this.guding.building = true;
-        this.shadowGroup.add(graphics);
-        // game.physics.arcade.enable(this.guding);
+        this.shadowGroup.add(this.guding);
         //可建地板2
-        var graphics2 = game.add.graphics(this.floor.x+fwx*10, this.floor.y+fwy*10);//开始画
-        this.guding2 = graphics2;//用于已经建造建筑后删除可点击事件
-        graphics2.beginFill(0x999999);
-        graphics2.drawPolygon(-8*fwx, 0, -3*fwx,-5*fwy, -6*fwx, -8*fwy, -11*fwx, -3*fwy);//3*5
-        graphics2.beginFill(0xFF0000);
-        graphics2.alpha = 0.5;
-        graphics2.endFill();
-        graphics2.inputEnabled = true;
-        graphics2.events.onInputDown.add(this.showMenu, this);
-        this.shadowGroup.add(graphics2);
+        this.guding2 = game.add.graphics(this.floor.x+fwx*10, this.floor.y+fwy*10);//开始画
+        this.guding2.beginFill(0x999999);
+        this.guding2.drawPolygon(-8*fwx, 0, -3*fwx,-5*fwy, -6*fwx, -8*fwy, -11*fwx, -3*fwy);//3*5
+        this.guding2.beginFill(0xFF0000);
+        this.guding2.alpha = 0.5;
+        this.guding2.endFill();
+        this.guding2.inputEnabled = true;
+        this.guding2.events.onInputDown.add(this.showMenu, this);
+        this.guding2.building = true;
+        this.shadowGroup.add(this.guding2);
+
+        //地板
 
         
     }//create end
@@ -116,11 +112,13 @@ var homeState = function(game){
         if(car.Show){
             var tx = car.img.x;
             var ty = car.img.y;
-            this.build1 = (tx <= 776 && tx >= 684 && ty >= 452 && ty <= 548 && car.img.scale.x>0);
-            this.build2 = (tx <= 952 && tx >= 856 && ty >= 564 && ty <= 660 && car.img.scale.x>0);
+            this.build1 = (tx <= 760 && tx >= 700 && ty >= 468 && ty <= 531 && car.img.scale.x>0 && this.guding.building);
+            this.build2 = (tx <= 936 && tx >= 872 && ty >= 580 && ty <= 644 && car.img.scale.x>0 && this.guding2.building);
             if(this.build1){car.buildx=728;car.buildy=500;}
             if(this.build2){car.buildx=904;car.buildy=612;}
             if(this.build1 || this.build2){
+                car.img.x = car.buildx;//吸附作用
+                car.img.y = car.buildy;
                 car.img.tint = 0xFFFFFF;
                 car.building = true;
             }else{

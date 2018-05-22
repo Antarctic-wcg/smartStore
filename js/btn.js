@@ -3,11 +3,11 @@ var buts = function(cont, car){
     car.buttons = true;//点击建筑只出现一次建筑菜单
     console.log("show btn");
     car.btns = true;
+    //建造确定按钮-----------------------------------------------------------
     car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
         if(car.building){
-            // console.log(that.carGroup.getChildIndex(car));
-            car.img.x = car.buildx;
-            car.img.y = car.buildy;
+            // car.img.x = car.buildx;//吸附作用
+            // car.img.y = car.buildy;
             car.lastx = car.img.x;
             car.lasty = car.img.y;
             car.okBtn.destroy();
@@ -18,9 +18,13 @@ var buts = function(cont, car){
 
             //已有建筑的区域的时候不能建造
             if(car.buildx == 728){
-                that.guding.building = false;
-                console.log("这块地给占了")
+                car.class = "guding";
+                that[car.class].building = false;
+            }else if(car.buildx == 904){
+                car.class = "guding2";
+                that[car.class].building = false;
             }
+            that.carGroup.removeChild(car);
 
             car.img.visible = false;
             //建设中image
@@ -126,6 +130,7 @@ var buts = function(cont, car){
             }, 1000)
         }
     }, that)
+    //取消代码-----------------------------------------------------------------
     car.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "quxiao", function(){
         // console.log("btn2");
         car.img.destroy();
@@ -136,6 +141,7 @@ var buts = function(cont, car){
         car.btns = false;
         that.carGroup.removeChild(car);
     }, that)
+    //旋转代码-------------------------------------------------------------------
     car.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
         if(car.img.scale.x < 0){
             car.img.scale.x = 0.5;
