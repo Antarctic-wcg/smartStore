@@ -9,6 +9,7 @@
     <script src="./js/phaser.min.js"></script>
     <script src="./js/boot.js"></script>
     <script src="./js/load.js"></script>
+    <script src="./js/styleShop.js"></script>
     <script src="./js/first.js"></script>
     <script src="./js/menu.js"></script>
     <script src="./js/home.js"></script>
@@ -24,6 +25,7 @@
         // var game = new Phaser.Game(1700, 1105, Phaser.CANVAS, "container");
         game.state.add("boot", bootState);//初始化场景
         game.state.add("loader", loaderState);//加载场景
+        game.state.add("style", styleState);//选择店面风格场景
         game.state.add("home", homeState);
         game.state.add("first", firstState);
         game.state.start("boot");//开始场景
@@ -67,7 +69,31 @@
             </div>
         </div>
     </div>
-
-    
+    <!-- 拆除菜单 -->
+    <div class="chai" id="chai">
+        <div class="main" id="cmain">
+            <span>是否拆除这个建筑？</span>
+            <button id="qrBtn">确定</button>
+            <button id="qxBtn">取消</button>
+        </div>
+    </div>
+    <!-- 风格选择 -->
+    <div class="style">
+        <span>选择门店风格</span>
+        <div class="smain">
+            <div class="style1" id="style1">
+                风格<br>ICON<br> A
+                <span>风格名称A</span>
+            </div>
+            <div class="style2" id="style2">
+                风格<br>ICON<br> B
+                <span>风格名称B</span>
+            </div>
+            <div class="style3" id="style3">
+                风格<br>ICON <br>C
+                <span>风格名称C</span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

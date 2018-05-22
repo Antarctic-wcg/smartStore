@@ -86,12 +86,28 @@ var buttons = function(cont, carImg, car){
         that.dangeBtn.add(car.xuanzhuan);
         //拆除建筑---------------------------------------------------
         car.chaichuBtn = game.add.button(carImg.x + carImg.width*0.4, carImg.y +30, "chaichuBtn", function(){
-            // carImg.kill();
-            // that.buttonsGroup.destroy();
-            // car.buttons = true;
-            // that[car.class].building = true;
-            // that.carGroup.removeChild(car);
-            alert("你确定你不是在开玩笑")
+            var chai = document.getElementById("chai");
+            chai.setAttribute("style","display: block;");
+            chai.addEventListener("click", function(){
+                chai.setAttribute("style","display: none;");
+            })
+            var qrBtn = document.getElementById("qrBtn");
+            qrBtn.addEventListener("click",function(){
+                carImg.kill();
+                that.buttonsGroup.destroy();
+                car.buttons = true;
+                that[car.class].building = true;
+                that.carGroup.removeChild(car);
+                chai.setAttribute("style","display: none;");
+            });
+            var qxBtn = document.getElementById("qxBtn");
+            qxBtn.addEventListener("click", function(){
+                chai.setAttribute("style","display: none;");
+            })
+            var cmain = document.getElementById("cmain");
+            cmain.addEventListener("click", function(){
+                event.stopPropagation();
+            })
         })
         that.dangeBtn.add(car.chaichuBtn);
         that.buttonsGroup.add(that.dangeBtn);

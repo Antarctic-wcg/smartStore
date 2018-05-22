@@ -37,7 +37,8 @@ var loaderState = function(game){
         })
     }
     this.create = function(){
-        game.state.start("home");
+        game.state.start("style");
+        // game.state.start("home");
         // game.state.start("first");
     }
 }
