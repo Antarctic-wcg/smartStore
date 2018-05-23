@@ -44,7 +44,8 @@ var homeState = function(game){
                     }
                 }
             }
-            
+            var aisnMain = document.getElementById("aisnMain");
+            aisnMain.setAttribute("style","display: none;");
             this.oneX = game.input.activePointer.x;
             this.oney = game.input.activePointer.y;
             game.input.addMoveCallback(this.cameraMove, this);
@@ -94,7 +95,8 @@ var homeState = function(game){
         this.guding2.building = true;
         this.shadowGroup.add(this.guding2);
 
-        //地板
+        //AI少女
+        this.aisn();
 
         
     }//create end
@@ -171,7 +173,60 @@ var homeState = function(game){
         showMenu(this);
     }
 
-    this.pengZ = function(){
-        console.log("jsjj")
+    // this.pengZ = function(){
+    //     console.log("jsjj")
+    // }
+    this.aisn = function(){
+        var that = this;
+        var aisn = document.getElementById("aisnMenu");
+        var aisnMain = document.getElementById("aisnMain");
+        var c1 = document.getElementById("c1");
+        var c2 = document.getElementById("c2");
+        var c3 = document.getElementById("c3");
+        var c4 = document.getElementById("c4");
+        var c5 = document.getElementById("c5");
+        var set = document.getElementById("set");
+        var musicBtn = document.getElementById("musicBtn");
+        var music = document.getElementById("music");
+        var audio = document.getElementById("audio");
+        
+        aisn.setAttribute("style","display: block;");
+        aisn.addEventListener("click", function(){
+            aisnMain.setAttribute("style","display: block;");
+        })
+        c1.addEventListener("click", function(){
+        })
+        c2.addEventListener("click", function(){
+        })
+        c3.addEventListener("click", function(){
+            aisnMain.setAttribute("style","display: none;");
+            set.setAttribute("style","display: block;");
+            console.log(this);
+        })
+        c4.addEventListener("click", function(){
+            aisnMain.setAttribute("style","display: none;");
+        })
+        c5.addEventListener("click", function(){
+            aisnMain.setAttribute("style","display: none;");
+            showMenu(that);
+        })
+        musicBtn.addEventListener("click", function(){
+            set.setAttribute("style","display: none;");
+        })
+        music.addEventListener("click", function(){
+            // this.setAttribute("src","./assets/off.jpg");
+            if(this.getAttribute("src") == "./assets/on.jpg"){
+                this.setAttribute("src","./assets/off.jpg");
+            }else{
+                this.setAttribute("src","./assets/on.jpg");
+            }
+        })
+        audio.addEventListener("click", function(){
+            if(this.getAttribute("src") == "./assets/on.jpg"){
+                this.setAttribute("src","./assets/off.jpg");
+            }else{
+                this.setAttribute("src","./assets/on.jpg");
+            }
+        })
     }
 }
