@@ -28,6 +28,9 @@ var loaderState = function(game){
         game.load.image("chaichuBtn", "assets/chaichuBtn.PNG");
         game.load.image("dgou", "assets/dgou.PNG");
         game.load.image("dcha", "assets/dcha.PNG");
+        //加载音频文件
+        game.load.audio("zhuti", "assets/normalback.mp3");
+        game.load.audio("crash1", "assets/crash1.mp3");
 
         game.load.image("ceshi", "assets/3400_2210.jpg");
 

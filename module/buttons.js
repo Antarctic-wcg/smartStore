@@ -1,5 +1,6 @@
 var buttons = function(cont, carImg, car){
     var that = cont;
+    var buildData;
     console.log("buttons")
      //创建建筑菜单按钮组
      that.dangeBtn = game.add.group();
@@ -10,11 +11,12 @@ var buttons = function(cont, carImg, car){
             console.log("ckBtn");
             car.buttons = true;
             that.buttonsGroup.destroy();
-            var buildData = document.getElementById("build");
+            buildData = document.getElementById("build");
             buildData.setAttribute("style","display:block;");
             var btn2 = document.getElementById("btn2");
             btn2.onclick = function(){
                 buildData.setAttribute("style","display:none;");
+                upgrade.removeEventListener("click", upgrades);
             }
         })
         that.dangeBtn.add(car.ckBtn);
@@ -113,6 +115,15 @@ var buttons = function(cont, carImg, car){
         that.buttonsGroup.add(that.dangeBtn);
     }
     
-
-
+    var upgrade = document.getElementById("upgrade");
+    upgrade.addEventListener("click", upgrades);
+    function upgrades(){
+        var hours = 0;
+        var min = 0;
+        var s = 5;
+        car.img.visible = false;
+        buildData.setAttribute("style","display:none;");
+        window.upgrade(car, hours, min, s);
+        upgrade.removeEventListener("click", upgrades);
+    }
 }

@@ -1,6 +1,18 @@
 var homeState = function(game){
     var quan = true;
+    var that = this;
     this.create = function(){
+        //背景音乐
+        if(!this.sound1){
+            this.sound1 = game.add.audio("zhuti");
+            try{
+                this.sound1.play("", 0, 1, true);
+            } catch(e){}
+        }
+        this.sound2 = game.add.audio("crash1");
+        this.yinxiao = true;//音效控制开光
+        
+        
         // game.stage.backgroundColor = "#3366FF"
         game.physics.startSystem(Phaser.Physics.ARCADE);//开启ARCADE物理引擎
         game.world.setBounds(0, 0, 1700, 1105);
@@ -194,39 +206,62 @@ var homeState = function(game){
         aisn.addEventListener("click", function(){
             aisnMain.setAttribute("style","display: block;");
         })
-        c1.addEventListener("click", function(){
+        c1.addEventListener("click", function(){//邮件
         })
-        c2.addEventListener("click", function(){
+        c2.addEventListener("click", function(){//大地图
+            aisnMain.setAttribute("style","display: none;");
+            // music.removeEventListener("clcik", this.qimg);
+            // audio.removeEventListener("clcik", this.qimg);
+            game.state.start("map");
+            
         })
-        c3.addEventListener("click", function(){
+        // c3.addEventListener("click", function(){//设置
+        //     aisnMain.setAttribute("style","display: none;");
+        //     set.setAttribute("style","display: block;");
+        //     console.log(this);
+        // })
+        //DOM0添加时间不会出现重复添加情况
+        c3.onclick = function(){
             aisnMain.setAttribute("style","display: none;");
             set.setAttribute("style","display: block;");
             console.log(this);
-        })
-        c4.addEventListener("click", function(){
+        }
+        c4.addEventListener("click", function(){//收起
             aisnMain.setAttribute("style","display: none;");
         })
-        c5.addEventListener("click", function(){
+        c5.addEventListener("click", function(){//建筑
             aisnMain.setAttribute("style","display: none;");
             showMenu(that);
         })
         musicBtn.addEventListener("click", function(){
             set.setAttribute("style","display: none;");
         })
-        music.addEventListener("click", function(){
-            // this.setAttribute("src","./assets/off.jpg");
-            if(this.getAttribute("src") == "./assets/on.jpg"){
-                this.setAttribute("src","./assets/off.jpg");
-            }else{
-                this.setAttribute("src","./assets/on.jpg");
-            }
-        })
-        audio.addEventListener("click", function(){
-            if(this.getAttribute("src") == "./assets/on.jpg"){
-                this.setAttribute("src","./assets/off.jpg");
-            }else{
-                this.setAttribute("src","./assets/on.jpg");
-            }
-        })
+        music.addEventListener("click", this.qimg1)
+        audio.addEventListener("click", this.qimg2)
     }
+
+    
+    this.qimg1 = function(){
+        if(this.getAttribute("src") == "./assets/on.jpg"){
+            console.log(666);
+            this.setAttribute("src","./assets/off.jpg");
+            that.sound1.pause();
+        }else if(this.getAttribute("src") == "./assets/off.jpg"){
+            console.log(7777);
+            this.setAttribute("src","./assets/on.jpg");
+            that.sound1.resume();
+        }
+    }
+    this.qimg2 = function(){
+        if(this.getAttribute("src") == "./assets/on.jpg"){
+            console.log(666);
+            this.setAttribute("src","./assets/off.jpg");
+            that.yinxiao = false;
+        }else if(this.getAttribute("src") == "./assets/off.jpg"){
+            console.log(7777);
+            this.setAttribute("src","./assets/on.jpg");
+            that.yinxiao = true;
+        }
+    }
+
 }
