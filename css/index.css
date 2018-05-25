@@ -89,16 +89,18 @@ html{font-size:12px}
     padding: 3px;
     display: inline-block;
 }
-.right .menu1 h1,.right .menu1 h2{
+.right .menu1>span,.right .menu1>span{
     margin: 0;
-    height: 62px;
-    line-height: 62px;
+    height: 2.9rem;
+    max-height: 35px;
+    display: block;
 }
-.right .menu1 h1{
+.right .menu1 .h1{
     height: 62px;
     line-height: 62px;
+    max-height: 62px;
     border: 1px solid #000;
-    font-size: 1.5rem;
+    font-size: 18px;
 }
 .right .next{
     border: none;

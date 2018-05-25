@@ -1,8 +1,8 @@
 var styleState = function(game){
     this.create = function(){
-        // if(localStorage.getItem("style")){
-        //     game.state.start("home");
-        // }else{
+        if(localStorage.getItem("style")){
+            game.state.start("home");
+        }else{
             var style = false;
             var style1 = document.getElementById("style1");
             var style2 = document.getElementById("style2");
@@ -41,6 +41,6 @@ var styleState = function(game){
                     alert("请选择其中一种风格！");
                 }
             })
-        // }
+        }
     }
 }
