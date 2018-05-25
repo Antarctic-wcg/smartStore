@@ -6,7 +6,7 @@ var homeState = function(game){
         if(!this.sound1){
             this.sound1 = game.add.audio("zhuti");
             try{
-                this.sound1.play("", 0, 1, true);
+                // this.sound1.play("", 0, 1, true);
             } catch(e){}
         }
         this.sound2 = game.add.audio("crash1");

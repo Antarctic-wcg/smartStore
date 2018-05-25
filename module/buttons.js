@@ -116,14 +116,14 @@ var buttons = function(cont, carImg, car){
     }
     
     var upgrade = document.getElementById("upgrade");
-    upgrade.addEventListener("click", upgrades);
-    function upgrades(){
+    // upgrade.addEventListener("click", upgrades);
+    upgrade.onclick = function(){
         var hours = 0;
         var min = 0;
         var s = 5;
         car.img.visible = false;
         buildData.setAttribute("style","display:none;");
         window.upgrade(car, hours, min, s, that);
-        upgrade.removeEventListener("click", upgrades);
+        // upgrade.removeEventListener("click", upgrades);
     }
 }
