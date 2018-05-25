@@ -30,7 +30,7 @@ var buts = function(cont, car){
 
             var hours = 0;
             var min = 0;
-            var s = 2;
+            var s = 5;
             upgrade(car, hours, min, s, this);
             console.log(this)
             

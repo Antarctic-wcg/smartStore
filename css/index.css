@@ -118,7 +118,7 @@ html{font-size:12px}
 .build .main .buildData{
     padding: 0 10px;
 }
-.build .main .buildData>h3{
+.build .main .buildData>span{
     font-size: 22px;
 }
 .build .main .buildData .upgrade{

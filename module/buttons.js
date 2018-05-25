@@ -123,7 +123,7 @@ var buttons = function(cont, carImg, car){
         var s = 5;
         car.img.visible = false;
         buildData.setAttribute("style","display:none;");
-        window.upgrade(car, hours, min, s);
+        window.upgrade(car, hours, min, s, that);
         upgrade.removeEventListener("click", upgrades);
     }
 }
