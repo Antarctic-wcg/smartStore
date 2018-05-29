@@ -6,26 +6,26 @@ var shadow = function(that){
     that.fwx = fwx;    
     that.fwy = fwy; 
     // //可建地板3*5
-    var yuan = game.add.graphics(that.floor.x, that.floor.y);//开始画
-    yuan.beginFill(0xFF0000);
-    yuan.drawCircle(0, 0, 5, 5);
-    yuan.endFill();
-    var yuan2 = game.add.graphics(that.floor.x, that.floor.y-12*fwy);//开始画
-    yuan2.beginFill(0xFF0000);
-    yuan2.drawCircle(0, 0, 5, 5);
-    yuan2.endFill();
-    var yuan3 = game.add.graphics(that.floor.x+12*fwx, that.floor.y);//开始画
-    yuan3.beginFill(0xFF0000);
-    yuan3.drawCircle(0, 0, 5, 5);
-    yuan3.endFill();
-    var yuan4 = game.add.graphics(that.floor.x, that.floor.y+12*fwy);//开始画
-    yuan4.beginFill(0xFF0000);
-    yuan4.drawCircle(0, 0, 5, 5);
-    yuan4.endFill();
-    var yuan5 = game.add.graphics(that.floor.x-12*fwx, that.floor.y);//开始画
-    yuan5.beginFill(0xFF0000);
-    yuan5.drawCircle(0, 0, 5, 5);
-    yuan5.endFill();
+    // var yuan = game.add.graphics(that.floor.x, that.floor.y);//开始画
+    // yuan.beginFill(0xFF0000);
+    // yuan.drawCircle(0, 0, 5, 5);
+    // yuan.endFill();
+    // var yuan2 = game.add.graphics(that.floor.x, that.floor.y-12*fwy);//开始画
+    // yuan2.beginFill(0xFF0000);
+    // yuan2.drawCircle(0, 0, 5, 5);
+    // yuan2.endFill();
+    // var yuan3 = game.add.graphics(that.floor.x+12*fwx, that.floor.y);//开始画
+    // yuan3.beginFill(0xFF0000);
+    // yuan3.drawCircle(0, 0, 5, 5);
+    // yuan3.endFill();
+    // var yuan4 = game.add.graphics(that.floor.x, that.floor.y+12*fwy);//开始画
+    // yuan4.beginFill(0xFF0000);
+    // yuan4.drawCircle(0, 0, 5, 5);
+    // yuan4.endFill();
+    // var yuan5 = game.add.graphics(that.floor.x-12*fwx, that.floor.y);//开始画
+    // yuan5.beginFill(0xFF0000);
+    // yuan5.drawCircle(0, 0, 5, 5);
+    // yuan5.endFill();
     
 
     //可建地板1*1

@@ -9,6 +9,31 @@ var showMenu = function(that){
     var Gneng = document.getElementById("Gneng");
     var Zshi = document.getElementById("Zshi");
     var floor = document.getElementById("floor");
+    //横向内容
+    var heng = document.getElementsByClassName("heng");
+    var gnengData = [
+        {"src":"assets/1x1ccz.png"},
+        {"src":"assets/1x1dz.png"},
+        {"src":"assets/1x1fcc.png"},
+        {"src":"assets/1x1fsz.png"},
+        {"src":"assets/1x1ggp.png"},
+        {"src":"assets/1x1ljt.png"},
+        {"src":"assets/1x1ycc.png"},
+        {"src":"assets/1x1ydz.png"},
+        {"src":"assets/1x1ysz.png"},
+        {"src":"assets/1x1ysz.png"},
+        {"src":"assets/1x1ysz.png"},
+        {"src":"assets/1x1ysz.png"}
+    ];
+    heng[2].setAttribute("style","width: "+gnengData.length*112+"px");
+    for(var i = 0; i<gnengData.length; i++){
+        var dom = document.createElement("div");
+        dom.setAttribute("class","menu1");
+        dom.setAttribute("id","gn"+i);
+        dom.innerHTML = '<span class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></span><span>功能建筑</span><span>金币：10000</span><span>能量：10</span><span>1*1</span>';
+        heng[2].appendChild(dom);
+    }
+    
 
     menu.setAttribute("style", "display: block;");
     //点击关闭按钮关闭菜单
@@ -16,6 +41,7 @@ var showMenu = function(that){
     btn.onclick = function(){
         menu.setAttribute("style", "display: none;")
     }
+    
     
     //选择建筑
     //建筑一

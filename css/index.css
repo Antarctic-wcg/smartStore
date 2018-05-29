@@ -76,13 +76,14 @@ html{font-size:12px}
     right: 0;
     top: 0;
     background: white;
+    overflow-x: auto;
 }
 .right{
     padding-top: 0.4rem;
     height: 77%;
 }
 .right .menu1{
-    margin-left: 0.3rem;
+    margin-left: 0.5rem;
     width: 8rem;
     height: 100%;
     text-align: center;
@@ -92,7 +93,7 @@ html{font-size:12px}
 }
 .right .menu1>span{
     margin: 0;
-    height: 2.9rem;
+    height: 2.8rem;
     max-height: 35px;
     display: block;
 }
