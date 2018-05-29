@@ -19,8 +19,9 @@ html{font-size:12px}
 #container canvas{
     margin: 0 auto;
 }
+/* 菜单 */
 .caidan{
-    height: 40%;
+    height: 50%;
     width: 100%;
     position: fixed;
     left: 0;
@@ -60,7 +61,7 @@ html{font-size:12px}
 }
 .bottom .left{
     width: 28%;
-    height: 82%;
+    height: 86%;
     border-right: 1px solid #000;
     padding-top: 1px;    
 }
@@ -89,7 +90,7 @@ html{font-size:12px}
     padding: 3px;
     display: inline-block;
 }
-.right .menu1>span,.right .menu1>span{
+.right .menu1>span{
     margin: 0;
     height: 2.9rem;
     max-height: 35px;
