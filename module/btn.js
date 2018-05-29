@@ -32,7 +32,6 @@ var buts = function(cont, car){
             var min = 0;
             var s = 5;
             upgrade(car, hours, min, s, this);
-            console.log(this)
             
             car.img.events.onInputDown.add(function(){
                 if(car.buttons){//phaser烦人的destroy导致如下重复繁琐的代码

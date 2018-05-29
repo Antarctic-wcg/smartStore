@@ -11,7 +11,7 @@ var loaderState = function(game){
     this.preload = function(a, b){
         game.load.setPreloadSprite(preloadSprite, 0);//第二个参数值为零意味着雪碧将水平裁剪，值1表示其垂
         game.load.image("orangeCar","assets/320c.png");
-        game.load.image("redCar","assets/530h.png");
+        // game.load.image("redCar","assets/530h.png");
         game.load.image("wulingCar", "assets/wulh.png");
         game.load.image("floor", "assets/1540_990.png");
         game.load.image("building", "assets/building.png");
@@ -19,6 +19,31 @@ var loaderState = function(game){
         game.load.image("zhuangshi2", "assets/zs2.png");
         game.load.image("zhuangshi3", "assets/zs3.png");
         game.load.image("engine", "assets/yqzt.png");//引擎展台
+        game.load.image("1x1ccz", "assets/1x1ccz.png");
+        game.load.image("1x1dz", "assets/1x1dz.png");
+        game.load.image("1x1fcc", "assets/1x1fcc.png");
+        game.load.image("1x1fsz", "assets/1x1fsz.png");
+        game.load.image("1x1ggp", "assets/1x1ggp.png");
+        game.load.image("1x1ljt", "assets/1x1ljt.png");
+        game.load.image("1x1ycc", "assets/1x1ycc.png");
+        game.load.image("1x1ydz", "assets/1x1ydz.png");
+        game.load.image("1x1ysz", "assets/1x1ysz.png");
+        game.load.image("1x2dz", "assets/1x2dz.png");
+        game.load.image("1x2fcc", "assets/1x2fcc.png");
+        game.load.image("1x2ggp", "assets/1x2ggp.png");
+        game.load.image("1x4ggp", "assets/1x4ggp.png");
+        game.load.image("1x4hyp", "assets/1x4hyp.png");
+        game.load.image("2x2rk", "assets/2x2rk.png");
+        game.load.image("2x2znAI", "assets/2x2znAI.png");
+        game.load.image("2x3czt", "assets/2x3czt.png");
+        game.load.image("2x3qsj", "assets/2x3qsj.png");
+        game.load.image("2x3qt", "assets/2x3qt.png");
+        game.load.image("3x5Lv1zt", "assets/3x5Lv1zt.png");
+        game.load.image("3x5Lv2zt", "assets/3x5Lv2zt.png");
+        game.load.image("3x5Lv3zt", "assets/3x5Lv3zt.png");
+        game.load.image("3x5Lv3zt", "assets/3x5Lv3zt.png");
+        game.load.image("320h", "assets/320h.png");
+        game.load.image("320l", "assets/320l.png");
         //按钮图片组
         game.load.image("queren", "assets/queren.PNG");
         game.load.image("quxiao", "assets/quxiao.PNG");

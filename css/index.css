@@ -35,7 +35,7 @@ html{font-size:12px}
     height: 100%;
     background: white;
 }
-.main .head h2{
+.main .head h2,.pack .phead h2{
     height: 45px;
     line-height: 45px;
     text-align: center;
@@ -43,7 +43,7 @@ html{font-size:12px}
     margin: 0;
     font-size: 22px;
 }
-.main .head button{
+.main .head button,.pack .phead button{
     display: inline-block;
     width: 20%;
     height: 45px;
@@ -60,7 +60,7 @@ html{font-size:12px}
 }
 .bottom .left{
     width: 28%;
-    height: 100%;
+    height: 82%;
     border-right: 1px solid #000;
     padding-top: 1px;    
 }
@@ -96,20 +96,20 @@ html{font-size:12px}
     display: block;
 }
 .right .menu1 .h1{
-    height: 62px;
-    line-height: 62px;
-    max-height: 62px;
+    height: 69px;
+    line-height: 69px;
+    max-height: 69px;
     border: 1px solid #000;
     font-size: 18px;
 }
-.right .next{
+/* .right .next{
     border: none;
     width: 0; 
     height: 0; 
     border-top: 9px solid transparent; 
     border-left: 20px solid #000; 
     border-bottom: 9px solid transparent;
-}
+} */
 /* 建筑数据 */
 .build{
     display: none;
@@ -348,4 +348,97 @@ html{font-size:12px}
     position: fixed;
     top: 10px;
     right: 20px;
+}
+/* 背包 */
+.pack{
+    max-width: 320px;
+    max-height: 568px;
+    width: 98%;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.pack .phead{
+    position: relative;
+    z-index: 90;
+}
+.pack .pmain{
+    overflow: hidden;
+}
+.pack .pmain ul{
+    width: 100%;
+    height: 100%;
+    max-height: 261px;
+    overflow: auto;
+    padding: 0;
+}
+.pack .pmain ul li{
+    list-style: none;
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-left: 6%;
+    margin-top: 5px;
+    position: relative;
+    border: 1px solid #000;
+}
+.pmain ul li .number,.xqmain .left .shuz{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 16px;
+    background: white;
+    padding: 1px 2px;
+}
+.pack .xqing{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 87%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    display: none;
+}
+.xqing .xqmain{
+    padding: 10px;
+    background: white;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+.xqmain .left{
+    display: inline-block;
+    position: relative;
+}
+.xqmain .left .shuz{
+    bottom: 5px;
+    right: 1px;
+}
+.xqmain .img{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #000;
+}
+.xqmain .rong{
+    float: right;
+    width: 62%;
+}
+.xqmain .rong h3{
+    font-size: 18px;
+}
+.xqmain .rong span{
+    font-size: 12px;
+}
+.xqmain .rong button{
+    display: block;
+    width: 60px;
+    height: 35px;
+    margin-top: 10px;
+    border: none;
+    background: orange;
 }

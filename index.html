@@ -13,6 +13,7 @@
     <script src="./js/first.js"></script>
     <script src="./module/menu.js"></script>
     <script src="./js/map.js"></script>
+    <script src="./module/shadow.js"></script>
     <script src="./js/home.js"></script>
     <script src="./module/btn.js"></script>
     <script src="./module/building.js"></script>
@@ -60,7 +61,6 @@
                         <span>能量：10</span>
                         <span>1*1</span>
                     </div>
-                    <div class="menu1 next"></div>
                 </div>
                 <div class="right" id="Zshi">
                     <div class="menu1" id="" style="margin-left: 0.5rem;">
@@ -77,11 +77,10 @@
                         <span>能量：10</span>
                         <span>1*1</span>
                     </div>
-                    <div class="menu1 next"></div>
                 </div>
                 <div class="right" id="Gneng">
                     <div class="menu1" id="build1" style="margin-left: 0.5rem;">
-                        <span class="h1">建筑选项</span>
+                        <span class="h1"><img src="./assets/1x1ccz.png" height="68" alt=""></span>
                         <span>功能建筑</span>
                         <span>金币：10000</span>
                         <span>能量：10</span>
@@ -94,7 +93,7 @@
                         <span>能量：10</span>
                         <span>1*1</span>
                     </div>
-                    <div class="menu1 next"></div>
+                    
                 </div>
                 
             </div>
@@ -159,6 +158,7 @@
                 <li id="c3">设置</li>
                 <li id="c4">收起</li>
                 <li id="c5">建筑</li>
+                <li id="c6">背包</li>
             </ul>
         </div>
     </div>
@@ -200,6 +200,44 @@
             <h1>形</h1>
             <h1>模</h1>
             <h1>型</h1>
+        </div>
+    </div>
+
+    <!-- 背包 -->
+    <div class="pack" id="pack">
+        <div class="phead">
+            <h2>背包<button id="packBtn">关闭</button></h2>
+        </div>
+        <div class="pmain">
+            <ul id="packsack">
+                <li class="res">
+                    
+                </li>
+                <li class="res"></li>
+                <li class="res"></li>
+                <li class="res"></li>
+                <li class="res"></li>
+                <li class="res"></li>
+                <li class="res"></li>
+                <li class="res"></li>
+                <li class="res"></li>
+            </ul>
+        </div>
+        <div class="xqing" id="xqing">
+            <div class="phead">
+                <h2>物品信息<button id="rongBtn">关闭</button></h2>
+            </div>
+            <div class="xqmain">
+                <div class="left">
+                    <img src="" class="img" alt="">
+                    <div class="shuz"></div>
+                </div>
+                <div class="rong">
+                    <h3>物品名称</h3>
+                    <span>物品介绍文字物品介绍文字物品介绍文字物品介绍文字物品介绍文字</span>
+                    <button id="">使用</button>
+                </div>
+            </div>
         </div>
     </div>
     

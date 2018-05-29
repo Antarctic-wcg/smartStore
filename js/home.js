@@ -78,37 +78,11 @@ var homeState = function(game){
         }
 
         //地板阴影
-        var fw = (game.cache.getImage("floor").width*0.5);
-        var fh = (game.cache.getImage("floor").height*0.5);
-        var fwx = fw / 22 /2;
-        var fwy = fh / 22 /2;
-        this.fwx = fwx;    
-        this.fwy = fwy; 
-        //可建地板1
-        this.guding = game.add.graphics(this.floor.x, this.floor.y);//开始画
-        this.guding.beginFill(0x999999);
-        this.guding.drawPolygon(-8*fwx, 0, -3*fwx,-5*fwy, -6*fwx, -8*fwy, -11*fwx, -3*fwy);//3*5
-        this.guding.beginFill(0xFF0000);
-        this.guding.alpha = 0.5;
-        this.guding.endFill();
-        this.guding.inputEnabled = true;
-        this.guding.events.onInputDown.add(this.showMenu, this);
-        this.guding.building = true;
-        this.shadowGroup.add(this.guding);
-        //可建地板2
-        this.guding2 = game.add.graphics(this.floor.x+fwx*10, this.floor.y+fwy*10);//开始画
-        this.guding2.beginFill(0x999999);
-        this.guding2.drawPolygon(-8*fwx, 0, -3*fwx,-5*fwy, -6*fwx, -8*fwy, -11*fwx, -3*fwy);//3*5
-        this.guding2.beginFill(0xFF0000);
-        this.guding2.alpha = 0.5;
-        this.guding2.endFill();
-        this.guding2.inputEnabled = true;
-        this.guding2.events.onInputDown.add(this.showMenu, this);
-        this.guding2.building = true;
-        this.shadowGroup.add(this.guding2);
-
+        shadow(this);
         //AI少女
         this.aisn();
+        //背包列表
+        this.pack();
 
         
     }//create end
@@ -127,14 +101,14 @@ var homeState = function(game){
             var tx = car.img.x;
             var ty = car.img.y;
             this.build1 = (tx <= 760 && tx >= 700 && ty >= 468 && ty <= 531 && car.img.scale.x>0 && this.guding.building);
-            this.build2 = (tx <= 936 && tx >= 872 && ty >= 580 && ty <= 644 && car.img.scale.x>0 && this.guding2.building);
+            // this.build2 = (tx <= 936 && tx >= 872 && ty >= 580 && ty <= 644 && car.img.scale.x>0 && this.guding2.building);
             if(this.build1){car.buildx=728;car.buildy=500;}
-            if(this.build2){car.buildx=904;car.buildy=612;}
+            // if(this.build2){car.buildx=904;car.buildy=612;}
             if(this.build1 || this.build2){
                 car.img.x = car.buildx;//吸附作用
                 car.img.y = car.buildy;
                 car.img.tint = 0xFFFFFF;
-                car.building = true;
+                car.building = true;//用来确定是否能建造
             }else{
                 car.img.tint = 0xFF3366;
                 if(car.building){
@@ -185,9 +159,6 @@ var homeState = function(game){
         showMenu(this);
     }
 
-    // this.pengZ = function(){
-    //     console.log("jsjj")
-    // }
     this.aisn = function(){
         var that = this;
         var aisn = document.getElementById("aisnMenu");
@@ -197,42 +168,42 @@ var homeState = function(game){
         var c3 = document.getElementById("c3");
         var c4 = document.getElementById("c4");
         var c5 = document.getElementById("c5");
+        var c6 = document.getElementById("c6");
         var set = document.getElementById("set");
         var musicBtn = document.getElementById("musicBtn");
         var music = document.getElementById("music");
         var audio = document.getElementById("audio");
+        this.packDom = document.getElementById("pack");
+
         
         aisn.setAttribute("style","display: block;");
-        aisn.addEventListener("click", function(){
+        aisn.onclick = function(){
             aisnMain.setAttribute("style","display: block;");
-        })
-        c1.addEventListener("click", function(){//邮件
-        })
-        c2.addEventListener("click", function(){//大地图
+        }
+        c1.onclick = function(){//邮件
+        }
+        c2.onclick = function(){//大地图
             aisnMain.setAttribute("style","display: none;");
-            // music.removeEventListener("clcik", this.qimg);
-            // audio.removeEventListener("clcik", this.qimg);
             game.state.start("map");
             
-        })
-        // c3.addEventListener("click", function(){//设置
-        //     aisnMain.setAttribute("style","display: none;");
-        //     set.setAttribute("style","display: block;");
-        //     console.log(this);
-        // })
+        }
         //DOM0添加时间不会出现重复添加情况
         c3.onclick = function(){
             aisnMain.setAttribute("style","display: none;");
             set.setAttribute("style","display: block;");
             console.log(this);
         }
-        c4.addEventListener("click", function(){//收起
+        c4.onclick = function(){//收起
             aisnMain.setAttribute("style","display: none;");
-        })
-        c5.addEventListener("click", function(){//建筑
+        }
+        c5.onclick = function(){//建筑
             aisnMain.setAttribute("style","display: none;");
             showMenu(that);
-        })
+        }
+        c6.onclick = function(){//背包
+            that.packDom.setAttribute("style","display: block;")
+            aisnMain.setAttribute("style","display: none;");
+        }
         musicBtn.addEventListener("click", function(){
             set.setAttribute("style","display: none;");
         })
@@ -264,4 +235,52 @@ var homeState = function(game){
         }
     }
 
+    this.pack = function(){
+        var packArray = [
+            {"src":"./assets/wulh.png", "number":"10"},
+            {"src":"./assets/320c.png", "number":"10"},
+            {"src":"./assets/530h.png", "number":"22"},
+            {"src":"./assets/building.png", "number":"50"},
+            {"src":"./assets/wulh.png", "number":"99"},
+            {"src":"./assets/yqzt.png", "number":"99"},
+            {"src":"./assets/zs1.png", "number":"99"},
+            {"src":"./assets/zs2.png", "number":"99"},
+            {"src":"./assets/zs3.png", "number":"99"},
+            {"src":"./assets/wulh.png", "number":"99"},
+            {"src":"./assets/wulh.png", "number":"99"},
+        ];
+        var that = this;
+        var packs = document.getElementsByClassName("res");
+        var imgs = document.getElementsByClassName("img");
+        var packBtn = document.getElementById("packBtn");
+        var rongBtn = document.getElementById("rongBtn");
+        var xqing = document.getElementById("xqing");
+        var packsack = document.getElementById("packsack");
+        for(var i = 0; i < packArray.length; i++){
+            if(i < 9){
+                packs[i].innerHTML = '<img src="'+packArray[i].src+'" width="100%" height="100%" alt=""><div class="number">'+packArray[i].number+'</div>'
+            }else{
+                var li = document.createElement("li");
+                li.setAttribute("class","res");
+                li.innerHTML = '<img src="'+packArray[i].src+'" width="100%" height="100%" alt=""><div class="number">'+packArray[i].number+'</div>';
+                packsack.appendChild(li);
+            }
+        }
+        for(let i = 0; i < packArray.length; i++){
+            if(packs[i].children.length){
+                packs[i].onclick = function(){
+                    imgs[0].setAttribute("src", this.children[0].getAttribute("src"));
+                    imgs[0].nextElementSibling.innerHTML = packs[i].children[1].innerHTML;
+                    xqing.setAttribute("style","display: block;")
+                }
+            }
+        }
+
+        packBtn.onclick = function(){
+            that.packDom.setAttribute("style","display: none;")
+        }
+        rongBtn.onclick = function(){
+            xqing.setAttribute("style","display: none;")
+        }
+    }
 }

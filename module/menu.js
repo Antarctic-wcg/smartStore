@@ -35,10 +35,7 @@ var showMenu = function(that){
         redCar.input.enableDrag(false);//拖拽
         redCar.input.pixelPerfectClick = true;//对象使用完美像素检查
         
-        
-        
         menu.setAttribute("style", "display: none;");
-        
         that["redCar" + that.clickNum].img = redCar;
         that.carGroup.add(that["redCar" + that.clickNum]);
         buts(that, that["redCar" + that.clickNum]);
