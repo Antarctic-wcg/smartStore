@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="icon" href="./assets/title.png" type="image/x-icon"/>
+    <link rel="icon" href="./assets/title.png" type="image/x-icon" />
     <title>smartStore</title>
 </head>
+
 <body>
     <div id="container"></div>
-    
+
     <div class="caidan" id="menu">
         <div class="main">
             <div class="head">
-                <h2>建筑菜单<button id="btn">关闭</button></h2>
+                <h2>建筑菜单
+                    <button id="btn">关闭</button>
+                </h2>
             </div>
             <div class="bottom">
                 <div class="left">
-                    <h3><button id="btnl1">功能类</button></h3>
-                    <h3><button id="btnl2">装饰类</button></h3>
-                    <h3><button id="btnl3">地板类</button></h3>
+                    <h3>
+                        <button id="btnl1">功能类</button>
+                    </h3>
+                    <h3>
+                        <button id="btnl2">装饰类</button>
+                    </h3>
+                    <h3>
+                        <button id="btnl3">地板类</button>
+                    </h3>
                 </div>
                 <div class="right" id="floor">
                     <div class="heng" style="width: 600px;">
                         <div class="menu1" id="build1">
-                            <span class="h1"><img src="./assets/1x1ccz.png" height="100%" alt=""></span>
+                            <span class="h1">
+                                <img src="./assets/1x1ccz.png" height="100%" alt="">
+                            </span>
                             <span>功能建筑</span>
                             <span>金币：10000</span>
                             <span>能量：10</span>
@@ -36,7 +48,9 @@
                 <div class="right" id="Zshi">
                     <div class="heng" style="width: 600px;">
                         <div class="menu1" id="build1">
-                            <span class="h1"><img src="./assets/1x1ccz.png" height="100%" alt=""></span>
+                            <span class="h1">
+                                <img src="./assets/1x1ccz.png" height="100%" alt="">
+                            </span>
                             <span>功能建筑</span>
                             <span>金币：10000</span>
                             <span>能量：10</span>
@@ -47,7 +61,7 @@
                 <div class="right" id="Gneng">
                     <div class="heng" style="width: 600px;"></div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -55,7 +69,9 @@
     <div class="caidan build" id="build">
         <div class="main">
             <div class="head">
-                <h2>建筑数据<button id="btn2">关闭</button></h2>
+                <h2>建筑数据
+                    <button id="btn2">关闭</button>
+                </h2>
             </div>
             <div class="buildData">
                 <h3>建筑名称</h3>
@@ -83,15 +99,21 @@
         <span>选择门店风格</span>
         <div class="smain">
             <div class="style1" id="style1">
-                风格<br>ICON<br> A
+                风格
+                <br>ICON
+                <br> A
                 <span>风格名称A</span>
             </div>
             <div class="style2" id="style2">
-                风格<br>ICON<br> B
+                风格
+                <br>ICON
+                <br> B
                 <span>风格名称B</span>
             </div>
             <div class="style3" id="style3">
-                风格<br>ICON <br>C
+                风格
+                <br>ICON
+                <br>C
                 <span>风格名称C</span>
             </div>
         </div>
@@ -119,7 +141,9 @@
     <div class="set" id="set">
         <div class="setMain">
             <div class="head">
-                <h2>游戏设置<button id="musicBtn">关闭</button></h2>
+                <h2>游戏设置
+                    <button id="musicBtn">关闭</button>
+                </h2>
             </div>
             <div class="bottom">
                 <div class="music">
@@ -159,12 +183,14 @@
     <!-- 背包 -->
     <div class="pack" id="pack">
         <div class="phead">
-            <h2>背包<button id="packBtn">关闭</button></h2>
+            <h2>背包
+                <button id="packBtn">关闭</button>
+            </h2>
         </div>
         <div class="pmain">
             <ul id="packsack">
                 <li class="res">
-                    
+
                 </li>
                 <li class="res"></li>
                 <li class="res"></li>
@@ -178,7 +204,9 @@
         </div>
         <div class="xqing" id="xqing">
             <div class="phead">
-                <h2>物品信息<button id="rongBtn">关闭</button></h2>
+                <h2>物品信息
+                    <button id="rongBtn">关闭</button>
+                </h2>
             </div>
             <div class="xqmain">
                 <div class="left">
@@ -196,7 +224,9 @@
     <!-- 商店 -->
     <div class="shop" id="shop">
         <div class="phead" id="shopHead">
-            <h2>商店<button id="shopBtn">关闭</button></h2>
+            <h2>商店
+                <button id="shopBtn">关闭</button>
+            </h2>
         </div>
         <div class="shopMain" id="shopMain"></div>
     </div>
@@ -214,7 +244,47 @@
                 <li style="margin-top:-1px;margin-left:-1px;">Day 7</li>
             </ul>
         </div>
-        <div class="signBtn"><button>签到</button></div>
+        <div class="signBtn">
+            <button>签到</button>
+        </div>
+    </div>
+
+    <!-- 任务 -->
+    <button id="task">任务</button>
+    <div id="caidan_task">
+        <div class="main_task">
+            <h2>任务
+                <button id="remove_task">关闭</button>
+            </h2>
+            <div id="task_category">
+                <button id="task_btn1">任务</button>
+                <button id="task_btn2">成就</button>
+                <div id="task_content1">
+                </div>
+                <div id="task_content2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 排行榜 -->
+    <div id="lists">
+        <div class="main_lists" id="main_lists">
+            <h2>排行榜
+                <button id="remove_task">关闭</button>
+            </h2>
+            <div id="lists_content">
+                <div id="lists_con">
+                    <div id="img_boder">
+                        <img src="./assets/achievement_img1.JPG" alt="" id="img_rnagking">
+                        <img src="./assets/achievement_img1.JPG" alt="" id="img_top">
+                    </div>
+                    <div id="lists_text">
+                        <div id="lists_name">玩家名称</div>
+                        <div id="lists_evaluation">评价值：100000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="./js/phaser.min.js"></script>
@@ -239,6 +309,7 @@
         game.state.add("map", mapState);
         game.state.start("boot");//开始场景
     </script>
-    
+
 </body>
+
 </html>
