@@ -32,6 +32,7 @@ var homeState = function(game){
         this.floorGroup = game.add.group();
         //创建可建造阴影组
         this.shadowGroup = game.add.group();
+        this.shadowGroup.alpha = 0.4;
         //创建建筑组
         this.buildGroup = game.add.group();
         //建筑菜单按钮组
@@ -65,17 +66,6 @@ var homeState = function(game){
         this.floor.events.onInputUp.add(function(){
             game.input.deleteMoveCallback(this.cameraMove, this);
         }, this);
-        
-
-        //边缘装饰
-        var dx = this.floor.x;
-        var dy = this.floor.y;
-        for(var i = 0; i < 5; i++){
-            var decorate1 = game.add.image(dx/2+2 + 58*(i+1), (dy -18)+(i*37), "zhuangshi3");
-            decorate1.scale.set(0.6);
-            this.buildGroup.add(decorate1);
-            // decorate1.scale.x = -0.6;//图片水平翻转设置-即可
-        }
 
         //地板阴影
         shadow(this);
@@ -83,7 +73,9 @@ var homeState = function(game){
         this.aisn();
         //背包列表
         this.pack();
-
+        //商店
+        this.shop();
+        
         
     }//create end
     this.update = function(){
@@ -92,19 +84,19 @@ var homeState = function(game){
             this.follow(item);
         }, this)
     }
-    // this.render = function(){
-    // }
+    this.render = function(){
+        if(this.gn3){
+            game.debug.spriteBounds(this.gn3); 
+        }
+    }
     
     //让btns与buttons跟随图片，检测可建造区域
     this.follow = function(car){
         if(car.Show){
             var tx = car.img.x;
             var ty = car.img.y;
-            this.build1 = (tx <= 760 && tx >= 700 && ty >= 468 && ty <= 531 && car.img.scale.x>0 && this.guding.building);
-            // this.build2 = (tx <= 936 && tx >= 872 && ty >= 580 && ty <= 644 && car.img.scale.x>0 && this.guding2.building);
-            if(this.build1){car.buildx=728;car.buildy=500;}
-            // if(this.build2){car.buildx=904;car.buildy=612;}
-            if(this.build1 || this.build2){
+            var num = this.match(car, tx, ty);
+            if(num){
                 car.img.x = car.buildx;//吸附作用
                 car.img.y = car.buildy;
                 car.img.tint = 0xFFFFFF;
@@ -117,21 +109,17 @@ var homeState = function(game){
             }
             if(car.btns){
                 car.okBtn.x = car.img.x + 30;
-                car.okBtn.y = car.img.y + 50;
                 car.qxBtn.x = car.img.x - 30;
-                car.qxBtn.y = car.img.y + 50;
                 car.xzBtn.x = car.img.x - 90;
-                car.xzBtn.y = car.img.y + 50;
+                car.qxBtn.y = car.img.y + car.img.height/2 + 10;
+                car.okBtn.y = car.img.y + car.img.height/2 + 10;
+                car.xzBtn.y = car.img.y + car.img.height/2 + 10;
             }
             if(car.buttonsMove){
-                car.ckBtn.y = car.img.y + 30;
-                car.moveBtn.y = car.img.y + 30;
-                car.xuanzhuan.y = car.img.y + 30;
-                car.chaichuBtn.y = car.img.y + 30;
-                car.ckBtn.x = car.img.x - car.img.width*0.8;
-                car.moveBtn.x = car.img.x - car.img.width*0.4;
-                car.xuanzhuan.x = car.img.x - car.img.width*0;
-                car.chaichuBtn.x = car.img.x + car.img.width*0.4;
+                car.moveBtn.y = car.img.y + car.img.height/2+10;
+                car.xuanzhuan.y = car.img.y + car.img.height/2+10;
+                car.moveBtn.x = car.img.x - 60;
+                car.xuanzhuan.x = car.img.x;
             }
         }
     }
@@ -159,6 +147,7 @@ var homeState = function(game){
         showMenu(this);
     }
 
+    //AI少女页面
     this.aisn = function(){
         var that = this;
         var aisn = document.getElementById("aisnMenu");
@@ -169,6 +158,9 @@ var homeState = function(game){
         var c4 = document.getElementById("c4");
         var c5 = document.getElementById("c5");
         var c6 = document.getElementById("c6");
+        var c7 = document.getElementById("c7");//商店
+        var shop = document.getElementById("shop");//商店div
+        var shopBtn = document.getElementById("shopBtn");//商店关闭按钮
         var set = document.getElementById("set");
         var musicBtn = document.getElementById("musicBtn");
         var music = document.getElementById("music");
@@ -185,14 +177,16 @@ var homeState = function(game){
         c2.onclick = function(){//大地图
             aisnMain.setAttribute("style","display: none;");
             game.state.start("map");
-            
         }
         //DOM0添加时间不会出现重复添加情况
-        c3.onclick = function(){
+        c3.onclick = function(){//设置
             aisnMain.setAttribute("style","display: none;");
             set.setAttribute("style","display: block;");
             console.log(this);
         }
+        musicBtn.addEventListener("click", function(){
+            set.setAttribute("style","display: none;");
+        })//设置关闭按钮
         c4.onclick = function(){//收起
             aisnMain.setAttribute("style","display: none;");
         }
@@ -204,14 +198,20 @@ var homeState = function(game){
             that.packDom.setAttribute("style","display: block;")
             aisnMain.setAttribute("style","display: none;");
         }
-        musicBtn.addEventListener("click", function(){
-            set.setAttribute("style","display: none;");
-        })
+        c7.onclick = function(){//商店
+            aisnMain.setAttribute("style","display: none;");
+            shop.setAttribute("style","display: block;");
+            that.shopHead = document.getElementById("shopHead");
+            shopMain.setAttribute("style","height:"+(game.height-that.shopHead.offsetHeight)+"px;");
+        }
+        shopBtn.onclick = function(){
+            shop.setAttribute("style","display: none;")
+        }
         music.addEventListener("click", this.qimg1)
         audio.addEventListener("click", this.qimg2)
     }
 
-    
+    //音乐按钮开关
     this.qimg1 = function(){
         if(this.getAttribute("src") == "./assets/on.jpg"){
             console.log(666);
@@ -234,7 +234,7 @@ var homeState = function(game){
             that.yinxiao = true;
         }
     }
-
+    //背包
     this.pack = function(){
         var packArray = [
             {"src":"./assets/wulh.png", "number":"10"},
@@ -282,5 +282,34 @@ var homeState = function(game){
         rongBtn.onclick = function(){
             xqing.setAttribute("style","display: none;")
         }
+    }
+    //商店
+    this.shop = function(){
+        var shopBtn = document.getElementById("shopBtn");
+        var shopMain = document.getElementById("shopMain");
+        
+        for(var i=0; i< 12; i++){
+            var sitem = document.createElement("div");
+            sitem.setAttribute("class","sitem");
+            sitem.innerHTML = '<div class="bor"><div class="sleft"><div class="simg"></div><span>物品名称</span></div><div class="sright"><div class="info">物品介绍物品介绍物品介绍物品介绍物品介绍物品介绍物品介绍物品介绍物品介绍</div><div class="goumai"><button>购买</button></div></div></div>';
+            shopMain.appendChild(sitem);
+        }
+    }
+    //建造匹配类型
+    this.match = function(car, tx, ty){
+        
+        
+        // if(car.size == "1X1"){
+        //     // console.log(car.size);
+        //     this.build1_1 = (tx >= 820 && tx <= 840 && ty >= 360 && ty <= 380 && this.guding.building);
+        //     if(this.build1_1){car.buildx=830;car.buildy=370;}
+        //     return this.build1_1;
+        // }else if(car.size == "1X2"){
+        //     // console.log(car.size);944 408
+        //     this.build2_1 = (tx >= 936 && tx <= 952 && ty >= 400 && ty <= 416 && this.guding3.building && car.img.scale.x>0);
+        //     if(this.build2_1){car.buildx=944;car.buildy=408;}
+        //     return this.build2_1;
+        // }
+        
     }
 }

@@ -6,8 +6,7 @@ var buts = function(cont, car){
     //建造确定按钮-----------------------------------------------------------
     car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
         if(car.building){
-            // car.img.x = car.buildx;//吸附作用
-            // car.img.y = car.buildy;
+            console.log(car.size);
             car.lastx = car.img.x;
             car.lasty = car.img.y;
             car.okBtn.destroy();
@@ -17,12 +16,14 @@ var buts = function(cont, car){
             car.img.input.disableDrag();//禁止拖拽
 
             //已有建筑的区域的时候不能建造
-            if(car.buildx == 728){
-                car.class = "guding";
+            if(car.buildx == 830){
+                car.class = "guding";//地板阴影
                 that[car.class].building = false;
-            }else if(car.buildx == 904){
-                car.class = "guding2";
+                // that[car.class].alpha = 0;
+            }else if(car.buildx == 944){
+                car.class = "guding3";//地板阴影
                 that[car.class].building = false;
+                // that[car.class].alpha = 0;
             }
             that.carGroup.removeChild(car);
 
@@ -30,7 +31,7 @@ var buts = function(cont, car){
 
             var hours = 0;
             var min = 0;
-            var s = 5;
+            var s = 1;
             upgrade(car, hours, min, s, this);
             
             car.img.events.onInputDown.add(function(){

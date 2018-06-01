@@ -6,35 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="icon" href="./assets/title.png" type="image/x-icon"/>
-    <script src="./js/phaser.min.js"></script>
-    <script src="./js/boot.js"></script>
-    <script src="./js/load.js"></script>
-    <script src="./js/styleShop.js"></script>
-    <script src="./js/first.js"></script>
-    <script src="./module/menu.js"></script>
-    <script src="./js/map.js"></script>
-    <script src="./module/shadow.js"></script>
-    <script src="./js/home.js"></script>
-    <script src="./module/btn.js"></script>
-    <script src="./module/building.js"></script>
-    <script src="./module/buttons.js"></script>
-    
     <title>smartStore</title>
 </head>
 <body>
     <div id="container"></div>
-    <script>
-        console.log(document.body.clientWidth,document.body.clientHeight);
-        var game = new Phaser.Game(document.body.clientWidth, document.body.clientHeight, Phaser.CANVAS, "container");
-        // var game = new Phaser.Game(1700, 1105, Phaser.CANVAS, "container");
-        game.state.add("boot", bootState);//初始化场景
-        game.state.add("loader", loaderState);//加载场景
-        game.state.add("style", styleState);//选择店面风格场景
-        game.state.add("home", homeState);
-        game.state.add("first", firstState);
-        game.state.add("map", mapState);
-        game.state.start("boot");//开始场景
-    </script>
+    
     <div class="caidan" id="menu">
         <div class="main">
             <div class="head">
@@ -135,6 +111,7 @@
                 <li id="c4">收起</li>
                 <li id="c5">建筑</li>
                 <li id="c6">背包</li>
+                <li id="c7">商店</li>
             </ul>
         </div>
     </div>
@@ -216,6 +193,52 @@
             </div>
         </div>
     </div>
+    <!-- 商店 -->
+    <div class="shop" id="shop">
+        <div class="phead" id="shopHead">
+            <h2>商店<button id="shopBtn">关闭</button></h2>
+        </div>
+        <div class="shopMain" id="shopMain"></div>
+    </div>
+    <!-- 签到 -->
+    <div class="signIn">
+        <div class="signIn-head">每日签到</div>
+        <div class="date">
+            <ul>
+                <li>Day 1</li>
+                <li style="margin-left:-1px;">Day 2</li>
+                <li style="margin-left:-1px;">Day 3</li>
+                <li style="margin-left:-1px;">Day 4</li>
+                <li class="five">Day 5</li>
+                <li style="margin-top:-1px;margin-left:-1px;">Day 6</li>
+                <li style="margin-top:-1px;margin-left:-1px;">Day 7</li>
+            </ul>
+        </div>
+        <div class="signBtn"><button>签到</button></div>
+    </div>
+
+    <script src="./js/phaser.min.js"></script>
+    <script src="./js/boot.js"></script>
+    <script src="./js/load.js"></script>
+    <script src="./js/styleShop.js"></script>
+    <script src="./js/first.js"></script>
+    <script src="./module/menu.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./module/shadow.js"></script>
+    <script src="./js/home.js"></script>
+    <script src="./module/btn.js"></script>
+    <script src="./module/building.js"></script>
+    <script src="./module/buttons.js"></script>
+    <script>
+        var game = new Phaser.Game(document.body.clientWidth, document.body.clientHeight, Phaser.CANVAS, "container");
+        game.state.add("boot", bootState);//初始化场景
+        game.state.add("loader", loaderState);//加载场景
+        game.state.add("style", styleState);//选择店面风格场景
+        game.state.add("home", homeState);
+        game.state.add("first", firstState);
+        game.state.add("map", mapState);
+        game.state.start("boot");//开始场景
+    </script>
     
 </body>
 </html>

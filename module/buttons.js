@@ -7,7 +7,7 @@ var buttons = function(cont, carImg, car){
     if(car.buttons){
         // car.buttons = false;
         //查看建筑------------------------------------------------------------------
-        car.ckBtn = game.add.button(carImg.x -carImg.width*0.8, carImg.y +30, "ckBtn", function(){
+        car.ckBtn = game.add.button(carImg.x -94, carImg.y +car.img.height/2+10, "ckBtn", function(){
             console.log("ckBtn");
             car.buttons = true;
             that.buttonsGroup.destroy();
@@ -21,7 +21,7 @@ var buttons = function(cont, carImg, car){
         })
         that.dangeBtn.add(car.ckBtn);
         //移动建组 + 打勾---------------------------------------------------------
-        car.moveBtn = game.add.button(carImg.x - carImg.width*0.4, carImg.y +30, "moveBtn", function(){
+        car.moveBtn = game.add.button(carImg.x - 47, carImg.y +car.img.height/2+10, "moveBtn", function(){
             if(car.moveBtn.key == "moveBtn"){
                 car.buttonsMove = true;
                 // that.buttons = true;
@@ -35,6 +35,7 @@ var buttons = function(cont, carImg, car){
                 //同一块地可建造一个建筑
                 that.carGroup.add(car);
                 that[car.class].building = true;
+                that[car.class].alpha = 0.5;
             }else if(car.moveBtn.key == "dgou"){
                 console.log(car.building);
                 if(car.building){//移动到能建造地方
@@ -63,7 +64,7 @@ var buttons = function(cont, carImg, car){
         })
         that.dangeBtn.add(car.moveBtn);
         //旋转建筑 + X---------------------------------------------------------------
-        car.xuanzhuan = game.add.button(carImg.x - carImg.width*0, carImg.y +30, "xuanzhuan", function(){
+        car.xuanzhuan = game.add.button(carImg.x + 0, carImg.y +car.img.height/2+10, "xuanzhuan", function(){
             if(car.xuanzhuan.key == "dcha"){
                 car.buttons = true;
                 carImg.input.bringToTop = false;
@@ -87,7 +88,7 @@ var buttons = function(cont, carImg, car){
         })
         that.dangeBtn.add(car.xuanzhuan);
         //拆除建筑---------------------------------------------------
-        car.chaichuBtn = game.add.button(carImg.x + carImg.width*0.4, carImg.y +30, "chaichuBtn", function(){
+        car.chaichuBtn = game.add.button(carImg.x + 50, carImg.y +car.img.height/2+10, "chaichuBtn", function(){
             var chai = document.getElementById("chai");
             chai.setAttribute("style","display: block;");
             chai.addEventListener("click", function(){
