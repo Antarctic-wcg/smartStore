@@ -327,6 +327,8 @@ var homeState = function (game) {
         var task_btn1 = document.getElementById("task_btn1");
         var task_btn2 = document.getElementById("task_btn2");
         var her = game.height - 200;
+
+        task.setAttribute("style","display:block;")
         //清除数据
         task_content1.remove();
         var dom1 = document.createElement("div");
