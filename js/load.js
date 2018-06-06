@@ -13,7 +13,8 @@ var loaderState = function(game){
         game.load.image("orangeCar","assets/320c.png");
         // game.load.image("redCar","assets/530h.png");
         game.load.image("wulingCar", "assets/wulh.png");
-        game.load.image("floor", "assets/1540_990.png");
+        game.load.image("floor", "assets/1540_990.png");//地板
+        game.load.image("bg1", "assets/bg1.jpg");//背景
         game.load.image("building", "assets/building.png");
         game.load.image("zhuangshi1", "assets/zs1.png");
         game.load.image("zhuangshi2", "assets/zs2.png");
@@ -28,11 +29,14 @@ var loaderState = function(game){
         game.load.image("1x1ycc", "assets/1x1ycc.png");
         game.load.image("1x1ydz", "assets/1x1ydz.png");
         game.load.image("1x1ysz", "assets/1x1ysz.png");
+        game.load.image("1x1gezi", "assets/1x1gezi.png");//格子
+        game.load.image("yuan", "assets/yuan.png");//圆
         game.load.image("1x2dz", "assets/1x2dz.png");
         game.load.image("1x2fcc", "assets/1x2fcc.png");
         game.load.image("1x2ggp", "assets/1x2ggp.png");
         game.load.image("1x4ggp", "assets/1x4ggp.png");
-        game.load.image("1x4hyp", "assets/1x4hyp.png");
+        game.load.image("1x4hyp", "assets/1x4hyp.png");//未修改
+        game.load.image("1x4hyp1", "assets/1x4hyp1.png");
         game.load.image("2x2rk", "assets/2x2rk.png");
         game.load.image("2x2znAI", "assets/2x2znAI.png");
         game.load.image("2x3czt", "assets/2x3czt.png");

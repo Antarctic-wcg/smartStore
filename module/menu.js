@@ -12,7 +12,21 @@ var showMenu = function(that){
     //横向内容
     var heng = document.getElementsByClassName("heng");
     var gnengData = [
+        {"src":"assets/1x4hyp1.png", "sprite":"1x4hyp1","specifications":"1X4"},
+        {"src":"assets/1x4ggp.png", "sprite":"1x4ggp","specifications":"1X4"},
+        {"src":"assets/1x2ggp.png", "sprite":"1x2ggp","specifications":"1X2"},
+        {"src":"assets/1x2fcc.png", "sprite":"1x2fcc","specifications":"1X2"},
+        {"src":"assets/1x2dz.png", "sprite":"1x2dz","specifications":"1X2"},
         {"src":"assets/1x1ccz.png", "sprite":"1x1ccz","specifications":"1X1"},
+        {"src":"assets/1x1dz.png", "sprite":"1x1dz","specifications":"1X1"},
+        {"src":"assets/1x1fcc.png", "sprite":"1x1fcc","specifications":"1X1"},
+        {"src":"assets/1x1fsz.png", "sprite":"1x1fsz","specifications":"1X1"},
+        {"src":"assets/1x1ggp.png", "sprite":"1x1ggp","specifications":"1X1"},
+        {"src":"assets/1x1ljt.png", "sprite":"1x1ljt","specifications":"1X1"},
+        {"src":"assets/1x1ycc.png", "sprite":"1x1ycc","specifications":"1X1"},
+        {"src":"assets/1x1ydz.png", "sprite":"1x1ydz","specifications":"1X1"},
+        {"src":"assets/1x1ysz.png", "sprite":"1x1ysz","specifications":"1X1"},
+        {"src":"assets/1x1gezi.png", "sprite":"1x1gezi","specifications":"1X1"},
         {"src":"assets/1x2dz.png", "sprite":"1x2dz","specifications":"1X2"},
         {"src":"assets/1x4ggp.png", "sprite":"1x4ggp","specifications":"1X4"},
         {"src":"assets/2x2rk.png", "sprite":"2x2rk","specifications":"2X2"},
@@ -54,13 +68,13 @@ var showMenu = function(that){
         window["gn"+j] = document.getElementById("gn"+j);
         window["gn"+j].onclick = function(){
             that.clickNum += 1;
-            var redCar = game.add.sprite(that.floor.x + 10, that.floor.y + 5, gnengData[j].sprite);
+            var redCar = game.add.sprite(that.floor.x, that.floor.y, gnengData[j].sprite);
             redCar.anchor.set(0.5);
             redCar.scale.set(0.5);
             // redCar.tint = 0xFF3366;
             redCar.inputEnabled = true;//开启输入事件
             redCar.input.enableDrag(false);//拖拽
-            // redCar.input.enableSnap(10, 20);
+            // redCar.input.enableSnap(4, 3);
             that["gn" + that.clickNum] = game.add.sprite();
             that["gn" + that.clickNum].Show = true;
             redCar.inputEnabled = true;//开启输入事件
@@ -70,6 +84,11 @@ var showMenu = function(that){
             that["gn" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
             that.carGroup.add(that["gn" + that.clickNum]);
             buts(that, that["gn" + that.clickNum]);
+
+            // that["size" + that.clickNum] = game.add.sprite(that.floor.x, that.floor.y, "yuan");
+            // that["size" + that.clickNum].scale.set(0.5);
+            // that["size" + that.clickNum].anchor.set(0.5);
+            
         }
     }
     // var build1 = document.getElementById("build1");

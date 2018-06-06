@@ -40,8 +40,9 @@ var shadow = function(that){
         that["guding1_"+i].endFill();
         that["guding1_"+i].x += fwx*(shadowx+i);
         that["guding1_"+i].y += fwy*(shadowy-i);
+        that["guding1_"+i].building = true;//初始可建造
         that.firstShadow.add(that["guding1_"+i]);
-        console.log(that["guding1_"+i].x, that["guding1_"+i].y);
+        // console.log(that["guding1_"+i].x, that["guding1_"+i].y);
     }
     shadowx = -5;
     shadowy = 1;
@@ -57,6 +58,7 @@ var shadow = function(that){
         that["guding2_"+j].endFill();
         that["guding2_"+j].x += fwx*(shadowx+j);
         that["guding2_"+j].y += fwy*(shadowy-j);
+        that["guding2_"+j].building = true;//初始可建造
         that.twoShadow.add(that["guding2_"+j]);
     }
     shadowx = -5;
@@ -73,6 +75,7 @@ var shadow = function(that){
         that["guding3_"+m].endFill();
         that["guding3_"+m].x += fwx*(shadowx+m);
         that["guding3_"+m].y += fwy*(shadowy-m);
+        that["guding3_"+m].building = true;//初始可建造
         that.threeShadow.add(that["guding3_"+m]);
     }
     shadowx = -5;
@@ -89,6 +92,7 @@ var shadow = function(that){
         that["guding4_"+n].endFill();
         that["guding4_"+n].x += fwx*(shadowx+n);
         that["guding4_"+n].y += fwy*(shadowy-n);
+        that["guding4_"+n].building = true;//初始可建造
         that.fourShadow.add(that["guding4_"+n]);
     }
     shadowx = -5;
@@ -105,6 +109,7 @@ var shadow = function(that){
         that["guding5_"+k].endFill();
         that["guding5_"+k].x += fwx*(shadowx+k);
         that["guding5_"+k].y += fwy*(shadowy-k);
+        that["guding5_"+k].building = true;//初始可建造
         that.fiveShadow.add(that["guding5_"+k]);
     }
     shadowx = -5;
@@ -121,6 +126,7 @@ var shadow = function(that){
         that["guding6_"+p].endFill();
         that["guding6_"+p].x += fwx*(shadowx+p);
         that["guding6_"+p].y += fwy*(shadowy-p);
+        that["guding6_"+p].building = true;//初始可建造
         that.sixShadow.add(that["guding6_"+p]);
     }
     

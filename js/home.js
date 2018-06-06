@@ -2,6 +2,18 @@ var homeState = function (game) {
     var quan = true;
     var that = this;
     this.create = function () {
+        var bg1 = game.add.sprite(-91, -60, "bg1");//背景
+        bg1.scale.set(0.5);
+        bg1.inputEnabled = true;
+        bg1.events.onInputDown.add(function(){
+            this.oneX = game.input.activePointer.x;
+            this.oney = game.input.activePointer.y;
+            game.input.addMoveCallback(this.cameraMove, this);
+        }, this);
+        bg1.events.onInputUp.add(function () {
+            game.input.deleteMoveCallback(this.cameraMove, this);
+        }, this);
+        
         //背景音乐
         if (!this.sound1) {
             this.sound1 = game.add.audio("zhuti");
@@ -84,21 +96,24 @@ var homeState = function (game) {
     this.update = function () {
         game.physics.arcade.collide(this.carGroup, this.pengZ);
         this.carGroup.forEachExists(function (item) {
+            item.img.input.pixelPerfectClick = true;
             this.follow(item);
         }, this)
     }
-    this.render = function () {
-        if (this.gn3) {
-            game.debug.spriteBounds(this.gn3);
-        }
-    }
+    // this.render = function () {
+    //     if (this.size1) {
+    //         game.debug.spriteBounds(this.size1);
+    //     }
+    // }
 
     //让btns与buttons跟随图片，检测可建造区域
     this.follow = function (car) {
         if (car.Show) {
+            // console.log(car.img.x, car.img.y);
             var tx = car.img.x;
             var ty = car.img.y;
-            var num = this.match(car, tx, ty);
+            var num = match(car, tx, ty, this);
+            
             if (num) {
                 car.img.x = car.buildx;//吸附作用
                 car.img.y = car.buildy;
@@ -300,8 +315,6 @@ var homeState = function (game) {
     }
     //建造匹配类型
     this.match = function (car, tx, ty) {
-
-
         // if(car.size == "1X1"){
         //     // console.log(car.size);
         //     this.build1_1 = (tx >= 820 && tx <= 840 && ty >= 360 && ty <= 380 && this.guding.building);
@@ -313,7 +326,6 @@ var homeState = function (game) {
         //     if(this.build2_1){car.buildx=944;car.buildy=408;}
         //     return this.build2_1;
         // }
-
     }
 
     //任务

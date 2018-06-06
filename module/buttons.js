@@ -34,8 +34,11 @@ var buttons = function(cont, carImg, car){
                 carImg.input.bringToTop = true;//拖动时让该精灵显示在最上面
                 //同一块地可建造一个建筑
                 that.carGroup.add(car);
-                that[car.class].building = true;
-                that[car.class].alpha = 0.5;
+                car.block.forEach(function(val){
+                    val.building = true;
+                });
+                // car.block.building = true;
+                // that[car.class].alpha = 0.5;
             }else if(car.moveBtn.key == "dgou"){
                 console.log(car.building);
                 if(car.building){//移动到能建造地方
@@ -49,13 +52,10 @@ var buttons = function(cont, carImg, car){
                     car.lasty = carImg.y;
                     car.buttonsMove = false;
                     //已有建筑的区域的时候不能建造
-                    if(car.buildx == 728){
-                        car.class = "guding";
-                        that[car.class].building = false;
-                    }else if(car.buildx == 904){
-                        car.class = "guding2";
-                        that[car.class].building = false;
-                    }
+                    car.block.forEach(function(val){
+                        val.building = false;
+                    });
+                    // car.block.building = false;
                     that.carGroup.removeChild(car);
                 }
             }
@@ -76,7 +76,10 @@ var buttons = function(cont, carImg, car){
                 car.buttonsMove = false;
                 //-----------
                 that.carGroup.removeChild(car);
-                that[car.class].building = false;
+                car.block.forEach(function(val){
+                    val.building = true;
+                });
+                // car.block.building = false;
                 car.img.tint = 0xFFFFFF;
             }else{
                 // if(carImg.scale.x < 0){
@@ -99,7 +102,10 @@ var buttons = function(cont, carImg, car){
                 carImg.kill();
                 that.buttonsGroup.destroy();
                 car.buttons = true;
-                that[car.class].building = true;
+                car.block.forEach(function(val){
+                    val.building = true;
+                });
+                // car.block.building = true;
                 that.carGroup.removeChild(car);
                 chai.setAttribute("style","display: none;");
             });

@@ -16,15 +16,12 @@ var buts = function(cont, car){
             car.img.input.disableDrag();//禁止拖拽
 
             //已有建筑的区域的时候不能建造
-            if(car.buildx == 830){
-                car.class = "guding";//地板阴影
-                that[car.class].building = false;
-                // that[car.class].alpha = 0;
-            }else if(car.buildx == 944){
-                car.class = "guding3";//地板阴影
-                that[car.class].building = false;
-                // that[car.class].alpha = 0;
-            }
+            car.block.forEach(function(val){
+                console.log(val)
+                val.building = false;
+            });
+            // car.block.building = false;
+            
             that.carGroup.removeChild(car);
 
             car.img.visible = false;
