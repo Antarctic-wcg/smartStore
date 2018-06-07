@@ -1,14 +1,12 @@
 var buttons = function(cont, carImg, car){
     var that = cont;
     var buildData;
-    console.log("buttons")
      //创建建筑菜单按钮组
      that.dangeBtn = game.add.group();
     if(car.buttons){
         // car.buttons = false;
         //查看建筑------------------------------------------------------------------
         car.ckBtn = game.add.button(carImg.x -94, carImg.y +car.img.height/2+10, "ckBtn", function(){
-            console.log("ckBtn");
             car.buttons = true;
             that.buttonsGroup.destroy();
             buildData = document.getElementById("build");
@@ -40,7 +38,6 @@ var buttons = function(cont, carImg, car){
                 // car.block.building = true;
                 // that[car.class].alpha = 0.5;
             }else if(car.moveBtn.key == "dgou"){
-                console.log(car.building);
                 if(car.building){//移动到能建造地方
                     car.buttons = true;
                     carImg.input.disableDrag();
@@ -68,7 +65,6 @@ var buttons = function(cont, carImg, car){
             if(car.xuanzhuan.key == "dcha"){
                 car.buttons = true;
                 carImg.input.bringToTop = false;
-                console.log("x");
                 that.buttonsGroup.destroy();
                 carImg.x = car.lastx;
                 carImg.y = car.lasty;

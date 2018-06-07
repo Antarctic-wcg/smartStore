@@ -94,11 +94,15 @@ var homeState = function (game) {
 
     }//create end
     this.update = function () {
-        game.physics.arcade.collide(this.carGroup, this.pengZ);
         this.carGroup.forEachExists(function (item) {
             item.img.input.pixelPerfectClick = true;
             this.follow(item);
+            // if(item.ids){
+            //     console.log(item.ids);
+            // }
         }, this)
+        // console.log(this.carGroup.length);
+        
     }
     // this.render = function () {
     //     if (this.size1) {

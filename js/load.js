@@ -45,7 +45,7 @@ var loaderState = function(game){
         game.load.image("3x5Lv1zt", "assets/3x5Lv1zt.png");
         game.load.image("3x5Lv2zt", "assets/3x5Lv2zt.png");
         game.load.image("3x5Lv3zt", "assets/3x5Lv3zt.png");
-        game.load.image("3x5Lv3zt", "assets/3x5Lv3zt.png");
+        game.load.image("3x5building", "assets/3x5building.png");
         game.load.image("320h", "assets/320h.png");
         game.load.image("320l", "assets/320l.png");
         //按钮图片组

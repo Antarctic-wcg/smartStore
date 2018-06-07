@@ -1,12 +1,10 @@
 var buts = function(cont, car){
     var that = cont;
     car.buttons = true;//点击建筑只出现一次建筑菜单
-    console.log("show btn");
     car.btns = true;
     //建造确定按钮-----------------------------------------------------------
     car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
         if(car.building){
-            console.log(car.size);
             car.lastx = car.img.x;
             car.lasty = car.img.y;
             car.okBtn.destroy();
@@ -17,7 +15,6 @@ var buts = function(cont, car){
 
             //已有建筑的区域的时候不能建造
             car.block.forEach(function(val){
-                console.log(val)
                 val.building = false;
             });
             // car.block.building = false;
