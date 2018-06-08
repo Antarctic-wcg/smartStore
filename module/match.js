@@ -146,7 +146,7 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+4)]);
                 car.block.push(that[shadow+(ii+twoGe+5)]);
                 car.block.push(that[shadow+(ii+twoGe+6)]);
-                car.ids = shadow+(ii-1+twoGe);
+                car.ids = shadow+(ii+twoGe+4);
                 that.sta = true;
                 break;
             }
@@ -179,7 +179,11 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+5)]);
                 car.block.push(that[shadow+(ii+twoGe+9)]);
                 car.block.push(that[shadow+(ii+twoGe+10)]);
-                car.ids = shadow+(ii-1+twoGe);
+                if((car.img.x==804 && car.img.y <= 401.5) || (car.img.x == 821.5 && car.img.y == 390) || (car.img.x==910 && car.img.y == 468.5) || (car.img.x==927.5 && car.img.y <= 457) || (car.img.x==1017 && car.img.y == 538.5) || (car.img.x==1034.5 && car.img.y == 527) || (car.img.x==878 && car.img.y == 626.5) || (car.img.x==895.5 && car.img.y == 615) || (car.img.x==773 && car.img.y == 558.5) || (car.img.x==790.5 && car.img.y == 547) || (car.img.x==666 && car.img.y == 490.5) || (car.img.x==683.5 && car.img.y == 479)){
+                    car.ids = shadow+(ii+twoGe+5);
+                }else{
+                    car.ids = shadow+(ii+twoGe-1);
+                }
                 that.sta = true;
                 break;
             }
