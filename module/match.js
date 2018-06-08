@@ -229,6 +229,38 @@ var match = function(car, tx, ty, that){
         }
     }
 
+    that.x2x2t = function(x, y, buildBlock, shadow)
+    {   
+        var twosShadowX_5 = x;//17
+        var twosShadowY_5 = y;//11.5
+        var twoshang5 = 1;
+        var twoGe = 0;
+        for(var pps = 1; pps < 13; pps++)
+        {
+            if(pps == 5 || pps == 9)
+            {
+                twosShadowX_5 += 17;
+                twosShadowY_5 += 11.8;
+                twoshang5 += 4;
+                twoGe += 1;
+            }
+            that[buildBlock + pps] = ((tx>=((twosShadowX_5+17.5*(pps-twoshang5))-7)) && tx<=((twosShadowX_5+17.5*(pps-twoshang5))+7) && ty>=(twosShadowY_5-11.5*(pps-twoshang5)-7) && ty<=(twosShadowY_5-11.5*(pps-twoshang5)+7) && that[shadow+(pps-1+twoGe)].building && that[shadow+(pps+twoGe)].building && that[shadow+(pps+4+twoGe)].building && that[shadow+(pps+5+twoGe)].building);
+            if(that[buildBlock + pps])
+            {
+                car.buildx=(twosShadowX_5+(pps-twoshang5)*17.5);
+                car.buildy=(twosShadowY_5-11.5*(pps-twoshang5));
+                car.block = [];
+                car.block.push(that[shadow+(pps-1+twoGe)]);
+                car.block.push(that[shadow+(pps+twoGe)]);
+                car.block.push(that[shadow+(pps+4+twoGe)]);
+                car.block.push(that[shadow+(pps+5+twoGe)]);
+                car.ids = shadow+(pps-1+twoGe);
+                that.sta = true;
+                break;
+            }
+        }
+    }
+
     if(car.size == "1x1"){
         //第五块阴影
         var oneShadowX_5 = 746;//17
@@ -246,7 +278,7 @@ var match = function(car, tx, ty, that){
                 car.buildy=(oneShadowY_5-11.5*(i-hang5));
                 car.block = [];
                 car.block.push(that["guding5_" + (i-1)]);
-                car.ids = "guding5" + (i-1);
+                car.ids = "guding5_" + (i-1);
                 return true;
             }
         }
@@ -266,7 +298,7 @@ var match = function(car, tx, ty, that){
                 car.buildy=(oneShadowY_6-11.5*(j-hang6));
                 car.block = [];
                 car.block.push(that["guding6_" + (j-1)]);
-                car.ids = "guding6" + (j-1);
+                car.ids = "guding6_" + (j-1);
                 return true;
             }
         }
@@ -286,7 +318,7 @@ var match = function(car, tx, ty, that){
                 car.buildy=(oneShadowY_4-11.5*(m-hang4));
                 car.block = [];
                 car.block.push(that["guding4_" + (m-1)]);
-                car.ids = "guding4" + (m-1);
+                car.ids = "guding4_" + (m-1);
                 return true;
             }
         }
@@ -306,7 +338,7 @@ var match = function(car, tx, ty, that){
                 car.buildy=(oneShadowY_3-11.5*(n-hang3));
                 car.block = [];
                 car.block.push(that["guding3_" + (n-1)]);
-                car.ids = "guding3" + (n-1);
+                car.ids = "guding3_" + (n-1);
                 return true;
             }
         }
@@ -326,7 +358,7 @@ var match = function(car, tx, ty, that){
                 car.buildy=(oneShadowY_2-11.5*(p-hang2));
                 car.block = [];
                 car.block.push(that["guding2_" + (p-1)]);
-                car.ids = "guding2" + (p-1);
+                car.ids = "guding2_" + (p-1);
                 return true;
             }
         }
@@ -346,7 +378,7 @@ var match = function(car, tx, ty, that){
                 car.buildy=(oneShadowY_1-11.5*(t-hang1));
                 car.block = [];
                 car.block.push(that["guding1_" + (t-1)]);
-                car.ids = "guding1" + (t-1);
+                car.ids = "guding1_" + (t-1);
                 return true;
             }
         }
@@ -465,6 +497,19 @@ var match = function(car, tx, ty, that){
             //第6块阴影
             that.x3x5t(693, 473.5, "build3x5t_6_", "guding6_");
         }
+    }else if(car.size == "2x2"){
+        //第1块阴影
+        that.x2x2t(796, 411.5, "build2x2t_1_", "guding1_");
+        //第2块阴影
+        that.x2x2t(900.5, 479.8, "build2x2t_2_", "guding2_");
+        //第3块阴影
+        that.x2x2t(1007.5, 547.8, "build2x2t_3_", "guding3_");
+        //第4块阴影
+        that.x2x2t(868.5, 636.8, "build2x2t_4_", "guding4_");
+        //第5块阴影
+        that.x2x2t(762.5, 568.8, "build2x2t_5_", "guding5_");
+        //第6块阴影
+        that.x2x2t(655.5, 500.8, "build2x2t_6_", "guding6_");
     }
     
     

@@ -51,8 +51,9 @@ var homeState = function (game) {
         this.buttonsGroup = game.add.group();
         //汽车组
         this.carGroup = game.add.group();
-        this.carGroup.enableBody = true;
-        this.carGroup.physicsBodyType = Phaser.Physics.ARCADE;
+        // this.carGroup.enableBody = true;
+        // this.carGroup.physicsBodyType = Phaser.Physics.ARCADE;
+        // this.carGroup = [];
 
 
         //地板大地图
@@ -92,18 +93,141 @@ var homeState = function (game) {
         //任务+排行榜
         this.task_btn();
 
+        this.Zindex1 = game.add.group();
+        // console.log(this.Zindex1.removeChild("item"))
+        this.Zindex2 = game.add.group();
+        this.Zindex3 = game.add.group();
+        this.Zindex4 = game.add.group();
+        this.Zindex5 = game.add.group();
+        this.Zindex6 = game.add.group();
+        // this.index1 = [];
     }//create end
+    //update
+    var index1 = [];
+    var index2 = [];
+    var index3 = [];
+    var index4 = [];
+    var index5 = [];
+    var index6 = [];
     this.update = function () {
         this.carGroup.forEachExists(function (item) {
+            // item.img.input.pixelPerfectClick = true;
+            this.follow(item);
+            zindex(item, this);
+        }, this)
+        //--------------------------------------------
+        index1 = [];
+        this.Zindex1.forEachExists(function (item) {
+            this.follow(item);
+            zindex(item, this);
+            index1.push(item.zindex);
+            function sequence(a, b) {
+                if (a > b) {
+                    return 1;
+                } else if (a < b) {
+                    return -1
+                } else {
+                    return 0;
+                }
+            }
+            index1.sort(sequence);
+            this.Zindex1.setChildIndex(item, index1.indexOf(item.zindex));
+        }, this)
+        
+        
+        // console.log(this.Zindex1.length);
+        index2 = [];
+        this.Zindex2.forEachExists(function (item) {
+            // item.img.input.pixelPerfectClick = true;
+            this.follow(item);
+            zindex(item, this);
+            index2.push(item.zindex);
+            function sequence(a, b) {
+                if (a > b) {
+                    return 1;
+                } else if (a < b) {
+                    return -1
+                } else {
+                    return 0;
+                }
+            }
+            index2.sort(sequence);
+            this.Zindex2.setChildIndex(item, index2.indexOf(item.zindex));
+        }, this)
+        index3 = [];
+        this.Zindex3.forEachExists(function (item) {
+            // item.img.input.pixelPerfectClick = true;
+            this.follow(item);
+            zindex(item, this);
+            index3.push(item.zindex);
+            function sequence(a, b) {
+                if (a > b) {
+                    return 1;
+                } else if (a < b) {
+                    return -1
+                } else {
+                    return 0;
+                }
+            }
+            index3.sort(sequence);
+            this.Zindex3.setChildIndex(item, index3.indexOf(item.zindex));
+        }, this)
+        index4 = [];
+        this.Zindex4.forEachExists(function (item) {
+            // item.img.input.pixelPerfectClick = true;
+            this.follow(item);
+            zindex(item, this);
+            index4.push(item.zindex);
+            function sequence(a, b) {
+                if (a > b) {
+                    return 1;
+                } else if (a < b) {
+                    return -1
+                } else {
+                    return 0;
+                }
+            }
+            index4.sort(sequence);
+            this.Zindex4.setChildIndex(item, index4.indexOf(item.zindex));
+        }, this)
+        index5 = [];
+        this.Zindex5.forEachExists(function (item) {
+            // item.img.input.pixelPerfectClick = true;
+            this.follow(item);
+            zindex(item, this);
+            index5.push(item.zindex);
+            function sequence(a, b) {
+                if (a > b) {
+                    return 1;
+                } else if (a < b) {
+                    return -1
+                } else {
+                    return 0;
+                }
+            }
+            index5.sort(sequence);
+            this.Zindex5.setChildIndex(item, index5.indexOf(item.zindex));
+        }, this)
+        index6 = [];
+        this.Zindex6.forEachExists(function (item) {
             item.img.input.pixelPerfectClick = true;
             this.follow(item);
-            // if(item.ids){
-            //     console.log(item.ids);
-            // }
+            zindex(item, this);
+            index6.push(item.zindex);
+            function sequence(a, b) {
+                if (a > b) {
+                    return 1;
+                } else if (a < b) {
+                    return -1
+                } else {
+                    return 0;
+                }
+            }
+            index6.sort(sequence);
+            this.Zindex6.setChildIndex(item, index6.indexOf(item.zindex));
         }, this)
-        // console.log(this.carGroup.length);
-        
-    }
+       
+    }//undate end
     // this.render = function () {
     //     if (this.size1) {
     //         game.debug.spriteBounds(this.size1);
@@ -317,21 +441,7 @@ var homeState = function (game) {
             shopMain.appendChild(sitem);
         }
     }
-    //建造匹配类型
-    this.match = function (car, tx, ty) {
-        // if(car.size == "1X1"){
-        //     // console.log(car.size);
-        //     this.build1_1 = (tx >= 820 && tx <= 840 && ty >= 360 && ty <= 380 && this.guding.building);
-        //     if(this.build1_1){car.buildx=830;car.buildy=370;}
-        //     return this.build1_1;
-        // }else if(car.size == "1X2"){
-        //     // console.log(car.size);944 408
-        //     this.build2_1 = (tx >= 936 && tx <= 952 && ty >= 400 && ty <= 416 && this.guding3.building && car.img.scale.x>0);
-        //     if(this.build2_1){car.buildx=944;car.buildy=408;}
-        //     return this.build2_1;
-        // }
-    }
-
+    
     //任务
     this.task = function () {
         var task = document.getElementById("task");

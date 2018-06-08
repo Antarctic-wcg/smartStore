@@ -5,8 +5,10 @@ var buts = function(cont, car){
     //建造确定按钮-----------------------------------------------------------
     car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
         if(car.building){
+            car.Show = false;
             car.lastx = car.img.x;
             car.lasty = car.img.y;
+            car.lastBlock = car.block;
             car.okBtn.destroy();
             car.qxBtn.destroy();
             car.xzBtn.destroy();
@@ -91,6 +93,13 @@ var buts = function(cont, car){
         car.Show = false;
         car.btns = false;
         that.carGroup.removeChild(car);
+        that.Zindex1.removeChild(car);
+        that.Zindex2.removeChild(car);
+        that.Zindex3.removeChild(car);
+        that.Zindex4.removeChild(car);
+        that.Zindex5.removeChild(car);
+        that.Zindex6.removeChild(car);
+        that.clickNum -= 1;
     }, that)
     //旋转代码-------------------------------------------------------------------
     car.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){

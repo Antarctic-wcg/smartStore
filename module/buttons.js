@@ -21,6 +21,7 @@ var buttons = function(cont, carImg, car){
         //移动建组 + 打勾---------------------------------------------------------
         car.moveBtn = game.add.button(carImg.x - 47, carImg.y +car.img.height/2+10, "moveBtn", function(){
             if(car.moveBtn.key == "moveBtn"){
+                car.Show = true;
                 car.buttonsMove = true;
                 // that.buttons = true;
                 carImg.input.enableDrag(false);
@@ -29,16 +30,17 @@ var buttons = function(cont, carImg, car){
                 car.chaichuBtn.destroy();
                 car.moveBtn.loadTexture("dgou");
                 car.xuanzhuan.loadTexture("dcha");
-                carImg.input.bringToTop = true;//拖动时让该精灵显示在最上面
+                // carImg.input.bringToTop = true;//拖动时让该精灵显示在最上面*************
                 //同一块地可建造一个建筑
-                that.carGroup.add(car);
+                that.carGroup.addChild(car);
+                car.lastBlock = car.block;
                 car.block.forEach(function(val){
                     val.building = true;
                 });
                 // car.block.building = true;
-                // that[car.class].alpha = 0.5;
             }else if(car.moveBtn.key == "dgou"){
                 if(car.building){//移动到能建造地方
+                    car.Show = false;
                     car.buttons = true;
                     carImg.input.disableDrag();
                     car.moveBtn.destroy();
@@ -63,6 +65,7 @@ var buttons = function(cont, carImg, car){
         //旋转建筑 + X---------------------------------------------------------------
         car.xuanzhuan = game.add.button(carImg.x + 0, carImg.y +car.img.height/2+10, "xuanzhuan", function(){
             if(car.xuanzhuan.key == "dcha"){
+                car.Show = false;
                 car.buttons = true;
                 carImg.input.bringToTop = false;
                 that.buttonsGroup.destroy();
@@ -72,17 +75,16 @@ var buttons = function(cont, carImg, car){
                 car.buttonsMove = false;
                 //-----------
                 that.carGroup.removeChild(car);
+                car.block = car.lastBlock;
                 car.block.forEach(function(val){
-                    val.building = true;
+                    val.building = false;
                 });
                 // car.block.building = false;
                 car.img.tint = 0xFFFFFF;
             }else{
-                // if(carImg.scale.x < 0){
-                //     carImg.scale.x = 0.5;
-                // }else{
-                //     carImg.scale.x = -0.5;
-                // }
+                if(car.size == "1x1"){
+                    carImg.scale.x > 0 ? carImg.scale.x = -0.5 : carImg.scale.x = 0.5;
+                }
             }
         })
         that.dangeBtn.add(car.xuanzhuan);

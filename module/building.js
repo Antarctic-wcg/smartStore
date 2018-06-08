@@ -35,8 +35,7 @@ var upgrade = function(car, h, m, ss, that){
             if(min < 10) min = "0" + min;
         }
         if(hours == 0 && min == 0 && s == 0){
-            console.log(that.yinxiao);
-            
+            // console.log(that.yinxiao);
             if(that.yinxiao){
                 try{
                     that.sound2.play("", 0, 15, false);

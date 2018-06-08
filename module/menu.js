@@ -12,9 +12,8 @@ var showMenu = function(that){
     //横向内容
     var heng = document.getElementsByClassName("heng");
     var gnengData = [
+        {"src":"assets/2x2znAI.png", "sprite":"2x2znAI","specifications":"2x2"},
         {"src":"assets/3x5Lv1zt.png", "sprite":"3x5Lv1zt","specifications":"3x5"},
-        // {"src":"assets/3x5Lv2zt.png", "sprite":"3x5Lv2zt","specifications":"3x5"},
-        // {"src":"assets/3x5Lv3zt.png", "sprite":"3x5Lv3zt","specifications":"3x5"},
         {"src":"assets/2x3qt.png", "sprite":"2x3qt","specifications":"2x3"},
         {"src":"assets/2x3qsj.png", "sprite":"2x3qsj","specifications":"2x3"},
         {"src":"assets/2x3czt.png", "sprite":"2x3czt","specifications":"2x3"},
@@ -46,13 +45,16 @@ var showMenu = function(that){
         {"src":"assets/1x1ccz.png", "sprite":"1x1ccz","specifications":"1x1"}
     ];
 
-    for(var i = 0; i<gnengData.length; i++){
-        var dom = document.createElement("div");
-        dom.setAttribute("class","menu1");
-        dom.setAttribute("id","gn"+i);
-        dom.innerHTML = '<span class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></span><span>功能建筑</span><span>金币：10000</span><span>能量：10</span><span>'+gnengData[i].specifications+'</span>';
-        heng[2].appendChild(dom);
+    if(heng[2].children.length == 0){//无后台
+        for(var i = 0; i<gnengData.length; i++){
+            var dom = document.createElement("div");
+            dom.setAttribute("class","menu1");
+            dom.setAttribute("id","gn"+i);
+            dom.innerHTML = '<span class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></span><span>功能建筑</span><span>金币：10000</span><span>能量：10</span><span>'+gnengData[i].specifications+'</span>';
+            heng[2].appendChild(dom);
+        }
     }
+    
     var boddy = document.getElementsByTagName("body");
     var menu1 = document.getElementsByClassName("menu1");
     var menuWidth = parseInt(window.getComputedStyle(menu1[0]).width) + 17;
@@ -74,21 +76,24 @@ var showMenu = function(that){
         window["gn"+j] = document.getElementById("gn"+j);
         window["gn"+j].onclick = function(){
             that.clickNum += 1;
-            var redCar = game.add.sprite(that.floor.x, that.floor.y, gnengData[j].sprite);
-            redCar.anchor.set(0.5);
-            redCar.scale.set(0.5);
+            that["car"+that.clickNum] = game.add.sprite(that.floor.x+50, that.floor.y, gnengData[j].sprite);
+            that["car"+that.clickNum].anchor.set(0.5);
+            that["car"+that.clickNum].scale.set(0.5);
             // redCar.tint = 0xFF3366;
-            redCar.inputEnabled = true;//开启输入事件
-            redCar.input.enableDrag(false);//拖拽
+            that["car"+that.clickNum].inputEnabled = true;//开启输入事件
+            that["car"+that.clickNum].input.enableDrag(false);//拖拽
             // redCar.input.enableSnap(4, 3);
             that["gn" + that.clickNum] = game.add.sprite();
             that["gn" + that.clickNum].Show = true;
-            redCar.inputEnabled = true;//开启输入事件
-            redCar.input.pixelPerfectClick = true;//对象使用完美像素检查
+            that["gn" + that.clickNum].id = ("gn" + that.clickNum);
+            that["car"+that.clickNum].inputEnabled = true;//开启输入事件
+            that["gn" + that.clickNum].img = that["car"+that.clickNum];
+            that["car"+that.clickNum].input.pixelPerfectClick = true;//对象使用完美像素检查
+            that["car"+that.clickNum].input.pixelPerfectOver = true;//指针一上去使用完美像素检查
             menu.setAttribute("style", "display: none;");
-            that["gn" + that.clickNum].img = redCar;
+            
             that["gn" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
-            that.carGroup.add(that["gn" + that.clickNum]);
+            that.carGroup.addChild(that["gn" + that.clickNum]);
             buts(that, that["gn" + that.clickNum]);
 
             // that["size" + that.clickNum] = game.add.sprite(that.floor.x, that.floor.y, "yuan");
