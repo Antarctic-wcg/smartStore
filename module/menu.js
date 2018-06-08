@@ -50,16 +50,16 @@ var showMenu = function(that){
             var dom = document.createElement("div");
             dom.setAttribute("class","menu1");
             dom.setAttribute("id","gn"+i);
-            dom.innerHTML = '<span class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></span><span>功能建筑</span><span>金币：10000</span><span>能量：10</span><span>'+gnengData[i].specifications+'</span>';
+            dom.innerHTML = '<div class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></div><div class="menu1_span"><span>建筑名称</span><span>金币：10000</span><span>能量：10</span></div><div><span>'+gnengData[i].specifications+'</span></div>';
             heng[2].appendChild(dom);
         }
     }
     
-    var boddy = document.getElementsByTagName("body");
-    var menu1 = document.getElementsByClassName("menu1");
-    var menuWidth = parseInt(window.getComputedStyle(menu1[0]).width) + 17;
-    var fontSize = parseInt(window.getComputedStyle(boddy[0]).fontSize);
-    heng[2].setAttribute("style","width: "+(gnengData.length*menuWidth)/fontSize+"rem");
+    // var boddy = document.getElementsByTagName("body");
+    // var menu1 = document.getElementsByClassName("menu1");
+    // var menuWidth = parseInt(window.getComputedStyle(menu1[0]).width) + 17;
+    // var fontSize = parseInt(window.getComputedStyle(boddy[0]).fontSize);
+    // heng[2].setAttribute("style","width: "+(gnengData.length*menuWidth)/fontSize+"rem");
     
 
     menu.setAttribute("style", "display: block;");
@@ -123,18 +123,27 @@ var showMenu = function(that){
     // }
     //功能类菜单按钮
     btn1.addEventListener("click", function(){
+        this.setAttribute("style", "background:orange;border-color:orange;");
+        btn2.setAttribute("style", "background:white;border-color:none;");
+        btn3.setAttribute("style", "background:white;border-color:none;");
         Gneng.setAttribute("style", "z-index: 999;")
         Zshi.setAttribute("style", "z-index: 1;")
         floor.setAttribute("style", "z-index: 1;")
     })
     //装饰类菜单按钮
     btn2.addEventListener("click", function(){
+        this.setAttribute("style", "background:orange;border-color:orange;");
+        btn1.setAttribute("style", "background:white;border-color:none;");
+        btn3.setAttribute("style", "background:white;border-color:none;");
         Gneng.setAttribute("style", "z-index: 1;")
         Zshi.setAttribute("style", "z-index: 999;")
         floor.setAttribute("style", "z-index: 1;")
     })
     //地板类菜单按钮
     btn3.addEventListener("click", function(){
+        this.setAttribute("style", "background:orange;border-color:orange;");
+        btn2.setAttribute("style", "background:white;border-color:none;");
+        btn1.setAttribute("style", "background:white;border-color:none;");
         Gneng.setAttribute("style", "z-index: 1;")
         Zshi.setAttribute("style", "z-index: 1;")
         floor.setAttribute("style", "z-index: 999;")
