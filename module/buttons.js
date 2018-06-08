@@ -14,7 +14,7 @@ var buttons = function(cont, carImg, car){
             var btn2 = document.getElementById("btn2");
             btn2.onclick = function(){
                 buildData.setAttribute("style","display:none;");
-                upgrade.removeEventListener("click", upgrades);
+                // upgrade.removeEventListener("click", upgrades);
             }
         })
         that.dangeBtn.add(car.ckBtn);
