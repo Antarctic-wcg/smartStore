@@ -49,6 +49,7 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that[shadow+(ii-1+twoGe)]);
                 car.block.push(that[shadow+(ii+twoGe)]);
+                
                 car.ids = shadow+(ii-1+twoGe);
                 that.sta = true;
                 break;

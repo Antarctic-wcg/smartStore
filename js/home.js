@@ -111,7 +111,7 @@ var homeState = function (game) {
     var index6 = [];
     this.update = function () {
         this.carGroup.forEachExists(function (item) {
-            console.log(item.img.x,item.img.y);
+            // console.log(item.img.x,item.img.y);
             this.follow(item);
             zindex(item, this);
         }, this)
