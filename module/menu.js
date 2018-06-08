@@ -59,10 +59,11 @@ var showMenu = function(that){
     // var menu1 = document.getElementsByClassName("menu1");
     // var menuWidth = parseInt(window.getComputedStyle(menu1[0]).width) + 17;
     // var fontSize = parseInt(window.getComputedStyle(boddy[0]).fontSize);
-    // heng[2].setAttribute("style","width: "+(gnengData.length*menuWidth)/fontSize+"rem");
+    
     
 
     menu.setAttribute("style", "display: block;");
+    heng[2].setAttribute("style","max-height: "+(Gneng.offsetHeight-96-139)+"px");
     //点击关闭按钮关闭菜单
     var btn = document.getElementById("btn");
     btn.onclick = function(){
@@ -102,25 +103,6 @@ var showMenu = function(that){
             
         }
     }
-    // var build1 = document.getElementById("build1");
-    // build1.onclick = function(){
-    //     that.clickNum +=1;
-    //     var redCar = game.add.sprite(that.floor.x-that.fwx, that.floor.y-that.fwy/2, "orangeCar");
-    //     that["redCar" + that.clickNum] = game.add.sprite();
-    //     that["redCar" + that.clickNum].Show = true;
-    //     // that["redCar" + that.clickNum].adsorb = true;//控制吸附
-    //     redCar.anchor.set(0.5);
-    //     redCar.scale.set(0.5);
-    //     redCar.tint = 0xFF3366;
-    //     redCar.inputEnabled = true;//开启输入事件
-    //     // redCar.input.enableSnap(4, 4);//在拖动或释放时，以4*4网格，使此Sprite对齐给定的网格***
-    //     redCar.input.enableDrag(false);//拖拽
-    //     redCar.input.pixelPerfectClick = true;//对象使用完美像素检查
-    //     menu.setAttribute("style", "display: none;");
-    //     that["redCar" + that.clickNum].img = redCar;
-    //     that.carGroup.add(that["redCar" + that.clickNum]);
-    //     buts(that, that["redCar" + that.clickNum]);
-    // }
     //功能类菜单按钮
     btn1.addEventListener("click", function(){
         this.setAttribute("style", "background:orange;border-color:orange;");
@@ -148,5 +130,6 @@ var showMenu = function(that){
         Zshi.setAttribute("style", "z-index: 1;")
         floor.setAttribute("style", "z-index: 999;")
     })
-
+    // heng[2].setAttribute("style","max-height: "+(Gneng.offsetHeight-96-139)+"px");
+    // console.log(Gneng.offsetHeight);
 }

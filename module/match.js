@@ -13,7 +13,7 @@ var match = function(car, tx, ty, that){
                 twosShadowY_5 += 11.8;
                 twoshang5 += 5;
             }
-            that[buildBlock + pps] = ((tx>=((twosShadowX_5+17.5*(pps-twoshang5))-6)) && tx<=((twosShadowX_5+17.5*(pps-twoshang5))+6) && ty>=(twosShadowY_5-11.5*(pps-twoshang5)-6) && ty<=(twosShadowY_5-11.5*(pps-twoshang5)+6) && that[shadow+(pps-1)].building && that[shadow+(pps+4)].building);
+            that[buildBlock + pps] = ((tx>=((twosShadowX_5+17.5*(pps-twoshang5))-8)) && tx<=((twosShadowX_5+17.5*(pps-twoshang5))+8) && ty>=(twosShadowY_5-11.5*(pps-twoshang5)-8) && ty<=(twosShadowY_5-11.5*(pps-twoshang5)+8) && that[shadow+(pps-1)].building && that[shadow+(pps+4)].building);
             if(that[buildBlock + pps])
             {
                 car.buildx=(twosShadowX_5+(pps-twoshang5)*17.5);
@@ -272,7 +272,7 @@ var match = function(car, tx, ty, that){
                 oneShadowY_5 += 11.5;
                 hang5 += 5;
             }
-            that["build5_" + i] = ((tx>=((oneShadowX_5+17.5*(i-hang5))-5)) && tx<=((oneShadowX_5+17.5*(i-hang5))+5) && ty>=(oneShadowY_5-11.5*(i-hang5)-5) && ty<=(oneShadowY_5-11.5*(i-hang5)+5) && that["guding5_"+(i-1)].building);
+            that["build5_" + i] = ((tx>=((oneShadowX_5+17.5*(i-hang5))-8)) && tx<=((oneShadowX_5+17.5*(i-hang5))+8) && ty>=(oneShadowY_5-11.5*(i-hang5)-8) && ty<=(oneShadowY_5-11.5*(i-hang5)+8) && that["guding5_"+(i-1)].building);
             if(that["build5_" + i]){
                 car.buildx=(oneShadowX_5+(i-hang5)*17.5);
                 car.buildy=(oneShadowY_5-11.5*(i-hang5));
@@ -292,7 +292,7 @@ var match = function(car, tx, ty, that){
                 oneShadowY_6 += 11.5;
                 hang6 += 5;
             }
-            that["build6_" + j] = ((tx>=((oneShadowX_6+17.5*(j-hang6))-5)) && tx<=((oneShadowX_6+17.5*(j-hang6))+5) && ty>=(oneShadowY_6-11.5*(j-hang6)-5) && ty<=(oneShadowY_6-11.5*(j-hang6)+5) && that["guding6_"+(j-1)].building);
+            that["build6_" + j] = ((tx>=((oneShadowX_6+17.5*(j-hang6))-8)) && tx<=((oneShadowX_6+17.5*(j-hang6))+8) && ty>=(oneShadowY_6-11.5*(j-hang6)-8) && ty<=(oneShadowY_6-11.5*(j-hang6)+8) && that["guding6_"+(j-1)].building);
             if(that["build6_" + j]){
                 car.buildx=(oneShadowX_6+(j-hang6)*17.5);
                 car.buildy=(oneShadowY_6-11.5*(j-hang6));
@@ -312,7 +312,7 @@ var match = function(car, tx, ty, that){
                 oneShadowY_4 += 11.5;
                 hang4 += 5;
             }
-            that["build4_" + m] = ((tx>=((oneShadowX_4+17.5*(m-hang4))-5)) && tx<=((oneShadowX_4+17.5*(m-hang4))+5) && ty>=(oneShadowY_4-11.5*(m-hang4)-5) && ty<=(oneShadowY_4-11.5*(m-hang4)+5) && that["guding4_"+(m-1)].building);
+            that["build4_" + m] = ((tx>=((oneShadowX_4+17.5*(m-hang4))-8)) && tx<=((oneShadowX_4+17.5*(m-hang4))+8) && ty>=(oneShadowY_4-11.5*(m-hang4)-8) && ty<=(oneShadowY_4-11.5*(m-hang4)+8) && that["guding4_"+(m-1)].building);
             if(that["build4_" + m]){
                 car.buildx=(oneShadowX_4+(m-hang4)*17.5);
                 car.buildy=(oneShadowY_4-11.5*(m-hang4));
@@ -332,7 +332,7 @@ var match = function(car, tx, ty, that){
                 oneShadowY_3 += 11.5;
                 hang3 += 5;
             }
-            that["build3_" + n] = ((tx>=((oneShadowX_3+17.5*(n-hang3))-7)) && tx<=((oneShadowX_3+17.5*(n-hang3))+7) && ty>=(oneShadowY_3-11.5*(n-hang3)-7) && ty<=(oneShadowY_3-11.5*(n-hang3)+7) && that["guding3_"+(n-1)].building);
+            that["build3_" + n] = ((tx>=((oneShadowX_3+17.5*(n-hang3))-8)) && tx<=((oneShadowX_3+17.5*(n-hang3))+8) && ty>=(oneShadowY_3-11.5*(n-hang3)-8) && ty<=(oneShadowY_3-11.5*(n-hang3)+8) && that["guding3_"+(n-1)].building);
             if(that["build3_" + n]){
                 car.buildx=(oneShadowX_3+(n-hang3)*17.5);
                 car.buildy=(oneShadowY_3-11.5*(n-hang3));
@@ -352,7 +352,7 @@ var match = function(car, tx, ty, that){
                 oneShadowY_2 += 11.5;
                 hang2 += 5;
             }
-            that["build2_" + p] = ((tx>=((oneShadowX_2+17.5*(p-hang2))-7)) && tx<=((oneShadowX_2+17.5*(p-hang2))+7) && ty>=(oneShadowY_2-11.5*(p-hang2)-7) && ty<=(oneShadowY_2-11.5*(p-hang2)+7) && that["guding2_"+(p-1)].building);
+            that["build2_" + p] = ((tx>=((oneShadowX_2+17.5*(p-hang2))-8)) && tx<=((oneShadowX_2+17.5*(p-hang2))+8) && ty>=(oneShadowY_2-11.5*(p-hang2)-8) && ty<=(oneShadowY_2-11.5*(p-hang2)+8) && that["guding2_"+(p-1)].building);
             if(that["build2_" + p]){
                 car.buildx=(oneShadowX_2+(p-hang2)*17.5);
                 car.buildy=(oneShadowY_2-11.5*(p-hang2));
@@ -372,7 +372,7 @@ var match = function(car, tx, ty, that){
                 oneShadowY_1 += 11.5;
                 hang1 += 5;
             }
-            that["build1_" + t] = ((tx>=((oneShadowX_1+17.5*(t-hang1))-7)) && tx<=((oneShadowX_1+17.5*(t-hang1))+7) && ty>=(oneShadowY_1-11.5*(t-hang1)-7) && ty<=(oneShadowY_1-11.5*(t-hang1)+7) && that["guding1_"+(t-1)].building);
+            that["build1_" + t] = ((tx>=((oneShadowX_1+17.5*(t-hang1))-8)) && tx<=((oneShadowX_1+17.5*(t-hang1))+8) && ty>=(oneShadowY_1-11.5*(t-hang1)-8) && ty<=(oneShadowY_1-11.5*(t-hang1)+8) && that["guding1_"+(t-1)].building);
             if(that["build1_" + t]){
                 car.buildx=(oneShadowX_1+(t-hang1)*17.5);
                 car.buildy=(oneShadowY_1-11.5*(t-hang1));
