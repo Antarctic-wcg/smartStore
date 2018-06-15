@@ -104,6 +104,7 @@ var homeState = function (game) {
     }//create end
     //update
     var index1 = [];
+    this.huan = true;
     var index2 = [];
     var index3 = [];
     var index4 = [];
@@ -111,16 +112,20 @@ var homeState = function (game) {
     var index6 = [];
     this.update = function () {
         this.carGroup.forEachExists(function (item) {
-            // console.log(item.img.x,item.img.y);
+            // item.img.input.pixelPerfectClick = true;//对象使用完美像素检查
+            // item.img.input.pixelPerfectOver = true;//指针一上去使用完美像素检查
             this.follow(item);
             zindex(item, this);
         }, this)
         //--------------------------------------------
         index1 = [];
+        index1X = [];
+        index1Y = [];
         this.Zindex1.forEachExists(function (item) {
             this.follow(item);
             zindex(item, this);
-            index1.push(item.zindex);
+            index1.push(item.Zindex);
+            // console.log(item.Zindex);
             function sequence(a, b) {
                 if (a > b) {
                     return 1;
@@ -131,11 +136,24 @@ var homeState = function (game) {
                 }
             }
             index1.sort(sequence);
-            this.Zindex1.setChildIndex(item, index1.indexOf(item.zindex));
+            // if((index1.indexOf(31) != (-1) && index1.indexOf(36) != (-1)) || (index1.indexOf(46) != (-1) && index1.indexOf(49) != (-1)) || (index1.indexOf(57) != (-1) && index1.indexOf(58) != (-1)) || (index1.indexOf(18) != (-1) && index1.indexOf(22) != (-1)) || (index1.indexOf(33) != (-1) && index1.indexOf(38) != (-1)) || (index1.indexOf(48) != (-1) && index1.indexOf(51) != (-1))){
+            //     console.log(111);
+            // }
+            if(index1.length >= 2){
+                if(index1.indexOf(31) != (-1) && index1.indexOf(36) != (-1)){
+                    var one = index1.indexOf(31);
+                    var two = index1.indexOf(36);
+                    index1[one] = 36;
+                    index1[two] = 31;
+                    // console.log(index1);
+                }
+            }
+            this.Zindex1.setChildIndex(item, index1.indexOf(item.Zindex));
+            // this.Zindex1.setChildIndex(item, index1X.indexOf(item.zindexX));
+            // this.Zindex1.setChildIndex(item, index1Y.indexOf(item.zindexY));
         }, this)
         
-        
-        // console.log(this.Zindex1.length);
+
         index2 = [];
         this.Zindex2.forEachExists(function (item) {
             // item.img.input.pixelPerfectClick = true;
@@ -228,11 +246,32 @@ var homeState = function (game) {
         }, this)
        
     }//undate end
-    // this.render = function () {
-    //     if (this.size1) {
-    //         game.debug.spriteBounds(this.size1);
-    //     }
-    // }
+    this.render = function () {
+        // if (this.size1) {
+        //     game.debug.spriteBounds(this.size1);
+        // }
+        // this.carGroup.forEachExists(function (item) {
+        //     game.debug.spriteBounds(item.img);
+        // }, this)
+        // this.Zindex1.forEachExists(function (item) {
+        //     game.debug.spriteBounds(item);
+        // }, this)
+        // this.Zindex2.forEachExists(function (item) {
+        //     game.debug.spriteBounds(item);
+        // }, this)
+        // this.Zindex3.forEachExists(function (item) {
+        //     game.debug.spriteBounds(item);
+        // }, this)
+        // this.Zindex4.forEachExists(function (item) {
+        //     game.debug.spriteBounds(item);
+        // }, this)
+        // this.Zindex5.forEachExists(function (item) {
+        //     game.debug.spriteBounds(item);
+        // }, this)
+        // this.Zindex6.forEachExists(function (item) {
+        //     game.debug.spriteBounds(item);
+        // }, this)
+    }
 
     //让btns与buttons跟随图片，检测可建造区域
     this.follow = function (car) {

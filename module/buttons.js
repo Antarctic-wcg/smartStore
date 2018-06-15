@@ -67,7 +67,7 @@ var buttons = function(cont, carImg, car){
             if(car.xuanzhuan.key == "dcha"){
                 car.Show = false;
                 car.buttons = true;
-                carImg.input.bringToTop = false;
+                // carImg.input.bringToTop = false;
                 that.buttonsGroup.destroy();
                 carImg.x = car.lastx;
                 carImg.y = car.lasty;
@@ -97,6 +97,12 @@ var buttons = function(cont, carImg, car){
             })
             var qrBtn = document.getElementById("qrBtn");
             qrBtn.addEventListener("click",function(){
+                that.Zindex1.removeChild(carImg);
+                that.Zindex2.removeChild(carImg);
+                that.Zindex3.removeChild(carImg);
+                that.Zindex4.removeChild(carImg);
+                that.Zindex5.removeChild(carImg);
+                that.Zindex6.removeChild(carImg);
                 carImg.kill();
                 that.buttonsGroup.destroy();
                 car.buttons = true;
@@ -115,6 +121,7 @@ var buttons = function(cont, carImg, car){
             cmain.addEventListener("click", function(){
                 event.stopPropagation();
             })
+            
         })
         that.dangeBtn.add(car.chaichuBtn);
         that.buttonsGroup.add(that.dangeBtn);

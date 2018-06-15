@@ -1,7 +1,9 @@
 var match = function(car, tx, ty, that){
     that.sta = false;
-    that.x1x2t = function(x, y, buildBlock, shadow)
-    {   
+
+    var arr1x2t = [29,16,7,2,44,31,18,9,55,46,33,20,62,57,48,35];
+    that.x1x2f = function(x, y, buildBlock, shadow)
+    { 
         var twosShadowX_5 = x;//17
         var twosShadowY_5 = y;//11.5
         var twoshang5 = 1;
@@ -21,14 +23,17 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that[shadow+(pps-1)]);
                 car.block.push(that[shadow+(pps+4)]);
-                car.ids = shadow+(pps-1);
+                
+                car.ids = (shadow+(pps+4));
+                car.img.Zindex = arr1x2f[pps-1];
                 that.sta = true;
                 break;
             }
         }
     }
     
-    that.x1x2f = function(x, y, buildBlock, shadow)
+    var arr1x2f = [48,34,20,9,2,57,46,32,18,7,62,55,44,30,16];
+    that.x1x2t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
         var twoShadowY_1 = y;//11.5
@@ -50,13 +55,17 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii-1+twoGe)]);
                 car.block.push(that[shadow+(ii+twoGe)]);
                 
-                car.ids = shadow+(ii-1+twoGe);
+                car.ids = (shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii+twoGe));
+                car.img.Zindex = arr1x2t[ii-1]
                 that.sta = true;
                 break;
             }
         }
     }
 
+    var arr1x4t = [16,7,31,18,46,33,57,48];
     that.x1x4t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -82,12 +91,19 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe)]);
                 car.block.push(that[shadow+(ii+twoGe+1)]);
                 car.block.push(that[shadow+(ii+twoGe+2)]);
-                car.ids = shadow+(ii-1+twoGe);
+                car.ids = (shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii+twoGe));
+                // car.ids.push(shadow+(ii+twoGe+1));
+                // car.ids.push(shadow+(ii+twoGe+2));
+                car.img.Zindex = arr1x4t[ii-1];
                 that.sta = true;
                 break;
             }
         }
     }
+
+    var arr1x4f = [57,46,32,18,7];
     that.x1x4f = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -113,13 +129,19 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+4)]);
                 car.block.push(that[shadow+(ii+twoGe+9)]);
                 car.block.push(that[shadow+(ii+twoGe+14)]);
-                car.ids = shadow+(ii-1+twoGe);
+                car.ids = (shadow+(ii+twoGe+14));
+                // car.ids.push(shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii+twoGe+4));
+                // car.ids.push(shadow+(ii+twoGe+9));
+                // car.ids.push(shadow+(ii+twoGe+14));
+                car.img.Zindex = arr1x4f[ii-1];
                 that.sta = true;
                 break;
             }
         }
     }
 
+    var arr2x3t = [30,17,8,45,32,19,56,47,34];
     that.x2x3t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -147,12 +169,22 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+4)]);
                 car.block.push(that[shadow+(ii+twoGe+5)]);
                 car.block.push(that[shadow+(ii+twoGe+6)]);
-                car.ids = shadow+(ii+twoGe+4);
+                car.ids = (shadow+(ii+twoGe+4));
+                // car.ids.push(shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii+twoGe));
+                // car.ids.push(shadow+(ii+twoGe+1));
+                // car.ids.push(shadow+(ii+twoGe+4));
+                // car.ids.push(shadow+(ii+twoGe+5));
+                // car.ids.push(shadow+(ii+twoGe+6));
+                
+                car.img.Zindex = arr2x3t[ii-1];
+                
                 that.sta = true;
                 break;
             }
         }
     }
+    var arr2x3f = [47,33,19,9,56,45,31,17];
     that.x2x3f = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -180,17 +212,25 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+5)]);
                 car.block.push(that[shadow+(ii+twoGe+9)]);
                 car.block.push(that[shadow+(ii+twoGe+10)]);
-                if((car.img.x==804 && car.img.y <= 401.5) || (car.img.x == 821.5 && car.img.y == 390) || (car.img.x==910 && car.img.y == 468.5) || (car.img.x==927.5 && car.img.y <= 457) || (car.img.x==1017 && car.img.y == 538.5) || (car.img.x==1034.5 && car.img.y == 527) || (car.img.x==878 && car.img.y == 626.5) || (car.img.x==895.5 && car.img.y == 615) || (car.img.x==773 && car.img.y == 558.5) || (car.img.x==790.5 && car.img.y == 547) || (car.img.x==666 && car.img.y == 490.5) || (car.img.x==683.5 && car.img.y == 479)){
-                    car.ids = shadow+(ii+twoGe+5);
-                }else{
-                    car.ids = shadow+(ii+twoGe-1);
-                }
+                // if((car.img.x==804 && car.img.y <= 401.5) || (car.img.x == 821.5 && car.img.y == 390) || (car.img.x==910 && car.img.y == 468.5) || (car.img.x==927.5 && car.img.y <= 457) || (car.img.x==1017 && car.img.y == 538.5) || (car.img.x==1034.5 && car.img.y == 527) || (car.img.x==878 && car.img.y == 626.5) || (car.img.x==895.5 && car.img.y == 615) || (car.img.x==773 && car.img.y == 558.5) || (car.img.x==790.5 && car.img.y == 547) || (car.img.x==666 && car.img.y == 490.5) || (car.img.x==683.5 && car.img.y == 479)){
+                //     car.ids = shadow+(ii+twoGe+5);
+                // }else{
+                // }
+                car.ids = (shadow+(ii+twoGe+9));
+                // car.ids.push(shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii+twoGe));
+                // car.ids.push(shadow+(ii+twoGe+4));
+                // car.ids.push(shadow+(ii+twoGe+5));
+                // car.ids.push(shadow+(ii+twoGe+9));
+                // car.ids.push(shadow+(ii+twoGe+10));
+                car.img.Zindex = arr2x3f[ii-1];
                 that.sta = true;
                 break;
             }
         }
     }
 
+    var arr3x5t = [24,40];
     that.x3x5t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -227,13 +267,32 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+11)]);
                 car.block.push(that[shadow+(ii+twoGe+12)]);
                 car.block.push(that[shadow+(ii+twoGe+13)]);
-                car.ids = shadow+(ii-1+twoGe);
+                car.ids = (shadow+(ii+twoGe+9));
+                // car.ids.push(shadow+(ii-1+twoGe));
+                // car.ids.push(shadow+(ii+twoGe));
+                // car.ids.push(shadow+(ii+twoGe+1));
+                // car.ids.push(shadow+(ii+twoGe+2));
+                // car.ids.push(shadow+(ii+twoGe+3));
+                // car.ids.push(shadow+(ii+twoGe+4));
+                // car.ids.push(shadow+(ii+twoGe+5));
+                // car.ids.push(shadow+(ii+twoGe+6));
+                // car.ids.push(shadow+(ii+twoGe+7));
+                // car.ids.push(shadow+(ii+twoGe+8));
+                // car.ids.push(shadow+(ii+twoGe+9));
+                // car.ids.push(shadow+(ii+twoGe+10));
+                // car.ids.push(shadow+(ii+twoGe+11));
+                // car.ids.push(shadow+(ii+twoGe+12));
+                // car.ids.push(shadow+(ii+twoGe+13));
+                car.img.Zindex = arr3x5t[ii-1];
                 that.sta = true;
                 break;
             }
         }
     }
 
+    var arr2x2t = [37,23,12,5,50,39,25,14,59,52,41,27];
+    
+    var arr2x2f = [41,27,14,5,52,39,25,12,59,50,37,23];
     that.x2x2t = function(x, y, buildBlock, shadow)
     {   
         var twosShadowX_5 = x;//17
@@ -259,13 +318,26 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(pps+twoGe)]);
                 car.block.push(that[shadow+(pps+4+twoGe)]);
                 car.block.push(that[shadow+(pps+5+twoGe)]);
-                car.ids = shadow+(pps-1+twoGe);
+                car.ids = (shadow+(pps-1+twoGe));
+                // car.ids.push(shadow+(pps-1+twoGe));
+                // car.ids.push(shadow+(pps+twoGe));
+                // car.ids.push(shadow+(pps+4+twoGe));
+                // car.ids.push(shadow+(pps+5+twoGe));
+                if(car.img.scale.x>0){
+                    car.Zindex = arr2x2t[pps-1];
+                }else if(car.img.scale.x<0){
+                    car.Zindex = arr2x2f[pps-1];
+                }
+                
+                // console.log(car.Zindex);
                 that.sta = true;
                 break;
             }
         }
     }
 
+    
+    var arr1x1t = [36,22,11,4,1,49,38,24,13,6,58,51,40,26,15,63,60,53,42,28];
     if(car.size == "1x1"){
         //第五块阴影
         var oneShadowX_5 = 746;//17
@@ -284,6 +356,7 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that["guding5_" + (i-1)]);
                 car.ids = "guding5_" + (i-1);
+                // car.ids.push("guding5_" + (i-1));
                 return true;
             }
         }
@@ -304,6 +377,7 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that["guding6_" + (j-1)]);
                 car.ids = "guding6_" + (j-1);
+                // car.ids.push("guding6_" + (j-1));
                 return true;
             }
         }
@@ -324,6 +398,7 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that["guding4_" + (m-1)]);
                 car.ids = "guding4_" + (m-1);
+                // car.ids.push("guding4_" + (m-1));
                 return true;
             }
         }
@@ -344,6 +419,7 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that["guding3_" + (n-1)]);
                 car.ids = "guding3_" + (n-1);
+                // car.ids.push("guding3_" + (n-1));
                 return true;
             }
         }
@@ -364,6 +440,7 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that["guding2_" + (p-1)]);
                 car.ids = "guding2_" + (p-1);
+                // car.ids.push("guding2_" + (p-1));
                 return true;
             }
         }
@@ -384,6 +461,8 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that["guding1_" + (t-1)]);
                 car.ids = "guding1_" + (t-1);
+                car.img.Zindex = arr1x1t[t-1];
+                // car.ids.push("guding1_" + (t-1));
                 return true;
             }
         }
@@ -401,31 +480,31 @@ var match = function(car, tx, ty, that){
         if(car.img.scale.x>0)
         {
             //第1块阴影
-            that.x1x2f(786, 404.5, "build21_", "guding1_");
+            that.x1x2t(786, 404.5, "build21_", "guding1_");
             //第2块阴影
-            that.x1x2f(892, 474.5, "build22_", "guding2_");
+            that.x1x2t(892, 474.5, "build22_", "guding2_");
             //第3块阴影
-            that.x1x2f(997, 542.5, "build23_", "guding3_");
+            that.x1x2t(997, 542.5, "build23_", "guding3_");
             //第4块阴影
-            that.x1x2f(859, 630.5, "build24_", "guding4_");
+            that.x1x2t(859, 630.5, "build24_", "guding4_");
             //第5块阴影
-            that.x1x2f(753, 563.5, "build25_", "guding5_");
+            that.x1x2t(753, 563.5, "build25_", "guding5_");
             //第6块阴影
-            that.x1x2f(647.5, 495.5, "build26_", "guding6_");
+            that.x1x2t(647.5, 495.5, "build26_", "guding6_");
         }else if(car.img.scale.x < 0){
             
             //第1块阴影
-            that.x1x2t(788, 417.5, "build2s1_", "guding1_");
+            that.x1x2f(788, 417.5, "build2s1_", "guding1_");
             //第2块阴影
-            that.x1x2t(894, 484.5, "build2s2_", "guding2_");
+            that.x1x2f(894, 484.5, "build2s2_", "guding2_");
             //第3块阴影
-            that.x1x2t(1000, 552.5, "build2s3_", "guding3_");
+            that.x1x2f(1000, 552.5, "build2s3_", "guding3_");
             //第4块阴影
-            that.x1x2t(861, 641.5, "build2s4_", "guding4_");
+            that.x1x2f(861, 641.5, "build2s4_", "guding4_");
             //第5块阴影
-            that.x1x2t(755, 573.5, "build2s5_", "guding5_");
+            that.x1x2f(755, 573.5, "build2s5_", "guding5_");
             //第6块阴影
-            that.x1x2t(649, 506.5, "build2s6_", "guding6_");
+            that.x1x2f(649, 506.5, "build2s6_", "guding6_");
         }
         // that["guding1_"+(ii-1+twoGe)].building && that["guding1_"+(ii+twoGe)]
     }else if(car.size == "1x4"){
@@ -503,18 +582,33 @@ var match = function(car, tx, ty, that){
             that.x3x5t(693, 473.5, "build3x5t_6_", "guding6_");
         }
     }else if(car.size == "2x2"){
-        //第1块阴影
-        that.x2x2t(796, 411.5, "build2x2t_1_", "guding1_");
-        //第2块阴影
-        that.x2x2t(900.5, 479.8, "build2x2t_2_", "guding2_");
-        //第3块阴影
-        that.x2x2t(1007.5, 547.8, "build2x2t_3_", "guding3_");
-        //第4块阴影
-        that.x2x2t(868.5, 636.8, "build2x2t_4_", "guding4_");
-        //第5块阴影
-        that.x2x2t(762.5, 568.8, "build2x2t_5_", "guding5_");
-        //第6块阴影
-        that.x2x2t(655.5, 500.8, "build2x2t_6_", "guding6_");
+        if(car.img.scale.x>0){
+            //第1块阴影
+            that.x2x2t(796, 411.5, "build2x2t_1_", "guding1_");
+            //第2块阴影
+            that.x2x2t(900.5, 479.8, "build2x2t_2_", "guding2_");
+            //第3块阴影
+            that.x2x2t(1007.5, 547.8, "build2x2t_3_", "guding3_");
+            //第4块阴影
+            that.x2x2t(868.5, 636.8, "build2x2t_4_", "guding4_");
+            //第5块阴影
+            that.x2x2t(762.5, 568.8, "build2x2t_5_", "guding5_");
+            //第6块阴影
+            that.x2x2t(655.5, 500.8, "build2x2t_6_", "guding6_");
+        }else if(car.img.scale.x<0){
+            //第1块阴影
+            that.x2x2t(796, 411.5, "build2x2t_1_", "guding1_");
+            //第2块阴影
+            that.x2x2t(900.5, 479.8, "build2x2t_2_", "guding2_");
+            //第3块阴影
+            that.x2x2t(1007.5, 547.8, "build2x2t_3_", "guding3_");
+            //第4块阴影
+            that.x2x2t(868.5, 636.8, "build2x2t_4_", "guding4_");
+            //第5块阴影
+            that.x2x2t(762.5, 568.8, "build2x2t_5_", "guding5_");
+            //第6块阴影
+            that.x2x2t(655.5, 500.8, "build2x2t_6_", "guding6_");
+        }
     }
     
     

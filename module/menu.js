@@ -91,6 +91,8 @@ var showMenu = function(that){
             that["gn" + that.clickNum].img = that["car"+that.clickNum];
             that["car"+that.clickNum].input.pixelPerfectClick = true;//对象使用完美像素检查
             that["car"+that.clickNum].input.pixelPerfectOver = true;//指针一上去使用完美像素检查
+
+            // that["car"+that.clickNum].zindex = 0;
             menu.setAttribute("style", "display: none;");
             
             that["gn" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
