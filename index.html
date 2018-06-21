@@ -68,14 +68,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right" id="floor" style="display: none;">
-                        <div class="heng"></div>
+                    <div class="right" id="floor" style="visibility: hidden;">
+                        <div class="heng" id="heng1"></div>
+                        <div class="scroll" id="scroll1">
+                            <div class="gun" id="gun1"></div>
+                        </div>
                     </div>
-                    <div class="right" id="Zshi" style="display: none;">
-                        <div class="heng"></div>
+                    <div class="right" id="Zshi" style="visibility: hidden;">
+                        <div class="heng" id="heng2"></div>
+                        <div class="scroll" id="scroll2">
+                            <div class="gun" id="gun2"></div>
+                        </div>
                     </div>
                     <div class="right" id="Gneng">
-                        <div class="heng"></div>
+                        <div class="heng" id="heng3"></div>
+                        <div class="scroll" id="scroll3">
+                            <div class="gun" id="gun3"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -308,7 +317,7 @@
         </div>
     </div>
     <!-- AI少女 -->
-    <!-- <div class="nana">
+    <!-- <div class="nana" id="nana">
         <div class="naImg">
             <img src="./assets/nana.png" width="100%" height="100%" alt="">
         </div>
@@ -330,6 +339,9 @@
     <script src="./module/building.js"></script>
     <script src="./module/buttons.js"></script>
     <script>
+        $(".heng:eq(2)").onscroll = function(){
+            console.log(111)
+        }
         // var data = $.ajax({
         //     type: 'POST',
         //     timeout: 10000,

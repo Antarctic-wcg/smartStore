@@ -48,6 +48,7 @@ var shadow = function(that){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
                 $("#container canvas").css("filter","blur(14px)");
+                $("#nana").css("display","block");
             }
             
         }, this)
@@ -73,6 +74,7 @@ var shadow = function(that){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
                 $("#container canvas").css("filter","blur(14px)");
+                $("#nana").css("display","block");
             }
             
         }, this)
@@ -98,6 +100,7 @@ var shadow = function(that){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
                 $("#container canvas").css("filter","blur(14px)");
+                $("#nana").css("display","block");
             }
             
         }, this)
@@ -123,6 +126,7 @@ var shadow = function(that){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
                 $("#container canvas").css("filter","blur(14px)");
+                $("#nana").css("display","block");
             }
             
         }, this)
@@ -148,6 +152,7 @@ var shadow = function(that){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
                 $("#container canvas").css("filter","blur(14px)");
+                $("#nana").css("display","block");
             }
             
         }, this)
@@ -173,6 +178,7 @@ var shadow = function(that){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
                 $("#container canvas").css("filter","blur(14px)");
+                $("#nana").css("display","block");
             }
             
         }, this)

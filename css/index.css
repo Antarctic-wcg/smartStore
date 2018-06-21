@@ -34,6 +34,7 @@ html{font-size:12px}
     position: absolute;
     bottom: 4%;
     right: 6%;
+    z-index: 100;
 }
 .caidan{
     height: 80%;
@@ -91,7 +92,7 @@ html{font-size:12px}
     padding-top: 1px;
     position: absolute;
     left: 51.5%;
-    top: 11.7%;
+    top: 11.9%;
     transform: translateX(-50%);
 }
 .bottom .left{
@@ -128,10 +129,10 @@ html{font-size:12px}
     /* background: #92908F; */
 }
 .bottom .right{
-    height: 85%;
+    height: 87.7%;
     width: 96%;
     position: absolute;
-    right: 3%;
+    right: 0;
     top: 9%;
     /* background: rgba(146, 144, 143, 0.247); */
     overflow: hidden;
@@ -141,10 +142,26 @@ html{font-size:12px}
     height: 90%;
 }
 .bottom .right .heng{
+    width: 95%;
     height: 100%;
-    
     overflow: auto;
     /* padding-bottom: 173px; */
+}
+.bottom .right .scroll{
+    width: 4%;
+    height: 100%;
+    background: url("../assets/scroll.png");
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.bottom .right .gun{
+    width: 100%;
+    height: 20%;
+    background: url("../assets/gun.png");
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .right .menu1{
     margin-left: 0.5rem;
@@ -199,13 +216,14 @@ html{font-size:12px}
 .right .menu1 .xqNliang{
     top: 53px;
 }
-/* nana */
+/* AI少女nana */
 .nana{
     width: 100%;
     height: 34%;
     position: fixed;
     bottom: 0;
     left: 0;
+    display: none;
 }
 /* 建筑数据 */
 .build{

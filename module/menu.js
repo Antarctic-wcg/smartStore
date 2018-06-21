@@ -139,8 +139,8 @@ var showMenu = function(that){
         btn2.setAttribute("style", "background:none");
         btn3.setAttribute("style", "background:none");
         Gneng.setAttribute("style", "z-index: 999;")
-        Zshi.setAttribute("style", "z-index: 1;display:none;")
-        floor.setAttribute("style", "z-index: 1;display:none;")
+        Zshi.setAttribute("style", "z-index: 1;visibility: hidden;")
+        floor.setAttribute("style", "z-index: 1;visibility: hidden;")
     })
     //装饰类菜单按钮
     btn2.addEventListener("click", function(){
@@ -150,9 +150,9 @@ var showMenu = function(that){
         $(".gn:eq(0)>img").attr("src","./assets/gneng1.png");
         $(".gn:eq(1)>img").attr("src","./assets/zshilei1.png");
         $(".gn:eq(2)>img").attr("src","./assets/dibang2.png");
-        Gneng.setAttribute("style", "z-index: 1;display:none;")
+        Gneng.setAttribute("style", "z-index: 1;visibility: hidden;")
         Zshi.setAttribute("style", "z-index: 999;")
-        floor.setAttribute("style", "z-index: 1;display:none;")
+        floor.setAttribute("style", "z-index: 1;visibility: hidden;")
     })
     //地板类菜单按钮
     btn3.addEventListener("click", function(){
@@ -162,8 +162,8 @@ var showMenu = function(that){
         $(".gn:eq(0)>img").attr("src","./assets/gneng1.png");
         $(".gn:eq(1)>img").attr("src","./assets/zshilei2.png");
         $(".gn:eq(2)>img").attr("src","./assets/dibang1.png");
-        Gneng.setAttribute("style", "z-index: 1;display:none;")
-        Zshi.setAttribute("style", "z-index: 1;display:none;")
+        Gneng.setAttribute("style", "z-index: 1;visibility: hidden;")
+        Zshi.setAttribute("style", "z-index: 1;visibility: hidden;")
         floor.setAttribute("style", "z-index: 999;")
     })
     // heng[2].setAttribute("style","max-height: "+(Gneng.offsetHeight-96-139)+"px");
@@ -172,4 +172,26 @@ var showMenu = function(that){
     // bottom.setAttribute("style","top:"+(32)+"px;");
     var lineHeight = $(".h2").height();
     $(".h2").css("line-height",lineHeight+"px");
+
+    // 自定义滚动条
+    $("#heng3").scrollTop(200000);
+    var so3 = $("#heng3").scrollTop()-1;
+    $("#heng3").scrollTop(0);
+    $("#heng3").scroll(function(){
+        $("#gun3").css("top",($("#scroll3").height()-$("#gun3").height())*($(this).scrollTop()/so3)+"px")
+    })
+
+    $("#heng2").scrollTop(200000);
+    var so2 = $("#heng2").scrollTop()-1;
+    $("#heng2").scrollTop(0);
+    $("#heng2").scroll(function(){
+        $("#gun2").css("top",($("#scroll2").height()-$("#gun2").height())*($(this).scrollTop()/so2)+"px")
+    })
+
+    $("#heng1").scrollTop(200000);
+    var so1 = $("#heng1").scrollTop()-1;
+    $("#heng1").scrollTop(0);
+    $("#heng1").scroll(function(){
+        $("#gun1").css("top",($("#scroll1").height()-$("#gun1").height())*($(this).scrollTop()/so1)+"px")
+    })
 }
