@@ -123,7 +123,7 @@ var showMenu = function(that){
             that["gn" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
             that.carGroup.addChild(that["gn" + that.clickNum]);
             buts(that, that["gn" + that.clickNum]);
-
+            $("#container canvas").css("filter","blur(0px)");
             // that["size" + that.clickNum] = game.add.sprite(that.floor.x, that.floor.y, "yuan");
             // that["size" + that.clickNum].scale.set(0.5);
             // that["size" + that.clickNum].anchor.set(0.5);
