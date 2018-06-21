@@ -56,6 +56,28 @@ var showMenu = function(that){
             heng[2].appendChild(dom);
         }
     }
+
+    if(heng[1].children.length == 0){//无后台
+        for(var i = 0; i<gnengData.length; i++){
+            var dom = document.createElement("div");
+            dom.setAttribute("class","menu1");
+            dom.setAttribute("id","build1");
+            dom.setAttribute("id","zshi"+i);
+            dom.innerHTML = '<div class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></div><div class="size">'+gnengData[i].specifications+'</div><div class="xqJbi"><em>10000</em></div><div class="xqNliang"><em>10</em></div>';
+            heng[1].appendChild(dom);
+        }
+    }
+
+    if(heng[0].children.length == 0){//无后台
+        for(var i = 0; i<gnengData.length; i++){
+            var dom = document.createElement("div");
+            dom.setAttribute("class","menu1");
+            dom.setAttribute("id","build1");
+            dom.setAttribute("id","dibang"+i);
+            dom.innerHTML = '<div class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></div><div class="size">'+gnengData[i].specifications+'</div><div class="xqJbi"><em>10000</em></div><div class="xqNliang"><em>10</em></div>';
+            heng[0].appendChild(dom);
+        }
+    }
     
     // var boddy = document.getElementsByTagName("body");
     // var menu1 = document.getElementsByClassName("menu1");
@@ -67,10 +89,11 @@ var showMenu = function(that){
     menu.setAttribute("style", "display: block;");
     
     //点击关闭按钮关闭菜单
-    // var btn = document.getElementById("btn");
-    // btn.onclick = function(){
-    //     menu.setAttribute("style", "display: none;")
-    // }
+    var btn = document.getElementById("back");
+    btn.onclick = function(){
+        menu.setAttribute("style", "display: none;");
+        $("#container canvas").css("filter","blur(0px)");
+    }
     
     
     //选择建筑
@@ -145,6 +168,8 @@ var showMenu = function(that){
     })
     // heng[2].setAttribute("style","max-height: "+(Gneng.offsetHeight-96-139)+"px");
     // console.log(Gneng.offsetHeight);
-    console.log(menu.offsetTop)
+    // console.log(menu.offsetTop)
     // bottom.setAttribute("style","top:"+(32)+"px;");
+    var lineHeight = $(".h2").height();
+    $(".h2").css("line-height",lineHeight+"px");
 }

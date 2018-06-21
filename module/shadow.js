@@ -47,6 +47,7 @@ var shadow = function(that){
         that["guding1_"+i].events.onInputDown.add(function(){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
+                $("#container canvas").css("filter","blur(14px)");
             }
             
         }, this)
@@ -71,6 +72,7 @@ var shadow = function(that){
         that["guding2_"+j].events.onInputDown.add(function(){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
+                $("#container canvas").css("filter","blur(14px)");
             }
             
         }, this)
@@ -95,6 +97,7 @@ var shadow = function(that){
         that["guding3_"+m].events.onInputDown.add(function(){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
+                $("#container canvas").css("filter","blur(14px)");
             }
             
         }, this)
@@ -119,6 +122,7 @@ var shadow = function(that){
         that["guding4_"+n].events.onInputDown.add(function(){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
+                $("#container canvas").css("filter","blur(14px)");
             }
             
         }, this)
@@ -143,6 +147,7 @@ var shadow = function(that){
         that["guding5_"+k].events.onInputDown.add(function(){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
+                $("#container canvas").css("filter","blur(14px)");
             }
             
         }, this)
@@ -167,6 +172,7 @@ var shadow = function(that){
         that["guding6_"+p].events.onInputDown.add(function(){
             if(caidan.getAttribute("style") == "display: none;" || caidan.getAttribute("style") == null){
                 showMenu(that);
+                $("#container canvas").css("filter","blur(14px)");
             }
             
         }, this)

@@ -26,19 +26,23 @@ html{font-size:12px}
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../assets/caidanBG.png");
     display: none;
+}
+.back{
+    width: 20%;
+    height: 7%;
+    position: absolute;
+    bottom: 4%;
+    right: 6%;
 }
 .caidan{
     height: 80%;
     width: 99%;
-    max-width: 690px;
+    max-width: 550px;
     position: fixed;
     left: 50%;
     top: 0;
     transform: translateX(-50%);
-    /* padding: 1%; */
-    /* display: none; */
     overflow: hidden;
     z-index: 99;
     background-image: url("../assets/buildBg.png");
@@ -48,16 +52,22 @@ html{font-size:12px}
 .caidan .main{
     width: 97.9%;
     height: 100%;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-.main .head h2{
-    height: 43px;
-    line-height: 43px;
+.main .head{
+    height: 7%;
+    margin-top: 4%;
+}
+.main .head .h2{
+    height: 100%;
+    line-height: 100%;
     text-align: left;
     text-indent: 2em;
     font-size: 22px;
     color: white;
-    margin-top: 9px;
+    /* margin-top: 9px; */
 }
 .pack .phead h2,.shop .phead h2{
     height: 45px;
@@ -76,25 +86,26 @@ html{font-size:12px}
     font-size: 0.5rem;
 }
 .bottom{
-    width: 91%;
-    height: 382px;
+    width: 89.4%;
+    height: 77%;
     padding-top: 1px;
     position: absolute;
     left: 51.5%;
-    top: 45px;
+    top: 11.7%;
     transform: translateX(-50%);
 }
 .bottom .left{
     width: 100%;
+    height: 7%;
     padding-top: 1px;
 }
 .bottom .left .tab{
-    padding: 5px 1% 0 1%;
+    height: 100%;
     overflow: hidden;
 }
 .bottom .tab>div{
     width: 33.33%;
-    height: 26px;
+    height: 100%;
     /* background: red; */
     float: left;
 }
@@ -117,11 +128,11 @@ html{font-size:12px}
     /* background: #92908F; */
 }
 .bottom .right{
-    height: 326px;
+    height: 85%;
     width: 96%;
     position: absolute;
-    right: 5px;
-    top: 36px;
+    right: 3%;
+    top: 9%;
     /* background: rgba(146, 144, 143, 0.247); */
     overflow: hidden;
 }
@@ -130,7 +141,7 @@ html{font-size:12px}
     height: 90%;
 }
 .bottom .right .heng{
-    height: 342px;
+    height: 100%;
     
     overflow: auto;
     /* padding-bottom: 173px; */
@@ -170,14 +181,13 @@ html{font-size:12px}
 .right .menu1 .size,.right .menu1 .xqJbi,.right .menu1 .xqNliang{
     float: right;
     display: inline-block;
-    width: 45px;
     height: 19px;
     line-height: 19px;
     text-align: right;
-    /* background: red; */
     font-weight: 700;
     position: absolute;
     right: 12px;
+    font-size: 1rem;
 }
 .right .menu1 .size{
     top: 3px;
