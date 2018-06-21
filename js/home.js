@@ -115,11 +115,11 @@ var homeState = function (game) {
     var index5 = [];
     var index6 = [];
     this.update = function () {
-        this.carGroup.forEachExists(function (item) {
+        this.carGroup.forEachExists(function (item0) {
             // item.img.input.pixelPerfectClick = true;//对象使用完美像素检查
             // item.img.input.pixelPerfectOver = true;//指针一上去使用完美像素检查
-            this.follow(item);
-            zindex(item, this);
+            this.follow(item0);
+            zindex(item0, this);
         }, this)
         //--------------------------------------------
         index1 = [];
@@ -169,7 +169,7 @@ var homeState = function (game) {
             // item.img.input.pixelPerfectClick = true;
             this.follow(item);
             zindex(item, this);
-            index3.push(item.zindex);
+            index3.push(item.Zindex);
             function sequence(a, b) {
                 if (a > b) {
                     return 1;
@@ -180,14 +180,14 @@ var homeState = function (game) {
                 }
             }
             index3.sort(sequence);
-            this.Zindex3.setChildIndex(item, index3.indexOf(item.zindex));
+            this.Zindex3.setChildIndex(item, index3.indexOf(item.Zindex));
         }, this)
         index4 = [];
         this.Zindex4.forEachExists(function (item) {
             // item.img.input.pixelPerfectClick = true;
             this.follow(item);
             zindex(item, this);
-            index4.push(item.zindex);
+            index4.push(item.Zindex);
             function sequence(a, b) {
                 if (a > b) {
                     return 1;
@@ -198,14 +198,14 @@ var homeState = function (game) {
                 }
             }
             index4.sort(sequence);
-            this.Zindex4.setChildIndex(item, index4.indexOf(item.zindex));
+            this.Zindex4.setChildIndex(item, index4.indexOf(item.Zindex));
         }, this)
         index5 = [];
         this.Zindex5.forEachExists(function (item) {
             // item.img.input.pixelPerfectClick = true;
             this.follow(item);
             zindex(item, this);
-            index5.push(item.zindex);
+            index5.push(item.Zindex);
             function sequence(a, b) {
                 if (a > b) {
                     return 1;
@@ -216,14 +216,14 @@ var homeState = function (game) {
                 }
             }
             index5.sort(sequence);
-            this.Zindex5.setChildIndex(item, index5.indexOf(item.zindex));
+            this.Zindex5.setChildIndex(item, index5.indexOf(item.Zindex));
         }, this)
         index6 = [];
         this.Zindex6.forEachExists(function (item) {
             item.img.input.pixelPerfectClick = true;
             this.follow(item);
             zindex(item, this);
-            index6.push(item.zindex);
+            index6.push(item.Zindex);
             function sequence(a, b) {
                 if (a > b) {
                     return 1;
@@ -234,7 +234,7 @@ var homeState = function (game) {
                 }
             }
             index6.sort(sequence);
-            this.Zindex6.setChildIndex(item, index6.indexOf(item.zindex));
+            this.Zindex6.setChildIndex(item, index6.indexOf(item.Zindex));
         }, this)
        
     }//undate end
