@@ -1,7 +1,7 @@
 var match = function(car, tx, ty, that){
     that.sta = false;
 
-    var arr1x2t = [29,16,7,2,44,31,18,9,55,46,33,20,62,57,48,35];
+    var arr1x2t = [29,16,7,2,65,49,33,20,98,85,69,53,116,111,102,89];
     that.x1x2f = function(x, y, buildBlock, shadow)
     { 
         var twosShadowX_5 = x;//17
@@ -32,7 +32,8 @@ var match = function(car, tx, ty, that){
         }
     }
     
-    var arr1x2f = [48,34,20,9,2,57,46,32,18,7,62,55,44,30,16];
+    // var arr1x2f = [48,34,20,9,2,57,46,32,18,7,62,55,44,30,16];
+    var arr1x2f = [104,82,54,26,4,113,88,60,32,7,118,100,72,44,16];
     that.x1x2t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -56,8 +57,6 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe)]);
                 
                 car.ids = (shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii+twoGe));
                 car.img.Zindex = arr1x2t[ii-1]
                 that.sta = true;
                 break;
@@ -65,7 +64,7 @@ var match = function(car, tx, ty, that){
         }
     }
 
-    var arr1x4t = [16,7,31,18,46,33,57,48];
+    var arr1x4t = [16,7,49,33,85,69,111,102];
     that.x1x4t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -92,10 +91,6 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+1)]);
                 car.block.push(that[shadow+(ii+twoGe+2)]);
                 car.ids = (shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii+twoGe));
-                // car.ids.push(shadow+(ii+twoGe+1));
-                // car.ids.push(shadow+(ii+twoGe+2));
                 car.img.Zindex = arr1x4t[ii-1];
                 that.sta = true;
                 break;
@@ -103,7 +98,7 @@ var match = function(car, tx, ty, that){
         }
     }
 
-    var arr1x4f = [57,46,32,18,7];
+    var arr1x4f = [113,88,60,32,7];
     that.x1x4f = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -130,10 +125,6 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+9)]);
                 car.block.push(that[shadow+(ii+twoGe+14)]);
                 car.ids = (shadow+(ii+twoGe+14));
-                // car.ids.push(shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii+twoGe+4));
-                // car.ids.push(shadow+(ii+twoGe+9));
-                // car.ids.push(shadow+(ii+twoGe+14));
                 car.img.Zindex = arr1x4f[ii-1];
                 that.sta = true;
                 break;
@@ -141,7 +132,7 @@ var match = function(car, tx, ty, that){
         }
     }
 
-    var arr2x3t = [30,17,8,45,32,19,56,47,34];
+    var arr2x3t = [39,24,13,75,59,43,105,94,79];
     that.x2x3t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -170,12 +161,6 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+5)]);
                 car.block.push(that[shadow+(ii+twoGe+6)]);
                 car.ids = (shadow+(ii+twoGe+4));
-                // car.ids.push(shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii+twoGe));
-                // car.ids.push(shadow+(ii+twoGe+1));
-                // car.ids.push(shadow+(ii+twoGe+4));
-                // car.ids.push(shadow+(ii+twoGe+5));
-                // car.ids.push(shadow+(ii+twoGe+6));
                 
                 car.img.Zindex = arr2x3t[ii-1];
                 
@@ -184,7 +169,8 @@ var match = function(car, tx, ty, that){
             }
         }
     }
-    var arr2x3f = [47,33,19,9,56,45,31,17];
+    // var arr2x3f = [47,33,19,8,56,45,31,17];
+    var arr2x3f = [96,68,40,13,107,80,52,24];
     that.x2x3f = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -212,17 +198,7 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+5)]);
                 car.block.push(that[shadow+(ii+twoGe+9)]);
                 car.block.push(that[shadow+(ii+twoGe+10)]);
-                // if((car.img.x==804 && car.img.y <= 401.5) || (car.img.x == 821.5 && car.img.y == 390) || (car.img.x==910 && car.img.y == 468.5) || (car.img.x==927.5 && car.img.y <= 457) || (car.img.x==1017 && car.img.y == 538.5) || (car.img.x==1034.5 && car.img.y == 527) || (car.img.x==878 && car.img.y == 626.5) || (car.img.x==895.5 && car.img.y == 615) || (car.img.x==773 && car.img.y == 558.5) || (car.img.x==790.5 && car.img.y == 547) || (car.img.x==666 && car.img.y == 490.5) || (car.img.x==683.5 && car.img.y == 479)){
-                //     car.ids = shadow+(ii+twoGe+5);
-                // }else{
-                // }
                 car.ids = (shadow+(ii+twoGe+9));
-                // car.ids.push(shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii+twoGe));
-                // car.ids.push(shadow+(ii+twoGe+4));
-                // car.ids.push(shadow+(ii+twoGe+5));
-                // car.ids.push(shadow+(ii+twoGe+9));
-                // car.ids.push(shadow+(ii+twoGe+10));
                 car.img.Zindex = arr2x3f[ii-1];
                 that.sta = true;
                 break;
@@ -230,7 +206,7 @@ var match = function(car, tx, ty, that){
         }
     }
 
-    var arr3x5t = [24,40];
+    var arr3x5t = [41,77];
     that.x3x5t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -268,21 +244,6 @@ var match = function(car, tx, ty, that){
                 car.block.push(that[shadow+(ii+twoGe+12)]);
                 car.block.push(that[shadow+(ii+twoGe+13)]);
                 car.ids = (shadow+(ii+twoGe+9));
-                // car.ids.push(shadow+(ii-1+twoGe));
-                // car.ids.push(shadow+(ii+twoGe));
-                // car.ids.push(shadow+(ii+twoGe+1));
-                // car.ids.push(shadow+(ii+twoGe+2));
-                // car.ids.push(shadow+(ii+twoGe+3));
-                // car.ids.push(shadow+(ii+twoGe+4));
-                // car.ids.push(shadow+(ii+twoGe+5));
-                // car.ids.push(shadow+(ii+twoGe+6));
-                // car.ids.push(shadow+(ii+twoGe+7));
-                // car.ids.push(shadow+(ii+twoGe+8));
-                // car.ids.push(shadow+(ii+twoGe+9));
-                // car.ids.push(shadow+(ii+twoGe+10));
-                // car.ids.push(shadow+(ii+twoGe+11));
-                // car.ids.push(shadow+(ii+twoGe+12));
-                // car.ids.push(shadow+(ii+twoGe+13));
                 car.img.Zindex = arr3x5t[ii-1];
                 that.sta = true;
                 break;
@@ -290,9 +251,10 @@ var match = function(car, tx, ty, that){
         }
     }
 
-    var arr2x2t = [37,23,12,5,50,39,25,14,59,52,41,27];
+    var arr2x2t = [47,31,18,9,83,67,51,35,109,100,87,71];
     
-    var arr2x2f = [41,27,14,5,52,39,25,12,59,50,37,23];
+    // var arr2x2f = [41,27,14,5,52,39,25,12,59,50,37,23];
+    var arr2x2f = [90,62,34,9,102,74,46,18,111,86,58,30];
     that.x2x2t = function(x, y, buildBlock, shadow)
     {   
         var twosShadowX_5 = x;//17
@@ -324,9 +286,9 @@ var match = function(car, tx, ty, that){
                 // car.ids.push(shadow+(pps+4+twoGe));
                 // car.ids.push(shadow+(pps+5+twoGe));
                 if(car.img.scale.x>0){
-                    car.Zindex = arr2x2t[pps-1];
+                    car.img.Zindex = arr2x2t[pps-1];
                 }else if(car.img.scale.x<0){
-                    car.Zindex = arr2x2f[pps-1];
+                    car.img.Zindex = arr2x2f[pps-1];
                 }
                 
                 // console.log(car.Zindex);
@@ -337,7 +299,8 @@ var match = function(car, tx, ty, that){
     }
 
     
-    var arr1x1t = [36,22,11,4,1,49,38,24,13,6,58,51,40,26,15,63,60,53,42,28];
+    // var arr1x1t = [36,22,11,4,1,49,38,24,13,6,58,51,40,26,15,63,60,53,42,28];
+    var arr1x1t = [37,22,11,4,1,73,57,41,26,15,103,92,77,61,45,117,114,107,96,81];
     if(car.size == "1x1"){
         //第五块阴影
         var oneShadowX_5 = 746;//17
@@ -357,6 +320,7 @@ var match = function(car, tx, ty, that){
                 car.block.push(that["guding5_" + (i-1)]);
                 car.ids = "guding5_" + (i-1);
                 // car.ids.push("guding5_" + (i-1));
+                car.img.Zindex = arr1x1t[i-1];
                 return true;
             }
         }
@@ -378,6 +342,7 @@ var match = function(car, tx, ty, that){
                 car.block.push(that["guding6_" + (j-1)]);
                 car.ids = "guding6_" + (j-1);
                 // car.ids.push("guding6_" + (j-1));
+                car.img.Zindex = arr1x1t[j-1];
                 return true;
             }
         }
@@ -399,6 +364,7 @@ var match = function(car, tx, ty, that){
                 car.block.push(that["guding4_" + (m-1)]);
                 car.ids = "guding4_" + (m-1);
                 // car.ids.push("guding4_" + (m-1));
+                car.img.Zindex = arr1x1t[m-1];
                 return true;
             }
         }
@@ -420,6 +386,7 @@ var match = function(car, tx, ty, that){
                 car.block.push(that["guding3_" + (n-1)]);
                 car.ids = "guding3_" + (n-1);
                 // car.ids.push("guding3_" + (n-1));
+                car.img.Zindex = arr1x1t[n-1];
                 return true;
             }
         }
@@ -440,6 +407,7 @@ var match = function(car, tx, ty, that){
                 car.block = [];
                 car.block.push(that["guding2_" + (p-1)]);
                 car.ids = "guding2_" + (p-1);
+                car.img.Zindex = arr1x1t[p-1];
                 // car.ids.push("guding2_" + (p-1));
                 return true;
             }

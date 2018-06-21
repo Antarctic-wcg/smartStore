@@ -20,28 +20,50 @@ html{font-size:12px}
     margin: 0 auto;
 }
 /* 菜单 */
-.caidan{
-    height: 98%;
-    width: 100%;
-    /* max-width: 690px; */
+.caidanBox{
     position: fixed;
+    top: 0;
     left: 0;
-    bottom: 0;
-    padding: 1%;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/caidanBG.png");
     display: none;
+}
+.caidan{
+    height: 490px;
+    width: 316px;
+    max-width: 690px;
+    position: fixed;
+    left: 50%;
+    top: 43%;
+    transform: translate(-50%, -50%);
+    /* padding: 1%; */
+    /* display: none; */
     overflow: hidden;
     z-index: 99;
+    background-image: url("../assets/buildBg.png");
+    background-size:100% 100%;
+    background-repeat: no-repeat;
 }
 .caidan .main{
-    width: 97.7%;
+    width: 97.9%;
     height: 100%;
-    background: white;
+    position: relative;
 }
-.main .head h2,.pack .phead h2,.shop .phead h2{
+.main .head h2{
+    height: 43px;
+    line-height: 43px;
+    text-align: left;
+    text-indent: 2em;
+    font-size: 22px;
+    color: white;
+    margin-top: 9px;
+}
+.pack .phead h2,.shop .phead h2{
     height: 45px;
     line-height: 45px;
     text-align: center;
-    background: #0069B4;
+    /* background: #0069B4; */
     margin: 0;
     font-size: 22px;
 }
@@ -54,9 +76,13 @@ html{font-size:12px}
     font-size: 0.5rem;
 }
 .bottom{
-    height: 92%;
+    width: 91%;
+    height: 382px;
     padding-top: 1px;
-    position: relative;
+    position: absolute;
+    left: 51.5%;
+    top: 45px;
+    transform: translateX(-50%);
 }
 .bottom .left{
     width: 100%;
@@ -64,20 +90,39 @@ html{font-size:12px}
 }
 .bottom .left .tab{
     padding: 5px 1% 0 1%;
+    overflow: hidden;
+}
+.bottom .tab>div{
+    width: 33.33%;
+    height: 26px;
+    /* background: red; */
+    float: left;
+}
+#btnl1,#btnl2,#btnl3{
+    position: relative;
+}
+.bottom .tab .gn{
+    width:50%;
+    height:60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .left button{
-    width: 32.6%;
-    height: 45px;
-    line-height: 45px;
+    
+    line-height: 33px;
     font-size: 1rem;
+    border: none;
+    /* background: #92908F; */
 }
 .bottom .right{
-    height: 90%;
-    width: 100%;
+    height: 326px;
+    width: 96%;
     position: absolute;
-    right: 0;
-    top: 54px;
-    background: white;
+    right: 5px;
+    top: 36px;
+    /* background: rgba(146, 144, 143, 0.247); */
     overflow: hidden;
 }
 .right{
@@ -85,24 +130,28 @@ html{font-size:12px}
     height: 90%;
 }
 .bottom .right .heng{
-    height: 100%;
-    /* max-height: 26rem; */
+    height: 342px;
+    
     overflow: auto;
-    padding-bottom: 173px;
+    /* padding-bottom: 173px; */
 }
 .right .menu1{
     margin-left: 0.5rem;
-    width: 95%;
+    width: 94%;
     height: 75px;
     text-align: center;
-    border: 1px solid #000;
+    position: relative;
     padding: 3px;
     display: inline-block;
     margin-bottom: 6px;
+    border-radius: 5px;
+    background-color: #E9E9E9;
+    background-image: url("../assets/buildXq.png");
+    background-size: 100% 100%;
 }
 .right .menu1>div{
     float: right;
-    width: 20%;
+    width: 15%;
     height: 100%;
     line-height: 74px;
     max-height: 74px;
@@ -110,68 +159,43 @@ html{font-size:12px}
 }
 .right .menu1 .h1{
     display: inline-block;
-    width: 69px;
-    height: 69px;
-    line-height: 69px;
+    width: 50px;
+    height: 50px;
     max-height: 69px;
-    border: 1px solid #000;
-    font-size: 18px;
     float: left;
+    margin-left: 8px;
+    margin-top: 15px;
+    background: #FFFFFF;
 }
-.right .menu1 .menu1_span{
-    float: left;
+.right .menu1 .size,.right .menu1 .xqJbi,.right .menu1 .xqNliang{
+    float: right;
     display: inline-block;
-    width: 50%;
-    height: 100%;
-    margin-left: 25px;
-}
-.menu1 .menu1_span span{
-    display: block;
-    text-align: left;
-    height: 25px;
-    line-height: 25px;
-}
-.caidan .naImg{
-    width: 86px;
-    height: 139px;
+    width: 45px;
+    height: 19px;
+    line-height: 19px;
+    text-align: right;
+    /* background: red; */
+    font-weight: 700;
     position: absolute;
-    bottom: 102px;
-    left: 0.33rem;
-    z-index: 9999;
+    right: 12px;
 }
-.caidan .nana{
-    width: 95.9%;
-    height: 94px;
-    position: absolute;
-    bottom: 4px;
-    left: 49%;
-    transform: translateX(-50%);
-    z-index: 9999;
+.right .menu1 .size{
+    top: 3px;
+    color: orange;
 }
-.caidan .nana .nanaName{
-    width: 100px;
-    height: 35px;
-    line-height: 35px;
-    border: 1px solid #000;
-    font-size: 22px;
-    font-weight: 400;
-    text-align: center;
-    position: absolute;
-    bottom: 61px;
-    left: 0;
-    background: white;
+.right .menu1 .xqJbi{
+    top: 29px;
 }
-.caidan .nana .talk{
-    width: 99%;
-    height: 80px;
-    line-height: 80px;
-    font-size: 22px;
-    border: 1px solid #000;
-    position: absolute;
+.right .menu1 .xqNliang{
+    top: 53px;
+}
+/* nana */
+.nana{
+    width: 100%;
+    height: 34%;
+    position: fixed;
     bottom: 0;
     left: 0;
-    text-indent: 1rem;
-    background: white;
 }
 /* 建筑数据 */
 .build{
@@ -362,6 +386,7 @@ html{font-size:12px}
     background: #0069B4;
     margin: 0;
     font-size: 1rem;
+    margin-top: 1px;
 }
 .setMain .head button{
     display: inline-block;
@@ -634,8 +659,79 @@ html{font-size:12px}
     font-size: 18px;
     background: orange;
 }
-/* ------------------- */
-/* 任务btn */
+/* 头像 金币 能量。。。 */
+.headicon{
+    width: 100%;
+    max-width: 500px;
+    height: 90px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    
+    /* background: yellow; */
+}
+.headicon>div{
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+}
+.headicon .uileft{
+    border: 1px solid #000;
+    width: 80px;
+    height: 80px;
+    margin: 5px 0 0 5px;
+    border-radius: 50%;
+}
+.headicon .uileft>img{
+    border-radius: 50%;
+}
+.headicon .uicentent{
+    width: 32%;
+    height: 80px;
+}
+.headicon .uicentent span{
+    display: block;
+    height: 41px;
+    line-height: 41px;
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+}
+.headicon .uiright{
+    width: 41%;
+    height: 80px;
+}
+.headicon .uiright>div{
+    height: 30px;
+    width: 100%;
+    margin-top: 6px;
+    /* background: #0069B4; */
+}
+.headicon .uiright .item{
+    display: inline-block;
+    float: left;
+    height: 100%;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.uiright .val{
+    height: 100%;
+    width: 70%;
+    display: inline-block;
+}
+.uiright .nowval,.uiright .nowLiang{
+    width:100%;
+    height: 57%;
+    background: white;
+    border: 1px solid #000;
+    margin-top: 6px;
+}
+/* ------------------------- */
+/* 任务btn 光宇 */
 #task{
 position: fixed;
 bottom: 2rem;

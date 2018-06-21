@@ -1,6 +1,7 @@
 var showMenu = function(that){
     //点击呼出菜单
     var menu = document.getElementById("menu");
+    var bottom = document.getElementById("bottom");
     //建筑菜单分类按钮
     var btn1 = document.getElementById("btnl1");
     var btn2 = document.getElementById("btnl2");
@@ -49,8 +50,9 @@ var showMenu = function(that){
         for(var i = 0; i<gnengData.length; i++){
             var dom = document.createElement("div");
             dom.setAttribute("class","menu1");
+            dom.setAttribute("id","build1");
             dom.setAttribute("id","gn"+i);
-            dom.innerHTML = '<div class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></div><div class="menu1_span"><span>建筑名称</span><span>金币：10000</span><span>能量：10</span></div><div><span>'+gnengData[i].specifications+'</span></div>';
+            dom.innerHTML = '<div class="h1"><img src="'+gnengData[i].src+'" height="100%" alt=""></div><div class="size">'+gnengData[i].specifications+'</div><div class="xqJbi"><em>10000</em></div><div class="xqNliang"><em>10</em></div>';
             heng[2].appendChild(dom);
         }
     }
@@ -63,12 +65,12 @@ var showMenu = function(that){
     
 
     menu.setAttribute("style", "display: block;");
-    heng[2].setAttribute("style","max-height: "+(Gneng.offsetHeight-96-139)+"px");
+    
     //点击关闭按钮关闭菜单
-    var btn = document.getElementById("btn");
-    btn.onclick = function(){
-        menu.setAttribute("style", "display: none;")
-    }
+    // var btn = document.getElementById("btn");
+    // btn.onclick = function(){
+    //     menu.setAttribute("style", "display: none;")
+    // }
     
     
     //选择建筑
@@ -107,31 +109,42 @@ var showMenu = function(that){
     }
     //功能类菜单按钮
     btn1.addEventListener("click", function(){
-        this.setAttribute("style", "background:orange;border-color:orange;");
-        btn2.setAttribute("style", "background:white;border-color:none;");
-        btn3.setAttribute("style", "background:white;border-color:none;");
+        this.setAttribute("style", "background:url('./assets/tabBg.png')");
+        $(".gn:eq(0)>img").attr("src","./assets/gneng2.png");
+        $(".gn:eq(1)>img").attr("src","./assets/zshilei2.png");
+        $(".gn:eq(2)>img").attr("src","./assets/dibang2.png");
+        btn2.setAttribute("style", "background:none");
+        btn3.setAttribute("style", "background:none");
         Gneng.setAttribute("style", "z-index: 999;")
-        Zshi.setAttribute("style", "z-index: 1;")
-        floor.setAttribute("style", "z-index: 1;")
+        Zshi.setAttribute("style", "z-index: 1;display:none;")
+        floor.setAttribute("style", "z-index: 1;display:none;")
     })
     //装饰类菜单按钮
     btn2.addEventListener("click", function(){
-        this.setAttribute("style", "background:orange;border-color:orange;");
-        btn1.setAttribute("style", "background:white;border-color:none;");
-        btn3.setAttribute("style", "background:white;border-color:none;");
-        Gneng.setAttribute("style", "z-index: 1;")
+        this.setAttribute("style", "background:url('./assets/tabBg.png')");
+        btn1.setAttribute("style", "background:none");
+        btn3.setAttribute("style", "background:none");
+        $(".gn:eq(0)>img").attr("src","./assets/gneng1.png");
+        $(".gn:eq(1)>img").attr("src","./assets/zshilei1.png");
+        $(".gn:eq(2)>img").attr("src","./assets/dibang2.png");
+        Gneng.setAttribute("style", "z-index: 1;display:none;")
         Zshi.setAttribute("style", "z-index: 999;")
-        floor.setAttribute("style", "z-index: 1;")
+        floor.setAttribute("style", "z-index: 1;display:none;")
     })
     //地板类菜单按钮
     btn3.addEventListener("click", function(){
-        this.setAttribute("style", "background:orange;border-color:orange;");
-        btn2.setAttribute("style", "background:white;border-color:none;");
-        btn1.setAttribute("style", "background:white;border-color:none;");
-        Gneng.setAttribute("style", "z-index: 1;")
-        Zshi.setAttribute("style", "z-index: 1;")
+        this.setAttribute("style", "background:url('./assets/tabBg.png')");
+        btn2.setAttribute("style", "background:none");
+        btn1.setAttribute("style", "background:none");
+        $(".gn:eq(0)>img").attr("src","./assets/gneng1.png");
+        $(".gn:eq(1)>img").attr("src","./assets/zshilei2.png");
+        $(".gn:eq(2)>img").attr("src","./assets/dibang1.png");
+        Gneng.setAttribute("style", "z-index: 1;display:none;")
+        Zshi.setAttribute("style", "z-index: 1;display:none;")
         floor.setAttribute("style", "z-index: 999;")
     })
     // heng[2].setAttribute("style","max-height: "+(Gneng.offsetHeight-96-139)+"px");
     // console.log(Gneng.offsetHeight);
+    console.log(menu.offsetTop)
+    // bottom.setAttribute("style","top:"+(32)+"px;");
 }

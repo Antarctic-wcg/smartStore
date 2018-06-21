@@ -101,6 +101,10 @@ var homeState = function (game) {
         this.Zindex5 = game.add.group();
         this.Zindex6 = game.add.group();
         // this.index1 = [];
+        this.ceng = 0;
+
+        // var headicon = document.getElementById("headicon");
+        // headicon.setAttribute("style", "display:block;");
     }//create end
     //update
     var index1 = [];
@@ -119,13 +123,10 @@ var homeState = function (game) {
         }, this)
         //--------------------------------------------
         index1 = [];
-        index1X = [];
-        index1Y = [];
         this.Zindex1.forEachExists(function (item) {
             this.follow(item);
             zindex(item, this);
             index1.push(item.Zindex);
-            // console.log(item.Zindex);
             function sequence(a, b) {
                 if (a > b) {
                     return 1;
@@ -136,30 +137,19 @@ var homeState = function (game) {
                 }
             }
             index1.sort(sequence);
-            // if((index1.indexOf(31) != (-1) && index1.indexOf(36) != (-1)) || (index1.indexOf(46) != (-1) && index1.indexOf(49) != (-1)) || (index1.indexOf(57) != (-1) && index1.indexOf(58) != (-1)) || (index1.indexOf(18) != (-1) && index1.indexOf(22) != (-1)) || (index1.indexOf(33) != (-1) && index1.indexOf(38) != (-1)) || (index1.indexOf(48) != (-1) && index1.indexOf(51) != (-1))){
-            //     console.log(111);
-            // }
-            if(index1.length >= 2){
-                if(index1.indexOf(31) != (-1) && index1.indexOf(36) != (-1)){
-                    var one = index1.indexOf(31);
-                    var two = index1.indexOf(36);
-                    index1[one] = 36;
-                    index1[two] = 31;
-                    // console.log(index1);
-                }
-            }
             this.Zindex1.setChildIndex(item, index1.indexOf(item.Zindex));
-            // this.Zindex1.setChildIndex(item, index1X.indexOf(item.zindexX));
-            // this.Zindex1.setChildIndex(item, index1Y.indexOf(item.zindexY));
+            
+            
         }, this)
-        
+        // console.log(index1);
+
 
         index2 = [];
         this.Zindex2.forEachExists(function (item) {
             // item.img.input.pixelPerfectClick = true;
             this.follow(item);
             zindex(item, this);
-            index2.push(item.zindex);
+            index2.push(item.Zindex);
             function sequence(a, b) {
                 if (a > b) {
                     return 1;
@@ -170,8 +160,10 @@ var homeState = function (game) {
                 }
             }
             index2.sort(sequence);
-            this.Zindex2.setChildIndex(item, index2.indexOf(item.zindex));
+            this.Zindex2.setChildIndex(item, index2.indexOf(item.Zindex));
         }, this)
+        // console.log(index2);
+
         index3 = [];
         this.Zindex3.forEachExists(function (item) {
             // item.img.input.pixelPerfectClick = true;

@@ -17,6 +17,7 @@ var buttons = function(cont, carImg, car){
                 // upgrade.removeEventListener("click", upgrades);
             }
         })
+        car.ckBtn.scale.set(0.5);
         that.dangeBtn.add(car.ckBtn);
         //移动建组 + 打勾---------------------------------------------------------
         car.moveBtn = game.add.button(carImg.x - 47, carImg.y +car.img.height/2+10, "moveBtn", function(){
@@ -61,6 +62,7 @@ var buttons = function(cont, carImg, car){
             
             
         })
+        car.moveBtn.scale.set(0.5);
         that.dangeBtn.add(car.moveBtn);
         //旋转建筑 + X---------------------------------------------------------------
         car.xuanzhuan = game.add.button(carImg.x + 0, carImg.y +car.img.height/2+10, "xuanzhuan", function(){
@@ -87,6 +89,7 @@ var buttons = function(cont, carImg, car){
                 }
             }
         })
+        car.xuanzhuan.scale.set(0.5);
         that.dangeBtn.add(car.xuanzhuan);
         //拆除建筑---------------------------------------------------
         car.chaichuBtn = game.add.button(carImg.x + 50, carImg.y +car.img.height/2+10, "chaichuBtn", function(){
@@ -123,6 +126,7 @@ var buttons = function(cont, carImg, car){
             })
             
         })
+        car.chaichuBtn.scale.set(0.5);
         that.dangeBtn.add(car.chaichuBtn);
         that.buttonsGroup.add(that.dangeBtn);
     }

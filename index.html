@@ -13,74 +13,97 @@
 
 <body>
     <div id="container"></div>
+
+    <!-- 头像 金币 能量。。。 -->
+    <!-- <div class="headicon" id="headicon">
+        <div class="uileft">
+            <img src="./assets/touxiang.jpeg" width="100%" height="100%" alt="">
+        </div>
+        <div class="uicentent">
+            <span>玩家昵称</span>
+            <span>LV4</span>
+        </div>
+        <div class="uiright">
+            <div class="jinbi">
+                <div class="item">金币：</div>
+                <div class="val">
+                    <div class="nowval"></div>
+                </div>
+            </div>
+            <div class="nengliang">
+               <div class="item">能量：</div>
+                <div class="val">
+                    <div class="nowLiang"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
     <!-- 任务 -->
     <button id="task">任务</button>
-    
-    <div class="caidan" id="menu">
-        <div class="main">
-            <div class="head">
-                <h2>建筑菜单
-                    <button id="btn">关闭</button>
-                </h2>
-            </div>
-            <div class="bottom">
-                <div class="left">
-                    <div class="tab">
-                        <button id="btnl1" style="background:orange;border-color:orange;">功能类</button>
-                        <button id="btnl2">装饰类</button>
-                        <button id="btnl3">地板类</button>
-                    </div>
+    <!-- 菜单 -->
+    <div class="caidanBox" id="menu">
+        <div class="caidan">
+            <div class="main">
+                <div class="head">
+                    <h2>建筑
+                        <!-- <button id="btn">关闭</button> -->
+                    </h2>
                 </div>
-                <div class="right" id="floor">
-                    <div class="heng">
-                        <div class="menu1" id="build1">
-                            <div class="h1">
-                                <img src="./assets/1x1ccz.png" height="100%" alt="">
+                <div class="bottom" id="bottom">
+                    <div class="left">
+                        <div class="tab">
+                            <div id="btnl1" style="background:url('./assets/tabBg.png')">
+                                <div class="gn">
+                                    <img id="gongneng" src="./assets/gneng2.png" width="100%" height="100%" alt="">
+                                </div>
                             </div>
-                            <div class="menu1_span">
-                                <span>功能建筑</span>
-                                <span>金币：10000</span>
-                                <span>能量：10</span>
+                            <div id="btnl2">
+                                <div class="gn">
+                                    <img src="./assets/zshilei2.png" width="100%" height="100%" alt="">
+                                </div>
                             </div>
-                            <div>
-                                <span>1*1</span>
+                            <div id="btnl3">
+                                <div class="gn">
+                                    <img src="./assets/dibang2.png" width="100%" height="100%" alt="">
+                                </div>
                             </div>
-                            
                         </div>
                     </div>
-                </div>
-                <div class="right" id="Zshi">
-                    <div class="heng">
-                        <div class="menu1" id="build1">
-                            <div class="h1">
-                                <img src="./assets/2x3qt.png" height="100%" alt="">
-                            </div>
-                            <div class="menu1_span">
-                                <span>功能建筑</span>
-                                <span>金币：10000</span>
-                                <span>能量：10</span>
-                            </div>
-                            <div>
-                                <span>1*1</span>
-                            </div>
-                            
+                    <div class="right" id="floor" style="display: none;">
+                        <div class="heng">
+                                <div class="menu1" id="build1">
+                                    <div class="h1">
+                                        <img src="assets/2x3qsj.png" height="100%" alt="">
+                                    </div>
+                                    <div class="size">1x1</div>
+                                    <div class="xqJbi"><em>10000</em></div>
+                                    <div class="xqNliang"><em>10</em></div>
+                                </div>
                         </div>
                     </div>
-                </div>
-                <div class="right" id="Gneng">
-                    <div class="heng"></div>
-                </div>
+                    <div class="right" id="Zshi" style="display: none;">
+                        <div class="heng">
+                            <div class="menu1" id="build1">
+                                <div class="h1">
+                                    <img src="assets/2x3qsj.png" height="100%" alt="">
+                                </div>
+                                <div class="size">1x1</div>
+                                <div class="xqJbi"><em>10000</em></div>
+                                <div class="xqNliang"><em>10</em></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right" id="Gneng">
+                        <div class="heng"></div>
+                    </div>
 
+                </div>
             </div>
-        </div>
-        <div class="naImg">
-            <img src="./assets/nana.jpg" alt="">
-        </div>
-        <div class="nana">
-            <div class="talk">选择自己喜欢的设施吧！</div>
-            <div class="nanaName">NANA</div>
         </div>
     </div>
+
     <!-- 建筑数据 -->
     <div class="caidan build" id="build">
         <div class="main">
@@ -302,8 +325,14 @@
             </div>
         </div>
     </div>
+    <!-- AI少女 -->
+    <div class="nana">
+        <div class="naImg">
+            <img src="./assets/nana.png" width="100%" height="100%" alt="">
+        </div>
+    </div>
 
-    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="./js/phaser.min.js"></script>
     <script src="./js/boot.js"></script>
     <script src="./js/load.js"></script>
@@ -319,7 +348,22 @@
     <script src="./module/building.js"></script>
     <script src="./module/buttons.js"></script>
     <script>
-        var game = new Phaser.Game(document.body.clientWidth < 1700 ? document.body.clientWidth:1700, document.body.clientHeight < 1105 ? document.body.clientHeight:1105, Phaser.CANVAS, "container");
+        // var data = $.ajax({
+        //     type: 'POST',
+        //     timeout: 10000,
+        //     url:'http://111.230.129.82:8001/tiaotiao_building_1/api/all.php',
+        //     // url:'http://111.230.129.82:8001/tiaotiao_building_1/api/insert.php',
+        //     async: true,
+        //     // data: {"ad_name": "建筑3333", "en_name": "1x1", "hd_index": "110", "tj_index":"220", "issue":"0"},
+        //     complete: function(XHR, TS){
+        //         console.log(JSON.parse(XHR.responseText))
+        //         // console.log(XHR.responseText)
+        //         console.log(TS)
+        //     }
+        // });
+        // console.log(data.responseText);
+        // -----------
+        var game = new Phaser.Game(document.body.clientWidth < 1700 ? document.body.clientWidth : 1700, document.body.clientHeight < 1105 ? document.body.clientHeight : 1105, Phaser.CANVAS, "container");
         game.state.add("boot", bootState);//初始化场景
         game.state.add("loader", loaderState);//加载场景
         game.state.add("style", styleState);//选择店面风格场景

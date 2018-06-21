@@ -3,7 +3,7 @@ var buts = function(cont, car){
     car.buttons = true;//点击建筑只出现一次建筑菜单
     car.btns = true;
     //建造确定按钮-----------------------------------------------------------
-    car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "queren", function(){
+    car.okBtn = game.add.button(car.img.x+30, car.img.y+50, "dgou", function(){
         if(car.building){
             car.Show = false;
             car.lastx = car.img.x;
@@ -19,16 +19,16 @@ var buts = function(cont, car){
             car.block.forEach(function(val){
                 val.building = false;
             });
-            // car.block.building = false;
+            
             
             that.carGroup.removeChild(car);
 
-            car.img.visible = false;
+            // car.img.alpha = 0;
 
             var hours = 0;
             var min = 0;
             var s = 1;
-            upgrade(car, hours, min, s, this);
+            // upgrade(car, hours, min, s, this);
             
             car.img.events.onInputDown.add(function(){
                 if(car.buttons){//phaser烦人的destroy导致如下重复繁琐的代码
@@ -83,8 +83,9 @@ var buts = function(cont, car){
             
         }
     }, that)
+    car.okBtn.scale.set(0.6);
     //取消代码-----------------------------------------------------------------
-    car.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "quxiao", function(){
+    car.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "dcha", function(){
         // console.log("btn2");
         car.img.destroy();
         car.okBtn.destroy();
@@ -101,6 +102,7 @@ var buts = function(cont, car){
         that.Zindex6.removeChild(car);
         that.clickNum -= 1;
     }, that)
+    car.qxBtn.scale.set(0.6);
     //旋转代码-------------------------------------------------------------------
     car.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
         if(car.img.scale.x < 0){
@@ -109,5 +111,5 @@ var buts = function(cont, car){
             car.img.scale.x = -0.5;
         }
     }, that)
-
+    car.xzBtn.scale.set(0.6);
 }

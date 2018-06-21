@@ -29,35 +29,35 @@ var zindex = function(item, that){
             {
                 item.img.gezi = parseInt(item.ids.slice(8));
                 that.imgIndex(item.img, item.img.gezi);
-                that.Zindex1.addChild(item.img);
+                that.Zindex2.addChild(item.img);
             }
         }else if(item.ids.slice(0, 7) == "guding3"){
             if(that.Zindex3.getChildAt(item) == undefined)
             {
                 item.img.gezi = parseInt(item.ids.slice(8));
                 that.imgIndex(item.img, item.img.gezi);
-                that.Zindex1.addChild(item.img);
+                that.Zindex3.addChild(item.img);
             }
         }else if(item.ids.slice(0, 7) == "guding4"){
             if(that.Zindex4.getChildAt(item) == undefined)
             {
                 item.img.gezi = parseInt(item.ids.slice(8));
                 that.imgIndex(item.img, item.img.gezi);
-                that.Zindex1.addChild(item.img);
+                that.Zindex4.addChild(item.img);
             }
         }else if(item.ids.slice(0, 7) == "guding5"){
             if(that.Zindex5.getChildAt(item) == undefined)
             {
                 item.img.gezi = parseInt(item.ids.slice(8));
                 that.imgIndex(item.img, item.img.gezi);
-                that.Zindex1.addChild(item.img);
+                that.Zindex5.addChild(item.img);
             }
         }else if(item.ids.slice(0, 7) == "guding6"){
             if(that.Zindex6.getChildAt(item) == undefined)
             {
                 item.img.gezi = parseInt(item.ids.slice(8));
                 that.imgIndex(item.img, item.img.gezi);
-                that.Zindex1.addChild(item.img);
+                that.Zindex6.addChild(item.img);
                 
             }
         }

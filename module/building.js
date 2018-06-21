@@ -46,7 +46,7 @@ var upgrade = function(car, h, m, ss, that){
             building.destroy();
             tbg.destroy();
             text.destroy();
-            car.img.visible = true;
+            car.img.alpha = 1;
         }
         if(s < 10) s = "0" + s;
         text.text = "建设中：\n "+hours+":"+min+":"+s+"";
