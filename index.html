@@ -10,18 +10,35 @@
     <link rel="icon" href="./assets/title.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/swiper.min.css">
     <link rel="stylesheet" href="./css/certify.css">
+    <script src="./js/phaser.min.js"></script>
     <title>smartStore</title>
 </head>
 
 <body>
+    <script>
+        function stopDefault(e){ 
+            //防止浏览器默认行为(W3C) 
+            if(e && e.preventDefault){ 
+                e.preventDefault(); 
+                console.log(1);
+            } 
+            //IE中组织浏览器行为 
+            else{ 
+                window.event.returnValue=fale;
+                return false;
+            } 
+        }
+        window.onload = function(e){
+            stopDefault(e)
+        }
+        
+    </script>
     <div id="container"></div>
 
     <!-- ai少女icon -->
     <div class="aiIcon" id="aiIcon">
         <img src="./assets/nanaIcon.png" width="100%" height="100%" alt="">
     </div>
-
-    <!-- 头像 金币 能量。。。 -->
     
     <!-- 菜单 -->
     <div class="caidanBox" id="menu">
@@ -117,24 +134,7 @@
         </div>
         <button id="styBtn">确认</button>
     </div>
-    <!-- AI少女 -->
-    <!-- <button id="aisnMenu">AI少女</button>
-    <div class="aisnMain" id="aisnMain">
-        <div class="aisn">
-            AI少女
-        </div>
-        <div class="menus">
-            <ul>
-                <li id="c1">邮件</li>
-                <li id="c2">大地图</li>
-                <li id="c3">设置</li>
-                <li id="c4">收起</li>
-                <li id="c5">建筑</li>
-                <li id="c6">背包</li>
-                <li id="c7">商店</li>
-            </ul>
-        </div>
-    </div> -->
+    
     <!-- 设置 -->
     <div class="set" id="set">
         <div class="setMain">
@@ -294,7 +294,6 @@
         </div>
         <div class="nanaCon"></div>
     </div>
-
     <div id="aiTab" style="width: 100%; height: 100%; position: fixed; top: 50%; left: 50%;transform: translate(-50%, -50%); visibility: hidden;">
         <div id="certify">
             <div class="swiper-container">
@@ -328,8 +327,29 @@
         </div>
     </div>
 
+    <!-- 头像区域 -->
+    <div class="headPortrait">
+        <div class="headPicon">
+            <div class="headImg">
+                <img src="./assets/touxiang.jpeg" width="100%" height="100%" alt="">
+            </div>
+            <div class="nicheng">玩家昵称</div>
+            <div class="shopLv">
+                <div class="temImg">
+                    <img src="./assets/org9.png" width="100%" height="100%" alt="">
+                </div>
+                <div class="geImg">
+                    <img src="./assets/org9.png" width="100%" height="100%" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="headJbi">
+            <div class="jinbiIcon"></div>
+        </div>
+    </div>
+
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="./js/phaser.min.js"></script>
+    
     <script src="./js/boot.js"></script>
     <script src="./js/load.js"></script>
     <script src="./js/styleShop.js"></script>

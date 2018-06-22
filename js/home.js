@@ -12,6 +12,9 @@ var homeState = function (game) {
             game.input.addMoveCallback(this.cameraMove, this);
         }, this);
         bg1.events.onInputUp.add(function () {
+            $(function(){
+                $("#build").css("display","none");
+            })
             game.input.deleteMoveCallback(this.cameraMove, this);
         }, this);
         
@@ -64,6 +67,9 @@ var homeState = function (game) {
         this.floorGroup.add(this.floor);
         this.floor.inputEnabled = true;
         this.floor.events.onInputDown.add(function () {
+            $(function(){
+                $("#build").css("display","none");
+            })
             if (this.dangeBtn) {//移动时点击点半不缺陷移动菜单
                 if (this.dangeBtn.length > 0) {
                     if (this.dangeBtn.getChildAt(1).key == "moveBtn") {
@@ -106,6 +112,8 @@ var homeState = function (game) {
 
         // 进入场景后显示nanaicon
         $(".aiIcon").css("display","block");
+        $(".headPortrait").css("display","block");
+        $(".nicheng").css("line-height",$(".nicheng").height()+"px");
     }//create end
     //update
     var index1 = [];
@@ -221,7 +229,7 @@ var homeState = function (game) {
         }, this)
         index6 = [];
         this.Zindex6.forEachExists(function (item) {
-            item.img.input.pixelPerfectClick = true;
+            
             this.follow(item);
             zindex(item, this);
             index6.push(item.Zindex);
