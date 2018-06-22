@@ -343,6 +343,15 @@ var homeState = function (game) {
             $("#nana").css("display","none");
             $("#container canvas").css("filter","blur(0px)");
         })
+        $("#jianzhu").click(function(event){
+            if($("#menu")[0].getAttribute("style") == "display: none;" || $("#menu")[0].getAttribute("style") == null){
+                showMenu(that);
+                // $("#container canvas").css("filter","blur(14px)");
+                $("#nana").css("display","block");
+                $("#aiTab").css("visibility","hidden");
+                event.stopPropagation();
+            }
+        });
         // var that = this;
         // var aisn = document.getElementById("aisnMenu");
         // var aisnMain = document.getElementById("aisnMain");
@@ -494,7 +503,7 @@ var homeState = function (game) {
     
     //任务
     this.task = function () {
-        var task = document.getElementById("task");
+        // var task = document.getElementById("task");
         var caidan_task = document.getElementById("caidan_task");
         var remove_task = document.getElementById("remove_task");
         var task_content1 = document.getElementById("task_content1");
@@ -504,7 +513,10 @@ var homeState = function (game) {
         var task_btn2 = document.getElementById("task_btn2");
         var her = game.height - 200;
 
-        task.setAttribute("style","display:block;")
+        $("#renwu").click(function(){
+            $("#caidan_task").css("display","block");
+        })
+        // task.setAttribute("style","display:block;")
         //清除数据
         task_content1.remove();
         var dom1 = document.createElement("div");
@@ -578,10 +590,10 @@ var homeState = function (game) {
         var task_btn2 = document.getElementById("task_btn2");
 
         //打开任务页面
-        task.addEventListener("click", function () {
-            caidan_task.setAttribute("style", "display: block;");
-            that.task();
-        });
+        // task.addEventListener("click", function () {
+        //     caidan_task.setAttribute("style", "display: block;");
+        //     that.task();
+        // });
         //切换任务类型
         task_btn1.addEventListener("click", function () {
             that.task();
