@@ -794,8 +794,8 @@ html{font-size:12px}
     height: 38%;
     position: absolute;
     top: 9%;
-    left: 45%;
-    background: red;
+    left: 51%;
+    /* background: red; */
 }
 .headPortrait .headJbi .jinbiIcon{
     width: 26%;
@@ -803,7 +803,31 @@ html{font-size:12px}
     position: absolute;
     top: 0%;
     left: 0%;
-    background: wheat;
+}
+.headPortrait .headJbi .jinbizhi{
+    width: 75%;
+    height: 65%;
+    position: absolute;
+    top: 21%;
+    left: 30%;
+    /* background: yellow; */
+}
+.headPortrait .headJbi .jinbizhi img{
+    float: left;
+}
+.headPortrait .nengl{
+    width: 16%;
+    height: 38%;
+    position: absolute;
+    top: 9%;
+    left: 81%;
+}
+.headPortrait .nengl .jinbiIcon{
+    width: 33%;
+}
+.headPortrait .nengl .jinbizhi{
+    left: 35%;
+    width: 50%;
 }
 
 
