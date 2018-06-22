@@ -8,6 +8,7 @@ var buts = function(cont, car){
             car.Show = false;
             car.lastx = car.img.x;
             car.lasty = car.img.y;
+            car.scaleX = car.img.scale.x;
             car.lastBlock = car.block;
             car.okBtn.destroy();
             car.qxBtn.destroy();
@@ -83,7 +84,7 @@ var buts = function(cont, car){
             
         }
     }, that)
-    car.okBtn.scale.set(0.6);
+    car.okBtn.scale.set(0.35);
     //取消代码-----------------------------------------------------------------
     car.qxBtn = game.add.button(car.img.x-30, car.img.y+50, "dcha", function(){
         // console.log("btn2");
@@ -102,7 +103,7 @@ var buts = function(cont, car){
         that.Zindex6.removeChild(car);
         that.clickNum -= 1;
     }, that)
-    car.qxBtn.scale.set(0.6);
+    car.qxBtn.scale.set(0.35);
     //旋转代码-------------------------------------------------------------------
     car.xzBtn = game.add.button(car.img.x-90, car.img.y+50, "xuanzhuan", function(){
         if(car.img.scale.x < 0){
@@ -111,5 +112,5 @@ var buts = function(cont, car){
             car.img.scale.x = -0.5;
         }
     }, that)
-    car.xzBtn.scale.set(0.6);
+    car.xzBtn.scale.set(0.35);
 }

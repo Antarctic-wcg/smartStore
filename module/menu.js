@@ -93,6 +93,7 @@ var showMenu = function(that){
     btn.onclick = function(){
         menu.setAttribute("style", "display: none;");
         $("#container canvas").css("filter","blur(0px)");
+        $("#nana").css("display","none");
     }
     
     
@@ -105,10 +106,8 @@ var showMenu = function(that){
             that["car"+that.clickNum] = game.add.sprite(that.floor.x+50, that.floor.y, gnengData[j].sprite);
             that["car"+that.clickNum].anchor.set(0.5);
             that["car"+that.clickNum].scale.set(0.5);
-            // redCar.tint = 0xFF3366;
             that["car"+that.clickNum].inputEnabled = true;//开启输入事件
             that["car"+that.clickNum].input.enableDrag(false);//拖拽
-            // redCar.input.enableSnap(4, 3);
             that["gn" + that.clickNum] = game.add.sprite();
             that["gn" + that.clickNum].Show = true;
             that["gn" + that.clickNum].id = ("gn" + that.clickNum);
@@ -117,19 +116,70 @@ var showMenu = function(that){
             that["car"+that.clickNum].input.pixelPerfectClick = true;//对象使用完美像素检查
             that["car"+that.clickNum].input.pixelPerfectOver = true;//指针一上去使用完美像素检查
 
-            // that["car"+that.clickNum].zindex = 0;
             menu.setAttribute("style", "display: none;");
             
             that["gn" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
             that.carGroup.addChild(that["gn" + that.clickNum]);
             buts(that, that["gn" + that.clickNum]);
             $("#container canvas").css("filter","blur(0px)");
-            // that["size" + that.clickNum] = game.add.sprite(that.floor.x, that.floor.y, "yuan");
-            // that["size" + that.clickNum].scale.set(0.5);
-            // that["size" + that.clickNum].anchor.set(0.5);
-            
+            $("#nana").css("display","none");
         }
     }
+    //二
+    for(let j=0; j < gnengData.length; j++){
+        window["dibang"+j] = document.getElementById("dibang"+j);
+        window["dibang"+j].onclick = function(){
+            that.clickNum += 1;
+            that["car"+that.clickNum] = game.add.sprite(that.floor.x+50, that.floor.y, gnengData[j].sprite);
+            that["car"+that.clickNum].anchor.set(0.5);
+            that["car"+that.clickNum].scale.set(0.5);
+            that["car"+that.clickNum].inputEnabled = true;//开启输入事件
+            that["car"+that.clickNum].input.enableDrag(false);//拖拽
+            that["dibang" + that.clickNum] = game.add.sprite();
+            that["dibang" + that.clickNum].Show = true;
+            that["dibang" + that.clickNum].id = ("dibang" + that.clickNum);
+            that["car"+that.clickNum].inputEnabled = true;//开启输入事件
+            that["dibang" + that.clickNum].img = that["car"+that.clickNum];
+            that["car"+that.clickNum].input.pixelPerfectClick = true;//对象使用完美像素检查
+            that["car"+that.clickNum].input.pixelPerfectOver = true;//指针一上去使用完美像素检查
+
+            menu.setAttribute("style", "display: none;");
+            
+            that["dibang" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
+            that.carGroup.addChild(that["dibang" + that.clickNum]);
+            buts(that, that["dibang" + that.clickNum]);
+            $("#container canvas").css("filter","blur(0px)");
+            $("#nana").css("display","none");
+        }
+    }
+    //三
+    for(let j=0; j < gnengData.length; j++){
+        window["zshi"+j] = document.getElementById("zshi"+j);
+        window["zshi"+j].onclick = function(){
+            that.clickNum += 1;
+            that["car"+that.clickNum] = game.add.sprite(that.floor.x+50, that.floor.y, gnengData[j].sprite);
+            that["car"+that.clickNum].anchor.set(0.5);
+            that["car"+that.clickNum].scale.set(0.5);
+            that["car"+that.clickNum].inputEnabled = true;//开启输入事件
+            that["car"+that.clickNum].input.enableDrag(false);//拖拽
+            that["zshi" + that.clickNum] = game.add.sprite();
+            that["zshi" + that.clickNum].Show = true;
+            that["zshi" + that.clickNum].id = ("zshi" + that.clickNum);
+            that["car"+that.clickNum].inputEnabled = true;//开启输入事件
+            that["zshi" + that.clickNum].img = that["car"+that.clickNum];
+            that["car"+that.clickNum].input.pixelPerfectClick = true;//对象使用完美像素检查
+            that["car"+that.clickNum].input.pixelPerfectOver = true;//指针一上去使用完美像素检查
+
+            menu.setAttribute("style", "display: none;");
+            
+            that["zshi" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
+            that.carGroup.addChild(that["zshi" + that.clickNum]);
+            buts(that, that["zshi" + that.clickNum]);
+            $("#container canvas").css("filter","blur(0px)");
+            $("#nana").css("display","none");
+        }
+    }
+
     //功能类菜单按钮
     btn1.addEventListener("click", function(){
         this.setAttribute("style", "background:url('./assets/tabBg.png')");
@@ -193,5 +243,11 @@ var showMenu = function(that){
     $("#heng1").scrollTop(0);
     $("#heng1").scroll(function(){
         $("#gun1").css("top",($("#scroll1").height()-$("#gun1").height())*($(this).scrollTop()/so1)+"px")
+    })
+
+    $(".nanaCon").html("<div class='nanaBuild'>选择自己喜欢的设置吧！</div>");
+    
+    $(function(){
+        $(".nanaBuild").css("line-height",$(".nanaCon").height()+"px");
     })
 }

@@ -33,7 +33,7 @@ var match = function(car, tx, ty, that){
     }
     
     // var arr1x2f = [48,34,20,9,2,57,46,32,18,7,62,55,44,30,16];
-    var arr1x2f = [104,82,54,26,4,113,88,60,32,7,118,100,72,44,16];
+    var arr1x2f = [63,43,26,13,4,96,79,59,39,22,114,105,92,75,55];
     that.x1x2t = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -98,7 +98,7 @@ var match = function(car, tx, ty, that){
         }
     }
 
-    var arr1x4f = [113,88,60,32,7];
+    var arr1x4f = [96,79,59,39,22];
     that.x1x4f = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -170,7 +170,7 @@ var match = function(car, tx, ty, that){
         }
     }
     // var arr2x3f = [47,33,19,8,56,45,31,17];
-    var arr2x3f = [96,68,40,13,107,80,52,24];
+    var arr2x3f = [71,51,32,17,101,86,67,47,];
     that.x2x3f = function(x, y, buildBlock, shadow)
     {
         var twoShadowX_1 = x;//17
@@ -254,7 +254,7 @@ var match = function(car, tx, ty, that){
     var arr2x2t = [47,31,18,9,83,67,51,35,109,100,87,71];
     
     // var arr2x2f = [41,27,14,5,52,39,25,12,59,50,37,23];
-    var arr2x2f = [90,62,34,9,102,74,46,18,111,86,58,30];
+    var arr2x2f = [53,34,19,8,88,69,49,30,110,99,84,65];
     that.x2x2t = function(x, y, buildBlock, shadow)
     {   
         var twosShadowX_5 = x;//17

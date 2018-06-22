@@ -143,9 +143,9 @@ html{font-size:12px}
 }
 .bottom .right .heng{
     width: 95%;
-    height: 100%;
+    height: 95%;
     overflow: auto;
-    /* padding-bottom: 173px; */
+    padding-bottom: 5%;
 }
 .bottom .right .scroll{
     width: 4%;
@@ -219,35 +219,67 @@ html{font-size:12px}
 /* AI少女nana */
 .nana{
     width: 100%;
-    height: 34%;
+    height: 24%;
     position: fixed;
     bottom: 0;
     left: 0;
     display: none;
 }
+.nana .naImg{
+    width: 47%;
+    height: 153%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.nana .nanaBg{
+    width: 100%;
+    height: 100%
+}
+.nana .nanaCon{
+    width: 63%;
+    height: 68%;
+    position: absolute;
+    top: 18%;
+    left: 36%;
+    color: white;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+.nana .nanaCon .nanaBuild{
+    width: 100%;
+    height: 100%;
+}
+/* ai少女icon */
+.aiIcon{
+    width: 20%;
+    height: 16%;
+    display: none;
+    position: fixed;
+    left: 4%;
+    bottom: 1%;
+}
+
+
 /* 建筑数据 */
 .build{
     display: none;
+    width: 75%;
     height: 60%;
-    top: 50%;
-    transform: translate(0, -50%);
+    position: fixed;
+    left: 50%;
+    top: 34%;
+    transform: translate(-50%, -50%);
+    background-image: url("../assets/buildShuju.png");
+    background-size: 100% 100%;
 }
-.build .main .buildData{
-    padding: 0 10px;
-}
-.build .main .buildData>span{
-    font-size: 22px;
-}
-.build .main .buildData .upgrade{
-    width: 130px;
-    padding: 10px 0;
-    background: orange;
-    margin: 0 auto;
-}
-.upgrade span{
-    display: block;
-    font-size: 16px;
-    text-align: center;
+.build .buildImg{
+    width: 60%;
+    height: 38%;
+    background: red;
+    position: absolute;
+    left: 21%;
+    top: 7%;
 }
 
 /* 拆除确认 */
@@ -336,7 +368,7 @@ html{font-size:12px}
     transform: translateX(-50%);
 }
 /* AI少女btn */
-#aisnMenu{
+/* #aisnMenu{
     position: fixed;
     bottom: 2rem;
     right: 0.5rem;
@@ -360,13 +392,11 @@ html{font-size:12px}
     width: 45%;
     height: 100%;
     float: left;
-    /* background: yellow; */
 }
 .aisnMain .menus{
     width: 55%;
     height: 100%;
     float: left;
-    /* background: yellowgreen; */
 }
 .menus{
     overflow: auto;
@@ -387,7 +417,7 @@ html{font-size:12px}
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-}
+} */
 /* 设置 */
 .set{
     width: 100%;
@@ -688,79 +718,10 @@ html{font-size:12px}
     background: orange;
 }
 /* 头像 金币 能量。。。 */
-.headicon{
-    width: 100%;
-    max-width: 500px;
-    height: 90px;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    
-    /* background: yellow; */
-}
-.headicon>div{
-    display: inline-block;
-    float: left;
-    margin-top: 5px;
-}
-.headicon .uileft{
-    border: 1px solid #000;
-    width: 80px;
-    height: 80px;
-    margin: 5px 0 0 5px;
-    border-radius: 50%;
-}
-.headicon .uileft>img{
-    border-radius: 50%;
-}
-.headicon .uicentent{
-    width: 32%;
-    height: 80px;
-}
-.headicon .uicentent span{
-    display: block;
-    height: 41px;
-    line-height: 41px;
-    width: 100%;
-    text-align: center;
-    font-size: 17px;
-    font-weight: 500;
-}
-.headicon .uiright{
-    width: 41%;
-    height: 80px;
-}
-.headicon .uiright>div{
-    height: 30px;
-    width: 100%;
-    margin-top: 6px;
-    /* background: #0069B4; */
-}
-.headicon .uiright .item{
-    display: inline-block;
-    float: left;
-    height: 100%;
-    line-height: 30px;
-    font-size: 14px;
-    font-weight: 700;
-}
-.uiright .val{
-    height: 100%;
-    width: 70%;
-    display: inline-block;
-}
-.uiright .nowval,.uiright .nowLiang{
-    width:100%;
-    height: 57%;
-    background: white;
-    border: 1px solid #000;
-    margin-top: 6px;
-}
+
 /* ------------------------- */
 /* 任务btn 光宇 */
-#task{
+/* #task{
 position: fixed;
 bottom: 2rem;
 right: 0.5rem;
@@ -770,7 +731,7 @@ height: 50px;
 background: orange;
 border: none;
 display: none;
-}
+} */
 #caidan_task,#lists{
 height: 99.8%;
 width: 100%;

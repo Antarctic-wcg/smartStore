@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -7,40 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="icon" href="./assets/title.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/certify.css">
     <title>smartStore</title>
 </head>
 
 <body>
     <div id="container"></div>
 
+    <!-- ai少女icon -->
+    <div class="aiIcon" id="aiIcon">
+        <img src="./assets/nanaIcon.png" width="100%" height="100%" alt="">
+    </div>
+
     <!-- 头像 金币 能量。。。 -->
-    <!-- <div class="headicon" id="headicon">
-        <div class="uileft">
-            <img src="./assets/touxiang.jpeg" width="100%" height="100%" alt="">
-        </div>
-        <div class="uicentent">
-            <span>玩家昵称</span>
-            <span>LV4</span>
-        </div>
-        <div class="uiright">
-            <div class="jinbi">
-                <div class="item">金币：</div>
-                <div class="val">
-                    <div class="nowval"></div>
-                </div>
-            </div>
-            <div class="nengliang">
-               <div class="item">能量：</div>
-                <div class="val">
-                    <div class="nowLiang"></div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
-    <!-- 任务 -->
-    <button id="task">任务</button>
+    
     <!-- 菜单 -->
     <div class="caidanBox" id="menu">
         <div class="caidan">
@@ -92,29 +74,12 @@
                 <img src="./assets/back.png" width="100%" height="100%" alt="">
             </div>
         </div>
-        
+
     </div>
 
     <!-- 建筑数据 -->
-    <div class="caidan build" id="build">
-        <div class="main">
-            <div class="head">
-                <h2>建筑数据
-                    <button id="btn2">关闭</button>
-                </h2>
-            </div>
-            <div class="buildData">
-                <h3>建筑名称</h3>
-                <h3>LV1</h3>
-                <h3>满意度贡献：10</h3>
-                <h3>以接待人数：50</h3>
-                <div class="upgrade" id="upgrade">
-                    <span style="font-size: 20px;">升级</span>
-                    <span>金币 1000</span>
-                    <span>能量 30</span>
-                </div>
-            </div>
-        </div>
+    <div class="build" id="build">
+        <div class="buildImg"></div>
     </div>
     <!-- 拆除菜单 -->
     <div class="chai" id="chai">
@@ -150,7 +115,7 @@
         <button id="styBtn">确认</button>
     </div>
     <!-- AI少女 -->
-    <button id="aisnMenu">AI少女</button>
+    <!-- <button id="aisnMenu">AI少女</button>
     <div class="aisnMain" id="aisnMain">
         <div class="aisn">
             AI少女
@@ -166,7 +131,7 @@
                 <li id="c7">商店</li>
             </ul>
         </div>
-    </div>
+    </div> -->
     <!-- 设置 -->
     <div class="set" id="set">
         <div class="setMain">
@@ -317,17 +282,52 @@
         </div>
     </div>
     <!-- AI少女 -->
-    <!-- <div class="nana" id="nana">
+    <div class="nana" id="nana">
         <div class="naImg">
             <img src="./assets/nana.png" width="100%" height="100%" alt="">
         </div>
-    </div> -->
+        <div class="nanaBg">
+            <img src="./assets/nanaBg.png" width="100%" height="100%" alt="">
+        </div>
+        <div class="nanaCon"></div>
+    </div>
+
+    <div id="aiTab" style="width: 100%; height: 100%; position: fixed; top: 50%; left: 50%;transform: translate(-50%, -50%); visibility: hidden;">
+        <div id="certify">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./assets/mengdian.png" /><p>建筑</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/mengdian.png" /><p></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/mengdian.png" /><p></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/mengdian.png" /><p></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/mengdian.png" /><p></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/mengdian.png" /><p></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/mengdian.png" /><p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="./js/phaser.min.js"></script>
     <script src="./js/boot.js"></script>
     <script src="./js/load.js"></script>
     <script src="./js/styleShop.js"></script>
+    <script src="./js/swiper.min.js"></script>
     <script src="./js/first.js"></script>
     <script src="./module/menu.js"></script>
     <script src="./js/map.js"></script>
@@ -339,9 +339,54 @@
     <script src="./module/building.js"></script>
     <script src="./module/buttons.js"></script>
     <script>
-        $(".heng:eq(2)").onscroll = function(){
-            console.log(111)
-        }
+        certifySwiper = new Swiper('#certify .swiper-container', {
+                watchSlidesProgress: true,
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                //loop: false,
+                loopedSlides: 5,
+                //autoplay: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    //el: '.swiper-pagination',
+                    //clickable :true,
+                },
+                on: {
+                    progress: function(progress) {
+                        for (i = 0; i < this.slides.length; i++) {
+                            var slide = this.slides.eq(i);
+                            var slideProgress = this.slides[i].progress;
+                            modify = 1;
+                            if (Math.abs(slideProgress) > 1) {
+                                modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+                            }
+                            
+                            translate = slideProgress * modify * 53 + 'px';
+                            scale = 1 - Math.abs(slideProgress) / 5;
+                            zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+                            slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+                            slide.css('zIndex', zIndex);
+                            slide.css('opacity', 1);
+                            if (Math.abs(slideProgress) > 3) {
+                                slide.css('opacity', 0);
+                            }
+                        }
+                    },
+                    setTransition: function(transition) {
+                        
+                        for (var i = 0; i < this.slides.length; i++) {
+                            var slide = this.slides.eq(i)
+                            slide.transition(transition);
+                        }
+                        
+        
+                    }
+                }
+        
+            })
         // var data = $.ajax({
         //     type: 'POST',
         //     timeout: 10000,

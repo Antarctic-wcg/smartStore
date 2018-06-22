@@ -1,4 +1,5 @@
 var homeState = function (game) {
+    
     var quan = true;
     var that = this;
     this.create = function () {
@@ -71,7 +72,7 @@ var homeState = function (game) {
                 }
             }
             var aisnMain = document.getElementById("aisnMain");
-            aisnMain.setAttribute("style", "display: none;");
+            // aisnMain.setAttribute("style", "display: none;");
             this.oneX = game.input.activePointer.x;
             this.oney = game.input.activePointer.y;
             game.input.addMoveCallback(this.cameraMove, this);
@@ -103,8 +104,8 @@ var homeState = function (game) {
         // this.index1 = [];
         this.ceng = 0;
 
-        // var headicon = document.getElementById("headicon");
-        // headicon.setAttribute("style", "display:block;");
+        // 进入场景后显示nanaicon
+        $(".aiIcon").css("display","block");
     }//create end
     //update
     var index1 = [];
@@ -286,17 +287,19 @@ var homeState = function (game) {
             }
             if (car.btns) {
                 car.okBtn.x = car.img.x + 30;
-                car.qxBtn.x = car.img.x - 30;
-                car.xzBtn.x = car.img.x - 90;
+                car.qxBtn.x = car.img.x - 15;
+                car.xzBtn.x = car.img.x - 60;
                 car.qxBtn.y = car.img.y + car.img.height / 2 + 10;
                 car.okBtn.y = car.img.y + car.img.height / 2 + 10;
                 car.xzBtn.y = car.img.y + car.img.height / 2 + 10;
             }
             if (car.buttonsMove) {
-                car.moveBtn.y = car.img.y + car.img.height / 2 + 10;
-                car.xuanzhuan.y = car.img.y + car.img.height / 2 + 10;
-                car.moveBtn.x = car.img.x - 60;
-                car.xuanzhuan.x = car.img.x;
+                car.moveBtn.y = car.img.y + car.img.height / 2 + 5;
+                car.ckBtn.y = car.img.y + car.img.height / 2 + 5;
+                car.chaichuBtn.y = car.img.y + car.img.height / 2 + 5;
+                car.moveBtn.x = car.img.x - 25;
+                car.ckBtn.x = car.img.x - 69;
+                car.chaichuBtn.x = car.img.x + 20;
             }
         }
     }
@@ -326,66 +329,82 @@ var homeState = function (game) {
 
     //AI少女页面
     this.aisn = function () {
-        var that = this;
-        var aisn = document.getElementById("aisnMenu");
-        var aisnMain = document.getElementById("aisnMain");
-        var c1 = document.getElementById("c1");
-        var c2 = document.getElementById("c2");
-        var c3 = document.getElementById("c3");
-        var c4 = document.getElementById("c4");
-        var c5 = document.getElementById("c5");
-        var c6 = document.getElementById("c6");
-        var c7 = document.getElementById("c7");//商店
-        var shop = document.getElementById("shop");//商店div
-        var shopBtn = document.getElementById("shopBtn");//商店关闭按钮
-        var set = document.getElementById("set");
-        var musicBtn = document.getElementById("musicBtn");
-        var music = document.getElementById("music");
-        var audio = document.getElementById("audio");
-        this.packDom = document.getElementById("pack");
+        $("#aiIcon").click(function(){
+            $("#container canvas").css("filter","blur(14px)");
+            $("#aiTab").css("visibility","visible");
+            $("#nana").css("display","block");
+            $(".nanaCon").html("<div class='nanaBuild'>有什么可以帮忙的吗？</div>");
+            $(function(){
+                $(".nanaBuild").css("line-height",$(".nanaCon").height()+"px");
+            })
+        })
+        $("#aiTab").click(function(){
+            $("#aiTab").css("visibility","hidden");
+            $("#nana").css("display","none");
+            $("#container canvas").css("filter","blur(0px)");
+        })
+        // var that = this;
+        // var aisn = document.getElementById("aisnMenu");
+        // var aisnMain = document.getElementById("aisnMain");
+        // var c1 = document.getElementById("c1");
+        // var c2 = document.getElementById("c2");
+        // var c3 = document.getElementById("c3");
+        // var c4 = document.getElementById("c4");
+        // var c5 = document.getElementById("c5");
+        // var c6 = document.getElementById("c6");
+        // var c7 = document.getElementById("c7");//商店
+        // var shop = document.getElementById("shop");//商店div
+        // var shopBtn = document.getElementById("shopBtn");//商店关闭按钮
+        // var set = document.getElementById("set");
+        // var musicBtn = document.getElementById("musicBtn");
+        // var music = document.getElementById("music");
+        // var audio = document.getElementById("audio");
+        // this.packDom = document.getElementById("pack");
 
 
-        aisn.setAttribute("style", "display: block;");
-        aisn.onclick = function () {
-            aisnMain.setAttribute("style", "display: block;");
-        }
-        c1.onclick = function () {//邮件
-        }
-        c2.onclick = function () {//大地图
-            aisnMain.setAttribute("style", "display: none;");
-            game.state.start("map");
-        }
-        //DOM0添加时间不会出现重复添加情况
-        c3.onclick = function () {//设置
-            aisnMain.setAttribute("style", "display: none;");
-            set.setAttribute("style", "display: block;");
-            console.log(this);
-        }
-        musicBtn.addEventListener("click", function () {
-            set.setAttribute("style", "display: none;");
-        })//设置关闭按钮
-        c4.onclick = function () {//收起
-            aisnMain.setAttribute("style", "display: none;");
-        }
-        c5.onclick = function () {//建筑
-            aisnMain.setAttribute("style", "display: none;");
-            showMenu(that);
-        }
-        c6.onclick = function () {//背包
-            that.packDom.setAttribute("style", "display: block;")
-            aisnMain.setAttribute("style", "display: none;");
-        }
-        c7.onclick = function () {//商店
-            aisnMain.setAttribute("style", "display: none;");
-            shop.setAttribute("style", "display: block;");
-            that.shopHead = document.getElementById("shopHead");
-            shopMain.setAttribute("style", "height:" + (game.height - that.shopHead.offsetHeight) + "px;");
-        }
-        shopBtn.onclick = function () {
-            shop.setAttribute("style", "display: none;")
-        }
-        music.addEventListener("click", this.qimg1)
-        audio.addEventListener("click", this.qimg2)
+        // aisn.setAttribute("style", "display: block;");
+        // aisn.onclick = function () {
+        //     // aisnMain.setAttribute("style", "display: block;");
+        //     $("#aiTab").css("visibility","visible");
+        // }
+
+        // c1.onclick = function () {//邮件
+        // }
+        // c2.onclick = function () {//大地图
+        //     aisnMain.setAttribute("style", "display: none;");
+        //     game.state.start("map");
+        // }
+        // //DOM0添加时间不会出现重复添加情况
+        // c3.onclick = function () {//设置
+        //     aisnMain.setAttribute("style", "display: none;");
+        //     set.setAttribute("style", "display: block;");
+        //     console.log(this);
+        // }
+        // musicBtn.addEventListener("click", function () {
+        //     set.setAttribute("style", "display: none;");
+        // })//设置关闭按钮
+        // c4.onclick = function () {//收起
+        //     aisnMain.setAttribute("style", "display: none;");
+        // }
+        // c5.onclick = function () {//建筑
+        //     aisnMain.setAttribute("style", "display: none;");
+        //     showMenu(that);
+        // }
+        // c6.onclick = function () {//背包
+        //     that.packDom.setAttribute("style", "display: block;")
+        //     aisnMain.setAttribute("style", "display: none;");
+        // }
+        // c7.onclick = function () {//商店
+        //     aisnMain.setAttribute("style", "display: none;");
+        //     shop.setAttribute("style", "display: block;");
+        //     that.shopHead = document.getElementById("shopHead");
+        //     shopMain.setAttribute("style", "height:" + (game.height - that.shopHead.offsetHeight) + "px;");
+        // }
+        // shopBtn.onclick = function () {
+        //     shop.setAttribute("style", "display: none;")
+        // }
+        // music.addEventListener("click", this.qimg1)
+        // audio.addEventListener("click", this.qimg2)
     }
 
     //音乐按钮开关
