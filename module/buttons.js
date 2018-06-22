@@ -11,8 +11,8 @@ var buttons = function(cont, carImg, car){
             {
                 car.buttons = true;
                 that.buttonsGroup.destroy();
-                buildData = document.getElementById("build");
-                buildData.setAttribute("style","display:block;");
+                $("#build")[0].setAttribute("style","display:block;");
+                $("#build .buildImg").html('<img src="'+car.src+'" alt="" height="100%">');
                 // var btn2 = document.getElementById("btn2");
                 // btn2.onclick = function(){
                 //     buildData.setAttribute("style","display:none;");

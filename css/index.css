@@ -274,14 +274,27 @@ html{font-size:12px}
     background-size: 100% 100%;
 }
 .build .buildImg{
-    width: 60%;
-    height: 38%;
-    background: red;
+    width: 55%;
+    height: 34%;
+    /* background: red; */
     position: absolute;
-    left: 21%;
+    left: 24%;
     top: 7%;
 }
-
+.build .buildImg img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.build .lvs{
+    width: 17%;
+    height: 6%;
+    /* background: red; */
+    position: absolute;
+    right: 15%;
+    bottom: 46%;
+}
 /* 拆除确认 */
 .chai{
     width: 100%;

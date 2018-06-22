@@ -119,6 +119,7 @@ var showMenu = function(that){
             menu.setAttribute("style", "display: none;");
             
             that["gn" + that.clickNum].size = gnengData[j].specifications;//物体是几X几
+            that["gn" + that.clickNum].src = gnengData[j].src;
             that.carGroup.addChild(that["gn" + that.clickNum]);
             buts(that, that["gn" + that.clickNum]);
             $("#container canvas").css("filter","blur(0px)");
